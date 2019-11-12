@@ -1,5 +1,5 @@
 // read in the data
-d3.csv('data/age.csv', function(d) {
+d3.csv('data/demographics_data/age.csv', function(d) {
   return {
     yearmonth: d.yearmonth,
     age: +d.age
@@ -7,7 +7,7 @@ d3.csv('data/age.csv', function(d) {
   // create a bar chart with the data that was read in
 }).then(lineChart);
 
-d3.csv("data/gender.csv", function(d) {
+d3.csv("data/demographics_data/gender.csv", function(d) {
   return {
     yearmonth: d.yearmonth,
     count: +d.count,
@@ -15,7 +15,7 @@ d3.csv("data/gender.csv", function(d) {
   };
 }).then(grouped_bar_chart_gender);
 
-d3.csv("data/users.csv", function(d) {
+d3.csv("data/demographics_data/users.csv", function(d) {
   return {
     yearmonth: d.yearmonth,
     count: +d.count,

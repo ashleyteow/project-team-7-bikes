@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- Metadata -->
+	<!-- Metadata -->
 	<head>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
 
     <!-- Title -->
-		<title>Project Team 7: Bikes, DS 4200 F19</title>
+	<title>Project Team 7: Bikes, DS 4200 F19</title>
 
     <!-- CSS Styling -->
-		<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style.css">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
@@ -21,103 +21,184 @@
     <meta name="theme-color" content="#ffffff">
 	</head>
 
-  <!-- Main page content -->
+  	<!-- Main page content -->
 	<body>
 
     <!-- Update this with your GitHub repo URL -->
-    <span id="forkongithub"><a href="https://github.com/Northeastern-DS-4200-F19-Staff/S-L-Project-Template">Fork me on GitHub</a></span>
+    <span id="forkongithub">
+    	<a href="https://github.com/Northeastern-DS-4200-F19-Staff/S-L-Project-Template">
+    		Fork me on GitHub
+    	</a>
+    </span>
 
     <!-- Your writeup goes here -->
     <div class = "content-column">
 
-      <h1>Project Team 7: Bikes, DS 4200 F19</h1>
+    <h1>Project Team 7: Bikes, DS 4200 F19</h1>
 
-      <p><strong>Shraeya Srinivasan</strong>, <strong>Ashley Teow</strong>, <strong>Gauri Dandi</strong></p>
+    <p>
+    	<strong>Shraeya Srinivasan</strong>, <strong>Ashley Teow</strong>, <strong>Gauri Dandi</strong>
+    </p>
 
-      <p>Service-Learning Course Project as part of <a href="http://www.ccs.neu.edu/home/cody/courses/ds4200-f19/">DS 4200: Information Presentation and Visualization</a>, taught by <a href="https://cody.khoury.northeastern.edu/">Prof. Cody Dunne</a>, <a href="https://visualization.khoury.northeastern.edu/">Data Visualization @ Khoury</a>, <a href="https://www.khoury.northeastern.edu/">Northeastern University</a>.</p>
-
-
-      <h1>Motivation</h1>
-
-      <p><em>Currently, the bike lanes available for cyclists traveling through Chester Square area are too narrow and too close to incoming traffic for cyclists to feel safe. In addition, the availability of decent parking spaces for them are scarcely limited from our observation, which is why there might not be many cyclists in the area. Something else we discovered during our site visits, was that there are currently 5 BlueBikes stations neighboring the Chester Square area. We decided to investigate these stations further for their usage data in order to determine whether cyclists are making use of these stations as an alternative to having their own bikes.</em></p>
-
-      <p><em> By looking into the hourly usage of each BlueBikes station as well as the breakdown of whether or not these trips were taken by subscribers or non-subscribers, we were able to recognize a trend of mainly subscribers in the Chester Square neighborhood. BlueBikes subscribers typically have shorter trip durations because they are utilizing the service as an alternative to a ~20min walk. Bluebikes customers generally have longer trip durations, because they tend to want to make as much use out of their rented time as possible. As a means to increase bike usage and alleviate some of these cyclists' worries, we created our visualizations in a way that highlights the short but frequent trips taken at these stations. We wanted to make an argument it might be a feasible option for Bluebikes to have another station in this area as a means to further increase bike usage for the subscribers in the nighborhood. </em></p>
+    <p>
+    	Service-Learning Course Project as part of <a href="http://www.ccs.neu.edu/home/cody/courses/ds4200-f19/">DS 4200: Information Presentation and Visualization</a>, taught by <a href="https://cody.khoury.northeastern.edu/">Prof. Cody Dunne</a>, <a href="https://visualization.khoury.northeastern.edu/">Data Visualization @ Khoury</a>, <a href="https://www.khoury.northeastern.edu/">Northeastern University</a>.
+    </p>
 
 
-      <h1>Visualization</h1>
+    <h1>Motivation</h1>
 
-      <p><em>Include the interactive visualization as part of this page. Static example follows.</em></p>
+    <p>
+    	<em>
+    	Currently, the bike lanes available for cyclists traveling through Chester Square area are too narrow and too close to incoming traffic for cyclists to feel safe. In addition, the availability of decent parking spaces for them are scarcely limited from our observation, which is why there might not be many cyclists in the area. Something else we discovered during our site visits, was that there are currently 5 BlueBikes stations neighboring the Chester Square area. We decided to investigate these stations further for their usage data in order to determine whether cyclists are making use of these stations as an alternative to having their own bikes.
+    	</em>
+	</p>
+
+    <p>
+    	<em> 
+    	By looking into the hourly usage of each BlueBikes station as well as the breakdown of whether or not these trips were taken by subscribers or non-subscribers, we were able to recognize a trend of mainly subscribers in the Chester Square neighborhood. BlueBikes subscribers typically have shorter trip durations because they are utilizing the service as an alternative to a ~20min walk. Bluebikes customers generally have longer trip durations, because they tend to want to make as much use out of their rented time as possible. As a means to increase bike usage and alleviate some of these cyclists' worries, we created our visualizations in a way that highlights the short but frequent trips taken at these stations. We wanted to make an argument it might be a feasible option for Bluebikes to have another station in this area as a means to further increase bike usage for the subscribers in the nighborhood.
+    	</em>
+    </p>
+
+    <h1>Visualization</h1>
+
+    <p>
+    	<em>
+    	Include the interactive visualization as part of this page. Static example follows.
+    	</em>
+    </p>
 
     </div>
 
     <!-- Your visualization here -->
     <div class="vis-holder">
-      <!-- Change viewbox to whatever you want, e.g. "0 0 1000 6000" This determines your aspect ratio and coordinate system -->
-      <!-- Delete all the sample SVG code below after the viewbox to before the closing tag. Populate this part of the SVG with D3. -->
-      <svg id="vis-svg">
-      </svg>
+    	<!-- Change viewbox to whatever you want, e.g. "0 0 1000 6000" This determines your aspect ratio and coordinate system -->
+     	 <!-- Delete all the sample SVG code below after the viewbox to before the closing tag. Populate this part of the SVG with D3. -->
+      	<svg id="vis-svg">
+      	</svg>
     </div>
 
     <!-- Your writeup goes here -->
     <div class = "content-column">
 
-      <h1>Demo Video</h1>
+    	<h1>Demo Video</h1>
 
-      <p><em>Embedded MP4 demo video using the HTML5 &lt;video&gt; tag. For example, this screen recording Prof. Cody Dunne made of Mike Bostock's flexible transitions in D3 slide:</em></p>
+      		<p>
+      			<em>
+      			Embedded MP4 demo video using the HTML5 &lt;video&gt; tag. For example, this screen recording Prof. Cody Dunne made of Mike Bostock's flexible transitions in D3 slide:
+      			</em>
+      		</p>
 
-      <video controls width="100%">
-        <source src="http://www.ccs.neu.edu/home/cody/courses/shared/d3-flexible-transitions.mp4" type="video/mp4">
-        <p>Your browser doesn't support HTML5 video. Here is
-         a <a href="http://www.ccs.neu.edu/home/cody/courses/shared/d3-flexible-transitions.mp4">link to the video</a> instead.</p>
-      </video>
+      		<video controls width="100%">
+	        	<source src="http://www.ccs.neu.edu/home/cody/courses/shared/d3-flexible-transitions.mp4" type="video/mp4">
+	        	<p>
+	        		Your browser doesn't support HTML5 video. Here is
+	         		a <a href="http://www.ccs.neu.edu/home/cody/courses/shared/d3-flexible-transitions.mp4">link to the video</a> instead.
+	         	</p>
+      		</video>
 
-      <h1>Visualization explanation</h1>
+      	<h1>Visualization explanation</h1>
 
-      <p><em>final visualization screenshots (PNG images), design justifications, UI walk-through, and linked presentation slides.</em></p>
+      		<p>
+      			<em>
+      			final visualization screenshots (PNG images), design justifications, UI walk-through, and linked presentation slides.
+      			</em>
+      		</p>
 
-      <h1>Data Analysis</h1>
-      <p><em>Summary of data, data types, and data preprocessing.</em></p>
+      	<h1>Data Analysis</h1>
+      		<p>
+      			<em>
+      			Summary of data, data types, and data preprocessing.
+      			</em>
+      		</p>
 
-      <p><em>Expectation: Data sources match the problem statement and are appropriate. These descriptions should be very explicit so someone could read your page and properly reproduce your results.</em></p>
+     		<p>
+     			<em>
+     			Expectation: Data sources match the problem statement and are appropriate. These descriptions should be very explicit so someone could read your page and properly reproduce your results.
+     			</em>
+     		</p>
 
-      <h1>Task Analysis</h1>
+    		<p>
+    			<em>
+    			The original data source was found in the <a href="https://www.bluebikes.com/system-data">BlueBikes System Data</a>. On the website, data for each month was contained within separate zipped csv files that were later merged as a part of the data cleaning process.
+  				</em>
+  			</p>
 
-      <p><em>Summary of task table.</em></p>
+  			<p>
+  				<em> 
+  					Data Cleaning:
+  				</em>
+  			</p>
 
-      <p><em>Expectation: Clearly describes domain tasks, processes, goals and abstract tasks for domain problems.</em></p>
-
-      <h1>Design Process</h1>
-
-      <p><em>Sketches and design choices to justify final visualization.</em></p>
-
-      <p><em>Expectation: Evidence of iterative improvement.
-      Logical discussion of design choices grounded in theory from course.
-      Discusses feedback from usability testing.</em></p>
-
-
-      <h1>Conclusion</h1>
-
-      <p><em>Short summary of work completed and areas for improvement/future-work.</em></p>
-
-      <p><em>Expectation: Meaningfully wraps up project and has good future directions.</em></p>
+  			<ul>
+  				<li> Only the datasets from October 2018 until September 2019 were included in this analysis. Additionally, the only stations that were included in the final analysis were the four station closest to Chester Square (Tremont Street at Northampton Street, Columbus Avenue at Massachusetts Avenue, Washington Avenue at Rutland Street, and the South End Library). </li>
+  				<li>  </li>
+  			</ul>
 
 
-      <h1>Acknowledgements</h1>
+      	<h1>Task Analysis</h1>
 
-      <p><em>List here where any code, packages/libraries, text, images, designs, etc. that you leverage come from.</em></p>
+      		<p>
+      			<em>
+      			Summary of task table.
+      			</em>
+      		</p>
 
-      <ul>
-        <li><a href="https://d3js.org/">D3: Data-Driven Documents</a> by Mike Bostock. </li>
-        <li><a href="https://codepo8.github.io/css-fork-on-github-ribbon/#">Pure CSS responsive "Fork me on GitHub" ribbon</a> by Chris Heilmann. </li>
-        <li><a href="http://bl.ocks.org/phoebebright/3061203">D3 Axis Labels</a> by Phoebe Bright. </li>
-        <li><a href="https://stackoverflow.com/questions/45211408/making-a-grouped-bar-chart-using-d3-js">Making a grouped bar chart using d3.js</a> by Gerardo Furtado. </li>
-      </ul>
+      		<p>
+      			<em>
+      			Expectation: Clearly describes domain tasks, processes, goals and abstract tasks for domain problems.
+      			</em>
+      		</p>
+
+		<h1>Design Process</h1>
+
+      		<p>
+      			<em>
+      			Sketches and design choices to justify final visualization.
+      			</em>
+      		</p>
+
+      		<p>
+      			<em>
+      			Expectation: Evidence of iterative improvement.
+      			Logical discussion of design choices grounded in theory from course.
+      			Discusses feedback from usability testing.
+      			</em>
+      		</p>
+
+      	<h1>Conclusion</h1>
+
+      		<p>
+      			<em>
+      			Short summary of work completed and areas for improvement/future-work.
+      			</em>
+      		</p>
+
+      		<p>
+      			<em>
+      			Expectation: Meaningfully wraps up project and has good future directions.
+      			</em>
+      		</p>
+
+      	<h1>Acknowledgements</h1>
+
+      		<p>
+      			<em>
+      			List here where any code, packages/libraries, text, images, designs, etc. that you leverage come from.
+      			</em>
+      		</p>
+
+	      <ul>
+	        <li><a href="https://d3js.org/">D3: Data-Driven Documents</a> by Mike Bostock. </li>
+	        <li><a href="https://codepo8.github.io/css-fork-on-github-ribbon/#">Pure CSS responsive "Fork me on GitHub" ribbon</a> by Chris Heilmann. </li>
+	        <li><a href="http://bl.ocks.org/phoebebright/3061203">D3 Axis Labels</a> by Phoebe Bright. </li>
+	        <li><a href="https://stackoverflow.com/questions/45211408/making-a-grouped-bar-chart-using-d3-js">Making a grouped bar chart using d3.js</a> by Gerardo Furtado. </li>
+	      </ul>
 
     </div>
 
     <!-- Scripts at the end avoid need for dealing with async, defer, or onload event handlers -->
-  	<script src="lib/d3.v5.12.0/d3.min.js"></script>
-	<script src="visualization.js"></script>
-  <script src="demographics.js"></script>
+    <script src="lib/d3.v5.12.0/d3.min.js"></script>
+    <script src="visualization.js"></script>
+    <script src="demographics.js"></script>
 	</body>
 </html>

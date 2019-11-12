@@ -1,6 +1,6 @@
 /* -----Start Stops---- */
 // read in the data
-d3.csv('data/tremont_northampton_start_hour.csv', function(d) {
+d3.csv('data/chester_square_stations/tremont_northampton_start_hour.csv', function(d) {
   return {
 		start_hour: d.start_hour,
 		n: +d.total,
@@ -12,7 +12,7 @@ d3.csv('data/tremont_northampton_start_hour.csv', function(d) {
   // create a bar chart with the data that was read in
 }).then(basic_bar_chart_start);
 
-d3.csv('data/columbus_mass_start_hour.csv', function(d) {
+d3.csv('data/chester_square_stations/columbus_mass_start_hour.csv', function(d) {
   return {
 		start_hour: d.start_hour,
 		n: +d.total,
@@ -24,7 +24,7 @@ d3.csv('data/columbus_mass_start_hour.csv', function(d) {
   // create a bar chart with the data that was read in
 }).then(basic_bar_chart_start);
 
-d3.csv('data/south_end_lib_start_hour.csv', function(d) {
+d3.csv('data/chester_square_stations/south_end_lib_start_hour.csv', function(d) {
   return {
 		start_hour: d.start_hour,
 		n: +d.total,
@@ -36,7 +36,7 @@ d3.csv('data/south_end_lib_start_hour.csv', function(d) {
   // create a bar chart with the data that was read in
 }).then(basic_bar_chart_start);
 
-d3.csv('data/wash_rutland_start_hour.csv', function(d) {
+d3.csv('data/chester_square_stations/wash_rutland_start_hour.csv', function(d) {
   return {
 		start_hour: d.start_hour,
 		n: +d.total,
@@ -134,7 +134,7 @@ function basic_bar_chart_start(mydata) {
 
 /* -----End Stops---- */
 // read in the data
-d3.csv('data/tremont_northampton_end_hour.csv', function(d) {
+d3.csv('data/chester_square_stations/tremont_northampton_end_hour.csv', function(d) {
   return {
 		end_hour: d.end_hour,
 		n: +d.total,
@@ -146,7 +146,7 @@ d3.csv('data/tremont_northampton_end_hour.csv', function(d) {
   // create a bar chart with the data that was read in
 }).then(basic_bar_chart_end);
 
-d3.csv('data/columbus_mass_end_hour.csv', function(d) {
+d3.csv('data/chester_square_stations/columbus_mass_end_hour.csv', function(d) {
   return {
 		end_hour: d.end_hour,
 		n: +d.total,
@@ -158,7 +158,7 @@ d3.csv('data/columbus_mass_end_hour.csv', function(d) {
   // create a bar chart with the data that was read in
 }).then(basic_bar_chart_end);
 
-d3.csv('data/south_end_lib_end_hour.csv', function(d) {
+d3.csv('data/chester_square_stations/south_end_lib_end_hour.csv', function(d) {
   return {
 		end_hour: d.end_hour,
 		n: +d.total,
@@ -170,7 +170,7 @@ d3.csv('data/south_end_lib_end_hour.csv', function(d) {
   // create a bar chart with the data that was read in
 }).then(basic_bar_chart_end);
 
-d3.csv('data/wash_rutland_end_hour.csv', function(d) {
+d3.csv('data/chester_square_stations/wash_rutland_end_hour.csv', function(d) {
   return {
 		end_hour: d.end_hour,
 		n: +d.total,
