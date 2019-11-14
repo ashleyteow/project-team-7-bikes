@@ -354,101 +354,107 @@
 //     "field2":43
 //   }
 // ];
-var models = d3.csv("data/demographics_data/gender.csv", function(d) {
+d3.csv("data/demographics_data/gender.csv", function(d) {
   return {
     yearmonth: d.yearmonth,
     male: +d.male,
     female: +d.female,
     unreported: +d.unreported
   };
-});
+}).then(function(result) {
+  console.log(result);
+  var models = result.map(i => {
+    i.yearmonth = i.yearmonth;
+    return i;
+  });
 
-models = d3.map(models, i => {
-  i.yearmonth = i.yearmonth;
-  return i;
-});
-
-var container = d3.select('.vis-holder'),
-    width = 500,
+  var container = d3.select('.vis-holder'),
+    width = 600,
     height = 300,
     margin = {top: 30, right: 20, bottom: 30, left: 50},
     barPadding = .2,
     axisTicks = {qty: 10, outerSize: 0};
 
-var svg = container
-   .append("svg")
-   .attr("class", "what")
-   .attr("width", width)
-   .attr("height", height)
-   .append("g")
-   .attr("transform", `translate(${margin.left},${margin.top})`);
+  var svg = container
+     .append("svg")
+     .attr("class", "demographics")
+     .attr("width", width)
+     .attr("height", height)
+     .append("g")
+     .attr("transform", `translate(${margin.left},${margin.top})`);
 
-var xScale0 = d3.scaleBand().range([0, width - margin.left - margin.right]).padding(barPadding);
-var xScale1 = d3.scaleBand();
-var yScale = d3.scaleLinear().range([height - margin.top - margin.bottom, 0]);
+  var xScale0 = d3.scaleBand().range([0, width - margin.left - margin.right]).padding(barPadding);
+  var xScale1 = d3.scaleBand();
+  var yScale = d3.scaleLinear().range([height - margin.top - margin.bottom, 0]);
 
-var xAxis = d3.axisBottom(xScale0).tickSizeOuter(axisTicks.outerSize);
-var yAxis = d3.axisLeft(yScale).ticks(axisTicks.qty).tickSizeOuter(axisTicks.outerSize);
+  var xAxis = d3.axisBottom(xScale0).tickSizeOuter(axisTicks.outerSize);
+  var yAxis = d3.axisLeft(yScale).ticks(axisTicks.qty).tickSizeOuter(axisTicks.outerSize);
 
-xScale0.domain(d3.map(models, d => d.yearmonth));
-xScale1.domain(['male', 'female', 'unreported']).range([0, xScale0.bandwidth()]);
-yScale.domain([0, 250000]);
+  xScale0.domain(models.map(d => d.yearmonth));
+  xScale1.domain(['male', 'female', 'unreported']).range([0, xScale0.bandwidth()]);
+  yScale.domain([0, 250000]);
 
-var model_name = svg.select(".model_name")
-  .data(models)
-  .enter().append("g")
-  .attr("class", "yearmonth")
-  .attr("transform", d => `translate(${xScale0(d.yearmonth)},0)`);
+  var model_name = svg.selectAll(".yearmonth")
+    .data(models)
+    .enter().append("g")
+    .attr("class", "yearmonth")
+    .attr("transform", d => `translate(${xScale0(d.yearmonth)},0)`);
 
-/* Add field1 bars */
-model_name.select(".bar.field1")
-  .data(d => [d])
-  .enter()
-  .append("rect")
-  .attr("class", "bar male")
-.style("fill","blue")
-  .attr("x", d => xScale1('male'))
-  .attr("y", d => yScale(d.male))
-  .attr("width", xScale1.bandwidth())
-  .attr("height", d => {
-    return height - margin.top - margin.bottom - yScale(d.male)
-  });
-  
-/* Add field2 bars */
-model_name.select(".bar.field2")
-  .data(d => [d])
-  .enter()
-  .append("rect")
-  .attr("class", "bar female")
-.style("fill","red")
-  .attr("x", d => xScale1('female'))
-  .attr("y", d => yScale(d.female))
-  .attr("width", xScale1.bandwidth())
-  .attr("height", d => {
-    return height - margin.top - margin.bottom - yScale(d.female)
-  });
+  /* Add field1 bars */
+  model_name.selectAll(".bar.field1")
+    .data(d => [d])
+    .enter()
+    .append("rect")
+    .attr("class", "bar male")
+  .style("fill","blue")
+    .attr("x", d => xScale1('male'))
+    .attr("y", d => yScale(d.male))
+    .attr("width", xScale1.bandwidth())
+    .attr("height", d => {
+      return height - margin.top - margin.bottom - yScale(d.male)
+    });
+    
+  /* Add field2 bars */
+  model_name.selectAll(".bar.field2")
+    .data(d => [d])
+    .enter()
+    .append("rect")
+    .attr("class", "bar female")
+  .style("fill","red")
+    .attr("x", d => xScale1('female'))
+    .attr("y", d => yScale(d.female))
+    .attr("width", xScale1.bandwidth())
+    .attr("height", d => {
+      return height - margin.top - margin.bottom - yScale(d.female)
+    });
 
-/* Add field3 bars */
-model_name.select(".bar.field2")
-  .data(d => [d])
-  .enter()
-  .append("rect")
-  .attr("class", "bar unreported")
-.style("fill","green")
-  .attr("x", d => xScale1('unreported'))
-  .attr("y", d => yScale(d.unreported))
-  .attr("width", xScale1.bandwidth())
-  .attr("height", d => {
-    return height - margin.top - margin.bottom - yScale(d.unreported)
-  });
- 
-// Add the X Axis
-svg.append("g")
-   .attr("class", "x axis")
-   .attr("transform", `translate(0,${height - margin.top - margin.bottom})`)
-   .call(xAxis);
+  /* Add field3 bars */
+  model_name.selectAll(".bar.field2")
+    .data(d => [d])
+    .enter()
+    .append("rect")
+    .attr("class", "bar unreported")
+  .style("fill","green")
+    .attr("x", d => xScale1('unreported'))
+    .attr("y", d => yScale(d.unreported))
+    .attr("width", xScale1.bandwidth())
+    .attr("height", d => {
+      return height - margin.top - margin.bottom - yScale(d.unreported)
+    });
+   
+  // Add the X Axis
+  svg.append("g")
+     .attr("class", "x axis")
+     .attr("transform", `translate(0,${height - margin.top - margin.bottom})`)
+     .call(xAxis);
 
-// Add the Y Axis
-svg.append("g")
-   .attr("class", "y axis")
-   .call(yAxis); 
+  // Add the Y Axis
+  svg.append("g")
+     .attr("class", "y axis")
+     .call(yAxis); 
+});
+
+
+
+
+
