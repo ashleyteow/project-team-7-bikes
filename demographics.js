@@ -362,7 +362,6 @@ d3.csv("data/demographics_data/gender.csv", function(d) {
     unreported: +d.unreported
   };
 }).then(function(result) {
-  console.log(result);
   var models = result.map(i => {
     i.yearmonth = i.yearmonth;
     return i;
@@ -453,6 +452,16 @@ d3.csv("data/demographics_data/gender.csv", function(d) {
      .attr("class", "y axis")
      .call(yAxis); 
 });
+
+d3.csv("data/demographics_data/users.csv", function(d) {
+  return {
+    yearmonth: d.yearmonth,
+    count: +d.count,
+    usertype: +d.usertype
+  };
+}).then(function(result) {
+  console.log(result);
+  })
 
 
 
