@@ -93,9 +93,9 @@ d3.csv("data/demographics_data/gender.csv", function(d) {
   });
 
   var container = d3.select('.vis-holder'),
-    width = 600,
-    height = 300,
-    margin = {top: 30, right: 20, bottom: 30, left: 50},
+    width = 1200,
+    height = 800,
+    margin = {top: 50, right: 20, bottom: 60, left: 100},
     barPadding = .2,
     axisTicks = {qty: 10, outerSize: 0};
 
@@ -176,6 +176,24 @@ d3.csv("data/demographics_data/gender.csv", function(d) {
   svg.append("g")
      .attr("class", "y axis")
      .call(yAxis); 
+
+  // create a x-axis title
+  var xLabel = svg.append("text")
+                  .attr("text-anchor", "middle")
+                  .attr("transform", "translate("+ ((width/2)-90) +","+(height-(margin.bottom/3)-40)+")")
+                  .text("Year-Month");
+
+  // create a y-axis title
+  var yLabel = svg.append("text")
+                  .attr("text-anchor", "middle")
+                  .attr("transform", "translate("+ ((margin.left/2)-125) +","+(height/2)+")rotate(-90)")
+                  .text("Number of Users");
+
+  // create a chart title
+  var chartTitle = svg.append("text")
+                      .attr("text-anchor", "middle")
+                      .attr("transform", "translate("+ (width/2) +","+((margin.bottom/3)-30)+")")
+                      .text("BlueBikes Usage by Gender from October 2018-September 2019");
 });
 
 d3.csv("data/demographics_data/users.csv", function(d) {
@@ -191,9 +209,9 @@ d3.csv("data/demographics_data/users.csv", function(d) {
   });
 
   var container = d3.select('.vis-holder'),
-    width = 600,
-    height = 300,
-    margin = {top: 30, right: 20, bottom: 30, left: 50},
+    width = 1200,
+    height = 800,
+    margin = {top: 50, right: 20, bottom: 60, left: 100},
     barPadding = .2,
     axisTicks = {qty: 10, outerSize: 0};
 
@@ -214,7 +232,7 @@ d3.csv("data/demographics_data/users.csv", function(d) {
 
   xScale0.domain(models.map(d => d.yearmonth));
   xScale1.domain(['subscriber', 'customer']).range([0, xScale0.bandwidth()]);
-  yScale.domain([0, 250000]);
+  yScale.domain([0, 290000]);
 
   var model_name = svg.selectAll(".yearmonth")
     .data(models)
@@ -259,7 +277,25 @@ d3.csv("data/demographics_data/users.csv", function(d) {
   // Add the Y Axis
   svg.append("g")
      .attr("class", "y axis")
-     .call(yAxis); 
+     .call(yAxis);
+
+  // create a x-axis title
+  var xLabel = svg.append("text")
+                  .attr("text-anchor", "middle")
+                  .attr("transform", "translate("+ ((width/2)-90) +","+(height-(margin.bottom/3)-40)+")")
+                  .text("Year-Month");
+
+  // create a y-axis title
+  var yLabel = svg.append("text")
+                  .attr("text-anchor", "middle")
+                  .attr("transform", "translate("+ ((margin.left/2)-125) +","+(height/2)+")rotate(-90)")
+                  .text("Number of Users");
+
+  // create a chart title
+  var chartTitle = svg.append("text")
+                      .attr("text-anchor", "middle")
+                      .attr("transform", "translate("+ (width/2) +","+((margin.bottom/3)-30)+")")
+                      .text("BlueBikes Usage by Membership from October 2018-September 2019");
 });
 
 

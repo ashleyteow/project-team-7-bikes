@@ -105,21 +105,15 @@
       		</p>
 
       	<h1>Data Analysis</h1>
-      		<p>
+      		<!--<p>
       			<em>
       			Summary of data, data types, and data preprocessing.
       			</em>
-      		</p>
-
-     		<p>
-     			<em>
-     			Expectation: Data sources match the problem statement and are appropriate. These descriptions should be very explicit so someone could read your page and properly reproduce your results.
-     			</em>
-     		</p>
+      		</p>-->
 
     		<p>
     			<em>
-    			The original data source was found in the <a href="https://www.bluebikes.com/system-data">BlueBikes System Data</a>. On the website, data for each month was contained within separate zipped csv files that were later merged as a part of the data cleaning process.
+    			The original data was retrieved from the <a href="https://www.bluebikes.com/system-data">BlueBikes System Data</a>. On the website, data for each month was contained within separate zipped csv files that were later merged as a part of the data cleaning process.
   				</em>
   			</p>
 
@@ -130,9 +124,27 @@
   			</p>
 
   			<ul>
-  				<li> Only the datasets from October 2018 until September 2019 were included in this analysis. Additionally, the only stations that were included in the final analysis were the four station closest to Chester Square (Tremont Street at Northampton Street, Columbus Avenue at Massachusetts Avenue, Washington Avenue at Rutland Street, and the South End Library). </li>
-  				<li>  </li>
+  				<li> 
+  				Only the datasets from October 2018 until September 2019 were included in this analysis. Additionally, the only stations that were included in the final analysis were the four station closest to Chester Square (Tremont Street at Northampton Street, Columbus Avenue at Massachusetts Avenue, Washington Avenue at Rutland Street, and the South End Library). Overall, the data from BlueBikes' website was pretty clean, and most of the "cleaning" process mostly constituted of creating multiple datasets from the larger one to create each of our visualizations.
+  				</li>
+  				<li> 
+  				In order to create a comprehensive dataset of the past year of BlueBikes use, we combined each of the 12 datasets into one, using R. After this, a variable yearmonth, which stores the date of the trip as a String in the YYYY-MM format, was created.
+  					<ul>
+  						<li>
+  						<strong>Demographics data:</strong> A derived variable that represents the user's age, based on the provided birth year variable, was created. Then, the data was grouped and the number of records in the dataset was counted based on gender, average age, and membership type for each month of the past year (Oct 2018-Sept 2019). 
+  						</li>
+  						<li>
+  						<strong>Station data:</strong> Two variables were derived from the starttime and stoptime variables, representing only the hour at which the trip occurred. Then, the large dataset constituting of data from all of Boston was filtered based on the station id for the four BlueBikes stations of interest (Tremont St at Northampton St, Columbus Ave at Massachussetts Ave, Washington St at Rutland St, and at the South End Library) and these smaller datasets were then filtered based on the start or end hour of the trip for each station.
+  						</li>
+  					</ul>
+  				</li>
   			</ul>
+
+  			<!--<p>
+     			<em>
+     			Expectation: Data sources match the problem statement and are appropriate. These descriptions should be very explicit so someone could read your page and properly reproduce your results.
+     			</em>
+     		</p>-->
 
 
       	<h1>Task Analysis</h1>
@@ -159,26 +171,17 @@
       			</em>
       		</p>
 
-      		<p>
-      			<em>
-      			Expectation: Evidence of iterative improvement.
-      			Logical discussion of design choices grounded in theory from course.
-      			Discusses feedback from usability testing.
-      			</em>
-      		</p>
-
       	<h1>Conclusion</h1>
 
       		<p>
       			<em>
       			Our work provides insight on the four closest and most relevant BlueBikes stations neighboring the Chester Square area. We visualize the hourly usage at these four stations in a given day and provide a comparison of each station to the hourly usage at all the BlueBikes stations in Boston. We also present a breakdown and comparison of the demographics of BlueBikes users for the past year, including user age, user gender (self-reported), and user type as either member or nonmember. Our visualization offers an analysis of Chester Square neighborhood’s relationship with BlueBikes, and whether it could be a feasible option to establish a station in the neighborhood. 
-Future improvement could include expanding the hourly usage analysis to more than just the four stations near Chester Square. In this way, the hourly usage of BlueBikes stations in another neighborhood in Boston, analogous to the layout of Chester Square, could be analyzed and compared to that of Chester Square. Another future improvement could include visualizing the demographics of BlueBikes users for the past five years instead of being limited to the past year. In this way, the change in user demographics could be discussed in order to address how Chester Square neighborhood fit into that.
       			</em>
       		</p>
 
       		<p>
       			<em>
-      			Expectation: Meaningfully wraps up project and has good future directions.
+      			Future improvement could include expanding the hourly usage analysis to more than just the four stations near Chester Square. In this way, the hourly usage of BlueBikes stations in another neighborhood in Boston, analogous to the layout of Chester Square, could be analyzed and compared to that of Chester Square. Another future improvement could include visualizing the demographics of BlueBikes users for the past five years instead of being limited to the past year. In this way, the change in user demographics could be discussed in order to address how Chester Square neighborhood fit into that.
       			</em>
       		</p>
 
@@ -194,7 +197,7 @@ Future improvement could include expanding the hourly usage analysis to more tha
 	        <li><a href="https://d3js.org/">D3: Data-Driven Documents</a> by Mike Bostock. </li>
 	        <li><a href="https://codepo8.github.io/css-fork-on-github-ribbon/#">Pure CSS responsive "Fork me on GitHub" ribbon</a> by Chris Heilmann. </li>
 	        <li><a href="http://bl.ocks.org/phoebebright/3061203">D3 Axis Labels</a> by Phoebe Bright. </li>
-	        <li><a href="https://stackoverflow.com/questions/45211408/making-a-grouped-bar-chart-using-d3-js">Making a grouped bar chart using d3.js</a> by Gerardo Furtado. </li>
+	        <li><a href="https://medium.com/@vaibhavkumar_19430/how-to-create-a-grouped-bar-chart-in-d3-js-232c54f85894">How to Create a Grouped Bar Chart in d3.js</a> by Vaibhav Kumar. </li>
 	      </ul>
 
     </div>
