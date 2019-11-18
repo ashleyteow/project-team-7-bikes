@@ -48,13 +48,31 @@ count_end_cust = function(x) {
 }
 
 # Create subsets of the entire data file for the 4 stations of interest to Chester Square
+## All 4 stations in Chester Square
+chester_square_start = subset(all_boston, start.station.id == 364 | start.station.id == 57 |
+                                start.station.id == 25 | start.station.id == 39)
+chester_square_end = subset(all_boston, end.station.id == 364 | end.station.id == 57 |
+                              end.station.id == 25 | end.station.id == 39)
+
+chester_square_start_hour = merge(count_start_sub(chester_square_start),
+                                  count_start_cust(chester_square_start), by = "start_hour")
+chester_square_start_hour$total = chester_square_start_hour$subscriber 
+                                      + chester_square_start_hour$customer
+
+chester_square_end_hour = merge(count_end_sub(chester_square_end),
+                                  count_end_cust(chester_square_end), by = "end_hour")
+chester_square_end_hour$total = chester_square_end_hour$subscriber 
+                                + chester_square_end_hour$customer
+
+
 ## Tremont St at Northampton St
 tremont_northampton_start = subset(all_boston, start.station.id == 364)
 tremont_northampton_end = subset(all_boston, end.station.id == 364)
 
 tremont_northampton_start_hour = merge(count_start_sub(tremont_northampton_start), 
                                        count_start_cust(tremont_northampton_start), by = "start_hour")
-tremont_northampton_start_hour$total = tremont_northampton_start_hour$subscriber + tremont_northampton_start_hour$customer
+tremont_northampton_start_hour$total = tremont_northampton_start_hour$subscriber 
+                                      + tremont_northampton_start_hour$customer
 
 tremont_northampton_end_hour = merge(count_end_sub(tremont_northampton_end), 
                                        count_end_cust(tremont_northampton_end), by = "end_hour")
@@ -97,10 +115,6 @@ wash_rutland_end_hour = merge(count_end_sub(wash_rutland_end),
                                count_end_cust(wash_rutland_end), by = "end_hour")
 wash_rutland_end_hour$total = wash_rutland_end_hour$subscriber + wash_rutland_end_hour$customer
 
-## All 4 Chester Square Stations
-chester_square_start = rbind(tremont_northampton_start_hour, columbus_mass_start_hour,
-                             south_end_lib_start_hour, wash_rutland_start_hour)
-
 ## All of Boston
 all_boston_start_hour = merge(count_start_sub(all_boston), 
                                 count_start_cust(all_boston), by = "start_hour")
@@ -111,6 +125,11 @@ all_boston_end_hour = merge(count_end_sub(all_boston),
 all_boston_end_hour$total = all_boston_end_hour$subscriber + all_boston_end_hour$customer
 
 #---------
+
+write.csv(chester_square_start_hour, 
+          "/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/project-team-7-bikes/data/chester_square_start_hour.csv")
+write.csv(chester_square_end_hour, 
+          "/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/project-team-7-bikes/data/chester_square_end_hour.csv")
 
 write.csv(all_boston_start_hour, 
           "/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/project-team-7-bikes/data/all_boston_start_hour.csv")
