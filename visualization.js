@@ -1,49 +1,62 @@
 /* -----Start Stops---- */
 // read in the data
-d3.csv('data/chester_square_stations/tremont_northampton_start_hour.csv', function(d) {
-  return {
-		start_hour: d.start_hour,
-		n: +d.total,
-		subscriber: +d.subscriber,
-		customer: +d.customer,
-		pct: +d.pct * 100,
-		all_boston_pct: +d.all_boston_pct * 100
-  };
-  // create a bar chart with the data that was read in
-}).then(basic_bar_chart_start);
+// d3.csv('data/chester_square_stations/tremont_northampton_start_hour.csv', function(d) {
+//   return {
+// 		start_hour: d.start_hour,
+// 		n: +d.total,
+// 		subscriber: +d.subscriber,
+// 		customer: +d.customer,
+// 		pct: +d.pct * 100,
+// 		all_boston_pct: +d.all_boston_pct * 100
+//   };
+//   // create a bar chart with the data that was read in
+// }).then(basic_bar_chart_start);
 
-d3.csv('data/chester_square_stations/columbus_mass_start_hour.csv', function(d) {
-  return {
-		start_hour: d.start_hour,
-		n: +d.total,
-		subscriber: +d.subscriber,
-		customer: +d.customer,
-		pct: +d.pct * 100,
-		all_boston_pct: +d.all_boston_pct * 100
-  };
-  // create a bar chart with the data that was read in
-}).then(basic_bar_chart_start);
+// d3.csv('data/chester_square_stations/columbus_mass_start_hour.csv', function(d) {
+//   return {
+// 		start_hour: d.start_hour,
+// 		n: +d.total,
+// 		subscriber: +d.subscriber,
+// 		customer: +d.customer,
+// 		pct: +d.pct * 100,
+// 		all_boston_pct: +d.all_boston_pct * 100
+//   };
+//   // create a bar chart with the data that was read in
+// }).then(basic_bar_chart_start);
 
-d3.csv('data/chester_square_stations/south_end_lib_start_hour.csv', function(d) {
-  return {
-		start_hour: d.start_hour,
-		n: +d.total,
-		subscriber: +d.subscriber,
-		customer: +d.customer,
-		pct: +d.pct * 100,
-		all_boston_pct: +d.all_boston_pct * 100
-  };
-  // create a bar chart with the data that was read in
-}).then(basic_bar_chart_start);
+// d3.csv('data/chester_square_stations/south_end_lib_start_hour.csv', function(d) {
+//   return {
+// 		start_hour: d.start_hour,
+// 		n: +d.total,
+// 		subscriber: +d.subscriber,
+// 		customer: +d.customer,
+// 		pct: +d.pct * 100,
+// 		all_boston_pct: +d.all_boston_pct * 100
+//   };
+//   // create a bar chart with the data that was read in
+// }).then(basic_bar_chart_start);
 
-d3.csv('data/chester_square_stations/wash_rutland_start_hour.csv', function(d) {
+// d3.csv('data/chester_square_stations/wash_rutland_start_hour.csv', function(d) {
+//   return {
+// 		start_hour: d.start_hour,
+// 		n: +d.total,
+// 		subscriber: +d.subscriber,
+// 		customer: +d.customer,
+// 		pct: +d.pct * 100,
+// 		all_boston_pct: +d.all_boston_pct * 100
+//   };
+//   // create a bar chart with the data that was read in
+// }).then(basic_bar_chart_start);
+
+
+d3.csv('data/chester_square_start_hour.csv', function(d) {
   return {
 		start_hour: d.start_hour,
 		n: +d.total,
 		subscriber: +d.subscriber,
 		customer: +d.customer,
-		pct: +d.pct * 100,
-		all_boston_pct: +d.all_boston_pct * 100
+		all_boston: +d.all_boston
+		// all_boston_pct: +d.all_boston_pct * 100
   };
   // create a bar chart with the data that was read in
 }).then(basic_bar_chart_start);
