@@ -1,4 +1,6 @@
-// read in the data
+// ------------------------------ START READING IN DATA -----------------------------
+
+// Read in age data to be displayed in line chart representing average age
 d3.csv('data/demographics_data/age.csv', function(d) {
   return {
     yearmonth: d.yearmonth,
@@ -7,8 +9,29 @@ d3.csv('data/demographics_data/age.csv', function(d) {
   // create a bar chart with the data that was read in
 }).then(lineChart);
 
-function lineChart(data){
+// Read in gender data to be displayed in grouped bar chart representing gender breakdown of the 4 Chester Square Station customers
+d3.csv("data/demographics_data/gender.csv", function(d) {
+  return {
+    yearmonth: d.yearmonth,
+    male: +d.male,
+    female: +d.female,
+    unreported: +d.unreported
+  };
+}).then(gender_grouped_bar_chart);
 
+// Read in user membership data to be displayed in grouped bar chart representing Bluebikes subscriber/customer breakdown of the 4 Chester Square Station customers
+d3.csv("data/demographics_data/users.csv", function(d) {
+  return {
+    yearmonth: d.yearmonth,
+    subscriber: +d.subscriber,
+    customer: +d.customer
+  };
+}).then(users_grouped_bar_chart);
+
+// ------------------------------ END READING IN DATA -----------------------------
+
+// Function to create a line chart using attributes read in from the Chester Square BlueBikes station dataset
+function lineChart(data){
   var maxDate  = d3.max(data, function(d){ return d.yearmonth; });
   var minDate  = d3.min(data, function(d){ return d.yearmonth; });
   var maxAge = d3.max(data, function(d){ return d.age; });
@@ -56,6 +79,7 @@ function lineChart(data){
            .x(function(d) { return xScale(d.yearmonth); })    
            .y(function(d) { return yScale(d.age); });
 
+
   svg.append('path')
           .attr('d', line(data))
           .attr('class', 'dataLine');
@@ -79,15 +103,9 @@ function lineChart(data){
                       .text("Average Age of BlueBikes Users from 10/2018-9/2019");
 };
 
-d3.csv("data/demographics_data/gender.csv", function(d) {
-  return {
-    yearmonth: d.yearmonth,
-    male: +d.male,
-    female: +d.female,
-    unreported: +d.unreported
-  };
-}).then(function(result) {
-  var models = result.map(i => {
+// Function to create a gender grouped bar chart using attributes read in from the Chester Square BlueBikes station dataset
+function gender_grouped_bar_chart(data) {
+  var models = data.map(i => {
     i.yearmonth = i.yearmonth;
     return i;
   });
@@ -194,16 +212,12 @@ d3.csv("data/demographics_data/gender.csv", function(d) {
                       .attr("text-anchor", "middle")
                       .attr("transform", "translate("+ (width/2) +","+((margin.bottom/3)-30)+")")
                       .text("BlueBikes Usage by Gender from October 2018-September 2019");
-});
+}
 
-d3.csv("data/demographics_data/users.csv", function(d) {
-  return {
-    yearmonth: d.yearmonth,
-    subscriber: +d.subscriber,
-    customer: +d.customer
-  };
-}).then(function(result) {
-  var models = result.map(i => {
+
+// Function to create a user membership grouped bar chart using attributes read in from the Chester Square BlueBikes station dataset
+function users_grouped_bar_chart(data) {
+  var models = data.map(i => {
     i.yearmonth = i.yearmonth;
     return i;
   });
@@ -296,7 +310,8 @@ d3.csv("data/demographics_data/users.csv", function(d) {
                       .attr("text-anchor", "middle")
                       .attr("transform", "translate("+ (width/2) +","+((margin.bottom/3)-30)+")")
                       .text("BlueBikes Usage by Membership from October 2018-September 2019");
-});
+
+}
 
 
 

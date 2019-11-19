@@ -9,7 +9,7 @@
 
     <!-- CSS Styling -->
 	<link rel="stylesheet" href="style.css">
-
+  <link rel="stylesheet" href="lib/leaflet/leaflet.css"/>
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
@@ -68,6 +68,10 @@
     </p>-->
 
     </div>
+
+    <div id="map">
+    </div>  
+    
 
     <!-- Your visualization here -->
     <div class="vis-holder">
@@ -234,6 +238,7 @@
 
     <!-- Scripts at the end avoid need for dealing with async, defer, or onload event handlers -->
     <script src="lib/d3.v5.12.0/d3.min.js"></script>
+    <script src="lib/leaflet/leaflet.js"></script>
     <script src="visualization.js"></script>
     <script src="demographics.js"></script>
 	</body>
