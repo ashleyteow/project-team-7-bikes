@@ -13,6 +13,21 @@ h1, h2, h3 {
 	fill: grey;
 }
 
+#map {
+	height: 800px;
+    width: 1000px;
+    margin: auto;
+/*    width: 600px;
+    height: 400px;
+    position: relative;
+    outline: none;*/
+}
+
+/*.map-holder {
+	height: 300px;
+	width: 300px;
+}*/
+
 /* Your text should be in a nice narrow column */
 .content-column {
 	max-width: 650px;
