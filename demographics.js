@@ -79,6 +79,7 @@ function lineChart(data){
            .x(function(d) { return xScale(d.yearmonth); })    
            .y(function(d) { return yScale(d.age); });
 
+
   svg.append('path')
           .attr('d', line(data))
           .attr('class', 'dataLine');
