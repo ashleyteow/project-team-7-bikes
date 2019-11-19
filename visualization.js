@@ -25,7 +25,7 @@ d3.csv('data/chester_square_start_hour.csv', function(d) {
   };
   // create a bar chart with the data that was read in
 }).then(function(result) {
-	basic_bar_chart(result, "Hourly Percentage of BlueBikes Trips Starting in Chester Square");
+	basic_bar_chart(result, "Hourly Percentage of BlueBikes Trips Starting in Chester Square", "chester_square_start_trips");
 });
 
 // Reading in the data for the trips that END at all 4 stations around Chester Square then calling the basic_bar_chart function with the appropriate title
@@ -41,12 +41,11 @@ d3.csv('data/chester_square_end_hour.csv', function(d) {
   };
   // create a bar chart with the data that was read in
 }).then(function(result) {
-	basic_bar_chart(result, "Hourly Percentage of BlueBikes Trips Ending in Chester Square");
+	basic_bar_chart(result, "Hourly Percentage of BlueBikes Trips Ending in Chester Square", "chester_square_end_trips");
 });
 
 // Function to create a bar chart using attributes read in from the Chester Square BlueBikes station dataset
-function basic_bar_chart(mydata, title) {
-	console.log(mydata);
+function basic_bar_chart(mydata, title, id) {
 	// svg width
 	var width = 1200;
 	// svg height
@@ -60,9 +59,9 @@ function basic_bar_chart(mydata, title) {
 	};
 
 	// initialize the svg witht the width, height, and margins
-	var svg = d3.select(".vis-holder")
+	var svg = d3.select(".hourly-trips")
 				.append('svg')
-				.attr('class', 'svg-vis-start')
+				.attr('id', id)
 				.attr('width', width)
 				.attr('height', height)
 				.attr('margin', margin);
@@ -133,3 +132,15 @@ function basic_bar_chart(mydata, title) {
             		.attr("transform", "translate("+ (width/2) +","+(15+(margin.bottom/3))+")")
             		.text(title);
 };
+
+function showStartTrips() {
+  var startTrips = document.getElementById("chester_square_start_trips");
+  var endTrips = document.getElementById("chester_square_end_trips");
+  if (startTrips.style.display === "none") {
+    startTrips.style.display = "block";
+    endTrips.style.display = "none";
+  } else {
+    startTrips.style.display = "none";
+    endTrips.style.display = "block";
+  }
+}
