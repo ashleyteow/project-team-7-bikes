@@ -11,7 +11,7 @@ d3.csv('data/chester_square_start_hour.csv', function(d) {
   };
   // create a bar chart with the data that was read in
 }).then(function(result) {
-	basic_bar_chart(result, "Hourly Percentage of BlueBikes Trips (Start) in Chester Square");
+	basic_bar_chart(result, "Hourly Percentage of BlueBikes Trips Starting in Chester Square");
 });
 
 // Reading in the data for the trips that END at all 4 stations around Chester Square then calling the basic_bar_chart function with the appropriate title
@@ -27,7 +27,7 @@ d3.csv('data/chester_square_end_hour.csv', function(d) {
   };
   // create a bar chart with the data that was read in
 }).then(function(result) {
-	basic_bar_chart(result, "Hourly Percentage of BlueBikes Trips (End) in Chester Square");
+	basic_bar_chart(result, "Hourly Percentage of BlueBikes Trips Ending in Chester Square");
 });
 
 // Function to create a bar chart using attributes read in from the Chester Square BlueBikes station dataset
