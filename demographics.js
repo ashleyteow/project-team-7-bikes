@@ -8,7 +8,13 @@ d3.csv('data/demographics_data/age.csv', function(d) {
   };
   // create a bar chart with the data that was read in
 }).then(function(data) {
-  lineChart(data);
+  lineChart2().x(d => d.yearmonth)
+              .xLabel("Month")
+              .y(d => d.age)
+              .yLabel("Age")
+              .yLabelOffset(40)
+              .selectionDispatcher(d3.dispatch("selectionUpdated"))
+              (data);
 });
 
 
@@ -35,9 +41,7 @@ d3.csv("data/demographics_data/users.csv", function(d) {
 
 // Function to create a line chart using attributes read in from the Chester Square BlueBikes station dataset
 function lineChart2(){
-  var maxDate  = d3.max(data, function(d){ return d.yearmonth; });
-  var minDate  = d3.min(data, function(d){ return d.yearmonth; });
-  var maxAge = d3.max(data, function(d){ return d.age; });
+
   let margin = {
     top: 40,
     bottom: 80,
@@ -58,11 +62,15 @@ function lineChart2(){
   dispatcher;
 
   function chart(data) {
+    var maxDate  = d3.max(data, function(d){ return d.yearmonth; });
+    var minDate  = d3.min(data, function(d){ return d.yearmonth; });
+    var maxAge = d3.max(data, function(d){ return d.age; });    
     // console.log("hello");
     // console.log(data);
     let svg = d3.select(".demographics")
       .append('svg')
       .attr('class', 'svg-vis-demographics-line')
+      .attr("preserveAspectRatio", "xMidYMid meet")
       .attr('width', width)
       .attr('height', height)
       .attr('margin', margin);
@@ -70,7 +78,7 @@ function lineChart2(){
     svg = svg.append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");    
 
-    xScale.domain(d3.map(data, function(d) { return d.yearmonth; }).keys())
+    xScale.domain(data.map(d => d.yearmonth))
           .range([margin.left, width-margin.right], 1.0);
 
     yScale.domain([0, maxAge + 10])
@@ -78,9 +86,8 @@ function lineChart2(){
 
     let xAxis = svg.append("g")
         .attr("transform", "translate(0," + (height) + ")")
-        .call(d3.axisBottom(xScale));
-
-    xAxis.append("text")        
+        .call(d3.axisBottom(xScale))
+        .append("text")        
         .attr("class", "axisLabel")
         .attr("transform", "translate(" + (width - 50) + ",-10)")
         .text(xLabelText);
@@ -97,13 +104,17 @@ function lineChart2(){
     var line = d3.line()
              .x(function(d) { return xScale(d.yearmonth); })    
              .y(function(d) { return yScale(d.age); });
-    
-    selectableElements = line;            
-
+              
     svg.append("path")
         .datum(data)
         .attr("class", "linePath")
-        .attr("d", line);
+        .attr("d", d3.line()
+          // Just add that to have a curve instead of segments
+          .x(X)
+          .y(Y)
+        );
+
+    selectableElements = line;          
 
     // create a x-axis title
     var xLabel = svg.append("text")
@@ -146,7 +157,7 @@ function lineChart2(){
           [x0, y0],
           [x1, y1]
         ] = d3.event.selection;
-        points.classed("selected", d =>
+        line.classed("selected", d =>
           x0 <= X(d) && X(d) <= x1 && y0 <= Y(d) && Y(d) <= y1
         );
 
@@ -412,6 +423,7 @@ function lineChart(data){
           .attr('d', line(data))
           .attr('class', 'dataLine');
 
+
   // create a x-axis title
   var xLabel = svg.append("text")
                   .attr("text-anchor", "middle")
@@ -429,55 +441,6 @@ function lineChart(data){
                       .attr("text-anchor", "middle")
                       .attr("transform", "translate("+ (width/2) +","+((margin.bottom/3)-10)+")")
                       .text("Average Age of BlueBikes Users from 10/2018-9/2019");
-
-  // var svg = d3.select(this)
-  //             .selectAll("svg")
-  //             .data([data]);
-  var svgEnter = svg.enter().append("svg");
-  var gEnter = svgEnter.append("g");
-  gEnter.append("path").attr("class", "area");
-  gEnter.append("path").attr("class", "line");
-  gEnter.append("g").attr("class", "x axis");
-  gEnter
-    .append("g")
-    .attr("class", "brush")
-    .call(brush);  
-
-  svg.merge(svgEnter)
-     .attr("width", width)
-     .attr("height", height);
-
-  // Update the inner dimensions.
-  var g = svg
-    .merge(svgEnter)
-    .select("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  // Update the area path.
-  g.select(".area").attr("d", area.y0(yScale.range()[0]));
-
-  // Update the line path.
-  g.select(".line").attr("d", line);
-
-  // Update the x-axis.
-  g.select(".x.axis")
-    .attr("transform", "translate(0," + yScale.range()[0] + ")")
-    .call(d3.axisBottom(xScale).tickSize(6, 0));     
-
-  g.select(".brush").call(d3.brushX()
-          .extent([
-            [0,0],
-            [xScale.range()[1], yScale.range()[0]]
-          ])
-          .on("brush", brushed)
-        );   
-  function brushed() {
-    if (!d3.event.sourceEvent) return; // Only transition after input.
-    if (!d3.event.selection) return; // Ignore empty selections.
-    var selection = d3.event.selection.map(xScale.invert);
-
-    onBrushed(selection);
-  }         
                                       
 };
 
