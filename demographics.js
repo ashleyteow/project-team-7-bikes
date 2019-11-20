@@ -85,7 +85,7 @@ function lineChart2(){
           .range([height - margin.bottom - margin.top, 0]);
 
     let xAxis = svg.append("g")
-        .attr("transform", "translate(0," + (height) + ")")
+        .attr("transform", "translate(0," + (height - margin.bottom) + ")")
         .call(d3.axisBottom(xScale))
         .append("text")        
         .attr("class", "axisLabel")
@@ -157,9 +157,10 @@ function lineChart2(){
           [x0, y0],
           [x1, y1]
         ] = d3.event.selection;
-        line.classed("selected", d =>
+        d3.selectAll(".linePath").classed("selected", d => )
+/*        line.classed("selected", d =>
           x0 <= X(d) && X(d) <= x1 && y0 <= Y(d) && Y(d) <= y1
-        );
+        );*/
 
         // Get the name of our dispatcher's event
         let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
