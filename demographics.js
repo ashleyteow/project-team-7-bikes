@@ -39,6 +39,86 @@ d3.csv("data/demographics_data/users.csv", function(d) {
 
 // ------------------------------ END READING IN DATA -----------------------------
 
+// THIS FUNCTION DRAWS A LINE CHART WITH NO BRUSHING AND LINKING
+// Function to create a line chart using attributes read in from the Chester Square BlueBikes station dataset
+function lineChart(data){
+  var maxDate  = d3.max(data, function(d){ return d.yearmonth; });
+  var minDate  = d3.min(data, function(d){ return d.yearmonth; });
+  var maxAge = d3.max(data, function(d){ return d.age; });
+
+  // svg width
+  var width = 1200;
+  // svg height
+  var height = 800;
+  // margins around visualization
+  var margin = {
+    top: 40,
+    bottom: 80,
+    left: 80,
+    right: 30
+  };
+
+  var svg = d3.select(".demographics")
+        .append('svg')
+        .attr('class', 'svg-vis-demographics-line')
+        .attr('width', width)
+        .attr('height', height)
+        .attr('margin', margin);
+
+  var xScale = d3.scaleBand()
+             .domain(d3.map(data, function(d) { return d.yearmonth; }).keys())
+             .range([margin.left, width-margin.right], 1.0);
+
+  var yScale = d3.scaleLinear()
+             .domain([0, maxAge + 10])
+             .range([height - margin.bottom - margin.top, 0]);
+
+  var xAxis = d3.axisBottom(xScale);
+  svg.append('g')
+          .attr('class', 'x axis')
+          .attr('transform', 'translate(0, ' + (height - margin.bottom - margin.top) + ')')
+          .call(xAxis.scale(xScale));
+
+  var yAxis = d3.axisLeft(yScale);
+  svg.append('g')
+     .attr('class', 'y axis')
+     .attr("transform", `translate(${margin.left}, 0)`)
+     .call(yAxis.scale(yScale));
+
+  var line = d3.line()
+           .x(function(d) { return xScale(d.yearmonth); })    
+           .y(function(d) { return yScale(d.age); });
+
+
+  svg.append('path')
+          .attr('d', line(data))
+          .attr('class', 'dataLine');
+
+  // create a x-axis title
+  var xLabel = svg.append("text")
+                  .attr("text-anchor", "middle")
+                  .attr("transform", "translate("+ (width/2) +","+(height-(margin.bottom/3)-40)+")")
+                  .text("Year-Month");
+
+  // create a y-axis title
+  var yLabel = svg.append("text")
+                  .attr("text-anchor", "middle")
+                  .attr("transform", "translate("+ (margin.left/2) +","+(height/2)+")rotate(-90)")
+                  .text("Average User Age");
+
+  // create a chart title
+  var chartTitle = svg.append("text")
+                      .attr("text-anchor", "middle")
+                      .attr("transform", "translate("+ (width/2) +","+((margin.bottom/3)-10)+")")
+                      .text("Average Age of BlueBikes Users from 10/2018-9/2019");
+  };        
+                                      
+
+
+// FUNCTION IN PROGRESS TO MAKE BRUSHING AND LINKING WORK. WHEN U USE THIS, MAKE THIS WORK BY CALLING 
+// .then(function(result) {
+  // lineChart2()
+//}); ON LINE 11.
 // Function to create a line chart using attributes read in from the Chester Square BlueBikes station dataset
 function lineChart2(){
 
@@ -369,81 +449,6 @@ function gender_grouped_bar_chart2(data) {
                       .text("BlueBikes Usage by Gender from October 2018-September 2019");
 }
 
-
-// Function to create a line chart using attributes read in from the Chester Square BlueBikes station dataset
-function lineChart(data){
-  var maxDate  = d3.max(data, function(d){ return d.yearmonth; });
-  var minDate  = d3.min(data, function(d){ return d.yearmonth; });
-  var maxAge = d3.max(data, function(d){ return d.age; });
-
-  // svg width
-  var width = 1200;
-  // svg height
-  var height = 800;
-  // margins around visualization
-  var margin = {
-    top: 40,
-    bottom: 80,
-    left: 80,
-    right: 30
-  };
-
-  var svg = d3.select(".demographics")
-        .append('svg')
-        .attr('class', 'svg-vis-demographics-line')
-        .attr('width', width)
-        .attr('height', height)
-        .attr('margin', margin);
-
-  var xScale = d3.scaleBand()
-             .domain(d3.map(data, function(d) { return d.yearmonth; }).keys())
-             .range([margin.left, width-margin.right], 1.0);
-
-  var yScale = d3.scaleLinear()
-             .domain([0, maxAge + 10])
-             .range([height - margin.bottom - margin.top, 0]);
-
-  var xAxis = d3.axisBottom(xScale);
-  svg.append('g')
-          .attr('class', 'x axis')
-          .attr('transform', 'translate(0, ' + (height - margin.bottom - margin.top) + ')')
-          .call(xAxis.scale(xScale));
-
-  var yAxis = d3.axisLeft(yScale);
-  svg.append('g')
-     .attr('class', 'y axis')
-     .attr("transform", `translate(${margin.left}, 0)`)
-     .call(yAxis.scale(yScale));
-
-  var line = d3.line()
-           .x(function(d) { return xScale(d.yearmonth); })    
-           .y(function(d) { return yScale(d.age); });
-
-
-  svg.append('path')
-          .attr('d', line(data))
-          .attr('class', 'dataLine');
-
-
-  // create a x-axis title
-  var xLabel = svg.append("text")
-                  .attr("text-anchor", "middle")
-                  .attr("transform", "translate("+ (width/2) +","+(height-(margin.bottom/3)-40)+")")
-                  .text("Year-Month");
-
-  // create a y-axis title
-  var yLabel = svg.append("text")
-                  .attr("text-anchor", "middle")
-                  .attr("transform", "translate("+ (margin.left/2) +","+(height/2)+")rotate(-90)")
-                  .text("Average User Age");
-
-  // create a chart title
-  var chartTitle = svg.append("text")
-                      .attr("text-anchor", "middle")
-                      .attr("transform", "translate("+ (width/2) +","+((margin.bottom/3)-10)+")")
-                      .text("Average Age of BlueBikes Users from 10/2018-9/2019");
-                                      
-};
 
 // Function to create a gender grouped bar chart using attributes read in from the Chester Square BlueBikes station dataset
 function gender_grouped_bar_chart(data) {
