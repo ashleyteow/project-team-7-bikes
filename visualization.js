@@ -6,6 +6,7 @@ var mymap = L.map('map').setView([42.338389, -71.078518], 13).setZoom(16.5);
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
     maxZoom: 18,
+    minZoom: 16.5,
     id: 'mapbox.streets',
     accessToken: 'pk.eyJ1IjoiYXNobGV5dGVvdyIsImEiOiJjazM1OWMxZjkxY2hqM2NwYjI0ZmU1Zzg1In0.tIRp8wbJTjo6Rqdwii7Vmw'
 }).addTo(mymap);
