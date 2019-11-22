@@ -237,7 +237,9 @@ function lineChart2(){
           [x0, y0],
           [x1, y1]
         ] = d3.event.selection;
-        d3.selectAll(".linePath").classed("selected", d => )
+
+        // TODO: this is where you would need to use selectionDispatcher
+        // d3.selectAll(".linePath").classed("selected", d => )
 /*        line.classed("selected", d =>
           x0 <= X(d) && X(d) <= x1 && y0 <= Y(d) && Y(d) <= y1
         );*/
