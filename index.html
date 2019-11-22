@@ -49,23 +49,23 @@
 
     <p>
     	<em>
-    	Currently, the bike lanes available for cyclists traveling through Chester Square area are too narrow and too close to incoming traffic for cyclists to feel safe. In addition, the availability of decent parking spaces for them are scarcely limited from our observation, which is why there might not be many cyclists in the area. Something else we discovered during our site visits, was that there are currently 5 BlueBikes stations neighboring the Chester Square area. We decided to investigate these stations further for their usage data in order to determine whether cyclists are making use of these stations as an alternative to having their own bikes.
+    	Currently, the bike lanes available for cyclists traveling through Chester Square area are too narrow and too close to incoming traffic for cyclists to feel safe. In addition, the availability of decent parking spaces for them are scarcely limited from our observation, which is why there might not be many cyclists in the area. Something else we discovered during our site visits, was that there are currently 4 BlueBikes stations neighboring the Chester Square area. We decided to investigate these stations further for their usage data in order to determine whether cyclists are making use of these stations as an alternative to having their own bikes. BlueBikes offers public access to their system data of all BlueBikes trips to allow people to use their data for any type of analysis and visualization.
     	</em>
 	</p>
 
     <p>
     	<em>
-    	By looking into the hourly usage of each BlueBikes station as well as the breakdown of whether or not these trips were taken by subscribers or non-subscribers, we were able to recognize a trend of mainly subscribers in the Chester Square neighborhood. BlueBikes subscribers typically have shorter trip durations because they are utilizing the service as an alternative to a ~20min walk. Bluebikes customers generally have longer trip durations, because they tend to want to make as much use out of their rented time as possible. As a means to increase bike usage and alleviate some of these cyclists' worries, we created our visualizations in a way that highlights the short but frequent trips taken at these stations. We wanted to make an argument it might be a feasible option for Bluebikes to have another station in this area as a means to further increase bike usage for the subscribers in the nighborhood.
+    	We analyzed the four relevant BlueBikes stations around Chester Square as a single data set that acts as the representative BlueBikes data set for Chester Square as a whole. By looking into the hourly usage of the BlueBikes stations and compare that to the average hourly usage for all of the BlueBikes stations in Boston, as well as the breakdown of whether or not these trips were taken by subscribers or non-subscribers, we were able to recognize a trend of mainly subscribers in the Chester Square neighborhood. BlueBikes subscribers typically have shorter trip durations because they are utilizing the service as an alternative to a ~20min walk. Bluebikes customers generally have longer trip durations, because they tend to want to make as much use out of their rented time as possible. As a means to increase bike usage and alleviate some of these cyclists' worries, we created our visualizations in a way that highlights the short but frequent trips taken at these stations. We wanted to make an argument it might be a feasible option for Bluebikes to have another station in this area as a means to further increase bike usage for the subscribers in the nighborhood. This is why we also visualized the BlueBikes user demographics in Boston in order to provide insight as to how or whether Chester Square residents associate with the BlueBikes user demographics in Boston.
     	</em>
     </p>
 
     <h1>Visualization</h1>
 
-    <p>
+    <!--<p>
     	<em>
     	Include the interactive visualization as part of this page. Static example follows.
     	</em>
-    </p>
+    </p>-->
 
     </div>
 
@@ -88,11 +88,11 @@
 
     	<h1>Demo Video</h1>
 
-      		<p>
+      		<!--<p>
       			<em>
       			Embedded MP4 demo video using the HTML5 &lt;video&gt; tag. For example, this screen recording Prof. Cody Dunne made of Mike Bostock's flexible transitions in D3 slide:
       			</em>
-      		</p>
+      		</p>-->
 
       		<video controls width="100%">
 	        	<source src="http://www.ccs.neu.edu/home/cody/courses/shared/d3-flexible-transitions.mp4" type="video/mp4">
@@ -104,11 +104,11 @@
 
       	<h1>Visualization explanation</h1>
 
-      		<p>
+      		<!--<p>
       			<em>
       			final visualization screenshots (PNG images), design justifications, UI walk-through, and linked presentation slides.
       			</em>
-      		</p>
+      		</p>-->
 
       	<h1>Data Analysis</h1>
       		<!--<p>
@@ -130,17 +130,17 @@
   			</p>
 
   			<ul>
-  				<li> 
-  				Only the datasets from October 2018 until September 2019 were included in this analysis. Additionally, the only stations that were included in the final analysis were the four station closest to Chester Square (Tremont Street at Northampton Street, Columbus Avenue at Massachusetts Avenue, Washington Avenue at Rutland Street, and the South End Library). Overall, the data from BlueBikes' website was pretty clean, and most of the "cleaning" process mostly constituted of creating multiple datasets from the larger one to create each of our visualizations.
+  				<li>
+  				The datasets from January 2018 until October 2019 were included in this analysis for the BlueBikes demographics data to observe BlueBikes demographics change over a large period of time.. Only the datasets from October 2018 until September 2019 were included in this analysis for the BlueBikes station data, as some of them were only established in the past year. Additionally, the only stations that were included in the final analysis were the four station closest and most relevant to Chester Square to provide the best represenation of the BlueBikes influence in the area - (Tremont Street at Northampton Street, Columbus Avenue at Massachusetts Avenue, Washington Avenue at Rutland Street, and the South End Library). Overall, the data from BlueBikes' website was pretty clean, and most of the "cleaning" process mostly constituted of creating multiple datasets from the larger one in order to create each of our visualizations.
   				</li>
-  				<li> 
-  				In order to create a comprehensive dataset of the past year of BlueBikes use, we combined each of the 12 datasets into one, using R. After this, a variable yearmonth, which stores the date of the trip as a String in the YYYY-MM format, was created.
+  				<li>
+  				In order to create a comprehensive dataset of the past year of BlueBikes use, we combined each of the 12 datasets into one, using R. After this, a variable yearmonth, which stores the date of the trip as a String in the YYYY-MM format, was created. In order to compare the BlueBikes station data to BlueBikes all stations in Boston data, we converted the hourly counts into percentages (ratio of hourly trip count over all trips of the day count) using Excel.
   					<ul>
   						<li>
-  						<strong>Demographics data:</strong> A derived variable that represents the user's age, based on the provided birth year variable, was created. Then, the data was grouped and the number of records in the dataset was counted based on gender, average age, and membership type for each month of the past year (Oct 2018-Sept 2019). 
+  						<strong>Demographics data:</strong> A derived variable that represents the user's age, based on the provided birth year variable, was created. Then, the data was grouped and the number of records in the dataset was counted based on gender, average age, and membership type for each month of the past year (Jan 2015-Oct 2019). Our age, gender, and users data sets contain the ordinal variable for each month and year. Our age data set contains a quantitative variable for average age. Our gender data set contains quantitative variables for gender counts (male, female, or unreported). Our users data set contains quanititative variables for user type counts (subscriber or customer).
   						</li>
   						<li>
-  						<strong>Station data:</strong> Two variables were derived from the starttime and stoptime variables, representing only the hour at which the trip occurred. Then, the large dataset constituting of data from all of Boston was filtered based on the station id for the four BlueBikes stations of interest (Tremont St at Northampton St, Columbus Ave at Massachussetts Ave, Washington St at Rutland St, and at the South End Library) and these smaller datasets were then filtered based on the start or end hour of the trip for each station.
+  						<strong>Station data:</strong> Two variables were derived from the starttime and stoptime variables, representing only the hour at which the trip occurred. Then, the large dataset constituting of data from all of Boston was filtered based on the station id for the four BlueBikes stations of interest (Tremont St at Northampton St, Columbus Ave at Massachussetts Ave, Washington St at Rutland St, and at the South End Library) and this data set was then filtered based on the start or end hour of the trip for each station (Oct 2018-Sept 2019). Our end and start hour data sets contain the quanititative variables for either the hour at which the trip ended (end_hour), or started (start_hour). They also contain the quantitative variables for subscriber count, customer count, and total count.
   						</li>
   					</ul>
   				</li>
@@ -155,25 +155,55 @@
 
       	<h1>Task Analysis</h1>
 
-      		<p>
+      		<!--<p>
       			<em>
       			Summary of task table.
       			</em>
-      		</p>
+      		</p>-->
 
-      		<p>
+					<p>
+						<em>
+							Our project addresses three main domain tasks:
+						</em>
+					</p>
+				<ul>
+					<li>Determine the feasibility of adding another BlueBikes station in the Chester Square area in order to promote and increase bike usage</li>
+					<li>Contrast the number of cyclists in the area with subscriptions as opposed to non-subscribers (Blue Bikes)</li>
+					<li>Identify the BlueBikes user demographics in order to understand the relationship with Chester Square resident demographics</li>
+				</ul>
+				<p>
+					<em>
+						Our main goal is to address a possibility for placing a BlueBike rental station somewhere within Chester Square to solve the lack of bike parking stations if that is a reason why there aren’t many cyclists in the area. Additionally, we want to find out if having a BlueBike location in Chester Square would encourage residents to bike more, reducing the number of vehicles in the area. We thought that people might be discouraged to do this right now, as there is currently an additional commute to pick up a BlueBike at neighboring locations.
+					</em>
+				</p>
+				<p>
+					<em>
+						In order to determine the feasibility of adding another BlueBikes station in Chester Square, we first look at the Chester Square area’s current interaction with BlueBikes by analyzing the hourly usage of BlueBikes in Chester Square and comparing this with the hourly usage of BlueBikes in all of Boston. We also analyze BlueBikes user demographics to address feasibility, which we go into in our last point.
+					</em>
+				</p>
+				<p>
+					<em>
+						In order to contrast cyclists with BlueBikes subscriptions and without BlueBikes subscriptions, we breakdown the trend of BlueBikes subscribers and customers in Boston in our demographics data along with the breakdown of average percentage of BlueBikes subscribers versus customers at any given hour of the day in our BlueBikes station bar graphs.
+					</em>
+				</p>
+				<p>
+					<em>
+						In order to identify the BlueBikes user demographics, we analyze the average age of BlueBikes users, the self-reported gender of BlueBikes users, and the type of BlueBikes users, over time over the past few years. This can be compared to the Chester Square resident demographics to address the feasibility and potential for future success of establishing a BlueBikes station in Chester Square.
+					</em>
+				</p>
+      		<!--<p>
       			<em>
       			Expectation: Clearly describes domain tasks, processes, goals and abstract tasks for domain problems.
       			</em>
-      		</p>
+      		</p>-->
 
 		<h1>Design Process</h1>
 
       		<p>
       			<em>
-      			We decided to create our visualizations using bar charts because we felt that made the most sense given the data types we are working with (see Data Analysis for more info.). The bar charts used for each of the 4 Bluebikes stations clearly show the growth in number of trips that occur hourly througout the day. In addition, having a solid red line that represents all Boston data makes it easy to understand how one station's trips contributes to the cities' total trips as a whole. It is also easy to notice changes in number of trips over time. 
+      			We decided to create our visualizations using bar charts because we felt that made the most sense given the data types we are working with (see Data Analysis for more info.). The bar charts used for the 4 relevant Bluebikes stations (starting and ending station) clearly show the growth in number of trips that occur hourly througout the day. In addition, having a solid red line that represents all Boston data for all the stations in Boston makes it easy to understand how one station's trips contributes to the cities' total trips as a whole, and also easily allows for comparison between the BlueBikes stations in Chester Square versus all the BlueBikes stations in Boston. A toggle button allows for the user to switch between the hourly usage when trips start in Chester Square versus when they end in Chester Square. The toggle button allows for less clutter on a single screen and makes it not overwhelming for the user as there is no need to compare starting and ending station, but it is meaningful to have both. It is also easy to notice changes in number of trips over time.
 
-            Our second visualization that contained our data types for Bluebikes demographics uses a grouped bar chart instead in order to illustrate our observation that there are more subscribers in the Chester Square area, who often tend to take frequent, shorter trips, which means that it could be beneficial for these kinds of customers to have another Bluebikes station they could frequent. 
+            Our second visualization that contained our data types for Bluebikes demographics uses a grouped bar chart instead in order to illustrate our observation that there are more subscribers in the Chester Square area, who often tend to take frequent, shorter trips, which means that it could be beneficial for these kinds of customers to have another Bluebikes station they could frequent. We also visualize the BlueBikes user demographics in Boston in order to provide insight as to how or whether Chester Square residents relate with the BlueBikes user demographics in Boston, and addresses the feasibility of establishing a BlueBikes station in the area. Brushing and linking between the demographics data provides an easy comparison and link between age, gender, and type of BlueBikes users over time.
       			</em>
       		</p>
 
@@ -181,13 +211,13 @@
 
       		<p>
       			<em>
-      			Our work provides insight on the four closest and most relevant BlueBikes stations neighboring the Chester Square area. We visualize the hourly usage at these four stations in a given day and provide a comparison of each station to the hourly usage at all the BlueBikes stations in Boston. We also present a breakdown and comparison of the demographics of BlueBikes users for the past year, including user age, user gender (self-reported), and user type as either member or nonmember. Our visualization offers an analysis of Chester Square neighborhood’s relationship with BlueBikes, and whether it could be a feasible option to establish a station in the neighborhood. 
+      			Our work provides insight on the four closest and most relevant BlueBikes stations neighboring the Chester Square area. We visualize the hourly usage at these four stations in a given day and provide a comparison of the stations to the hourly usage at all the BlueBikes stations in Boston. We also present a breakdown and comparison of the demographics of BlueBikes users for the past year, including user age, user gender (self-reported), and user type as either subscriber or customer. Our visualization offers an analysis of Chester Square neighborhood’s relationship with BlueBikes, and whether it could be a feasible option to establish a station in the neighborhood.
       			</em>
       		</p>
 
       		<p>
       			<em>
-      			Future improvement could include expanding the hourly usage analysis to more than just the four stations near Chester Square. In this way, the hourly usage of BlueBikes stations in another neighborhood in Boston, analogous to the layout of Chester Square, could be analyzed and compared to that of Chester Square. Another future improvement could include visualizing the demographics of BlueBikes users for the past five years instead of being limited to the past year. In this way, the change in user demographics could be discussed in order to address how Chester Square neighborhood fit into that.
+      			Future improvement could include expanding the hourly usage analysis to more than just the four stations near Chester Square. In this way, the hourly usage of BlueBikes stations in another neighborhood in Boston, analogous to the layout of Chester Square, could be analyzed and compared to that of Chester Square. Another future improvement could include visualizing the demographics of BlueBikes users for more than the past five years instead of being limited to the past years, or focusing on just the most recent year to observe seasonal change in BlueBikes user demographics. In this way, the change in user demographics could be discussed in order to address how Chester Square residents fit into that.
       			</em>
       		</p>
 
@@ -204,6 +234,7 @@
 	        <li><a href="https://codepo8.github.io/css-fork-on-github-ribbon/#">Pure CSS responsive "Fork me on GitHub" ribbon</a> by Chris Heilmann. </li>
 	        <li><a href="http://bl.ocks.org/phoebebright/3061203">D3 Axis Labels</a> by Phoebe Bright. </li>
 	        <li><a href="https://medium.com/@vaibhavkumar_19430/how-to-create-a-grouped-bar-chart-in-d3-js-232c54f85894">How to Create a Grouped Bar Chart in d3.js</a> by Vaibhav Kumar. </li>
+          <li><a href="https://leafletjs.com/examples.html"> Leaflet: an open-source JavaScript library for mobile-friendly interactive maps</a></li>
 	      </ul>
 
     </div>
