@@ -91,7 +91,7 @@ sep15$age = 2019 - sep15$birth.year
 oct15$age = 2019 - oct15$birth.year
 nov15$age = 2019 - nov15$birth.year
 dec15$age = 2019 - dec15$birth.year
-
+# 
 create_subset = function(x) {
   x[c("bikeid", "usertype", "age", "gender", "yearmonth")];
 }
