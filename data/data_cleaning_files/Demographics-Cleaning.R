@@ -1,97 +1,107 @@
 # Read in the individual .csv files of data
 ## 2015
-jan15 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201501.csv")
-feb15 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201502.csv")
-mar15 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201503.csv")
-apr15 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201504.csv")
-may15 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201505.csv")
-jun15 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201506.csv")
-jul15 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201507.csv")
-aug15 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201508.csv")
-sep15 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201509.csv")
-oct15 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201510.csv")
-nov15 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201511.csv")
-dec15 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201512.csv")
+jan15dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201501.csv")
+feb15dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201502.csv")
+mar15dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201503.csv")
+apr15dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201504.csv")
+may15dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201505.csv")
+jun15dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201506.csv")
+jul15dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201507.csv")
+aug15dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201508.csv")
+sep15dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201509.csv")
+oct15dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201510.csv")
+nov15dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201511.csv")
+dec15dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201512.csv")
 
 ## 2016
-jan16 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201601.csv")
-feb16 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201602.csv")
-mar16 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201603.csv")
-apr16 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201604.csv")
-may16 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201605.csv")
-jun16 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201606.csv")
-jul16 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201607.csv")
-aug16 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201608.csv")
-sep16 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201609.csv")
-oct16 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201610.csv")
-nov16 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201611.csv")
-dec16 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201612.csv")
+jan16dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201601.csv")
+feb16dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201602.csv")
+mar16dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201603.csv")
+apr16dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201604.csv")
+may16dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201605.csv")
+jun16dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201606.csv")
+jul16dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201607.csv")
+aug16dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201608.csv")
+sep16dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201609.csv")
+oct16dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201610.csv")
+nov16dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201611.csv")
+dec16dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201612.csv")
 
 ## 2017
-jan17 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201701.csv")
-feb17 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201702.csv")
-mar17 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201703.csv")
-apr17 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201704.csv")
-may17 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201705.csv")
-jun17 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201706.csv")
-jul17 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201707.csv")
-aug17 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201708.csv")
-sep17 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201709.csv")
-oct17 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201710.csv")
-nov17 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201711.csv")
-dec17 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201712.csv")
+jan17dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201701.csv")
+feb17dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201702.csv")
+mar17dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201703.csv")
+apr17dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201704.csv")
+may17dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201705.csv")
+jun17dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201706.csv")
+jul17dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201707.csv")
+aug17dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201708.csv")
+sep17dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201709.csv")
+oct17dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201710.csv")
+nov17dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201711.csv")
+dec17dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201712.csv")
 
 ## 2018
-jan18 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201801.csv")
-feb18 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201802.csv")
-mar18 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201803.csv")
-apr18 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201804.csv")
-may18 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201805.csv")
-jun18 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201806.csv")
-jul18 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201807.csv")
-aug18 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201808.csv")
-sep18 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201809.csv")
-oct18 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201810.csv")
-nov18 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201811.csv")
-dec18 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201812.csv")
+jan18dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201801.csv")
+feb18dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201802.csv")
+mar18dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201803.csv")
+apr18dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201804.csv")
+may18dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201805.csv")
+jun18dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201806.csv")
+jul18dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201807.csv")
+aug18dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201808.csv")
+sep18dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201809.csv")
+oct18dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201810dem.csv")
+nov18dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201811dem.csv")
+dec18dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201812dem.csv")
 
 ## 2019
-jan19 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201901.csv")
-feb19 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201902.csv")
-mar19 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201903.csv")
-apr19 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201904.csv")
-may19 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201905.csv")
-jun19 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201906.csv")
-jul19 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201907.csv")
-aug19 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201908.csv")
-sep19 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201909.csv")
-oct19 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201910.csv")
+jan19dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201901dem.csv")
+feb19dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201902dem.csv")
+mar19dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201903dem.csv")
+apr19dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201904dem.csv")
+may19dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201905dem.csv")
+jun19dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201906dem.csv")
+jul19dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201907dem.csv")
+aug19dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201908dem.csv")
+sep19dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201909dem.csv")
+oct19dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201910.csv")
 
 # Merge the individual data files into one
-all_boston = rbind(jan15, feb15, mar15, apr15, may15, jun15, jul15, aug15, sep15, oct15, nov15, dec15,
-                   jan16, feb16, mar16, apr16, may16, jun16, jul16, aug16, sep16, oct16, nov16, dec16,
-                   jan17, feb17, mar17, apr17, may17, jun17, jul17, aug17, sep17, oct17, nov17, dec17,
-                   jan18, feb18, mar18, apr18, may18, jun18, jul18, aug18, sep18, oct18, nov18, dec18,
-                   jan19, feb19, mar19, apr19, may19, jun19, jul19, aug19, sep19, oct19)
-all_boston_dem$yearmonth = substr(all_boston_dem$starttime, 1, 7)
+all_boston_dem = rbind(jan15dem, feb15dem, mar15dem, apr15dem, may15dem, jun15dem, jul15dem, aug15dem, sep15dem, oct15dem, nov15dem, dec15dem,
+                   jan16dem, feb16dem, mar16dem, apr16dem, may16dem, jun16dem, jul16dem, aug16dem, sep16dem, oct16dem, nov16dem, dec16dem,
+                   jan17dem, feb17dem, mar17dem, apr17dem, may17dem, jun17dem, jul17dem, aug17dem, sep17dem, oct17dem, nov17dem, dec17dem,
+                   jan18dem, feb18dem, mar18dem, apr18dem, may18dem, jun18dem, jul18dem, aug18dem, sep18dem, oct18dem, nov18dem, dec18dem,
+                   jan19dem, feb19dem, mar19dem, apr19dem, may19dem, jun19dem, jul19dem, aug19dem, sep19dem, oct19dem)
+all_boston_dem$birth.year[all_boston_dem$birth.year == "\\N"] = NA
+all_boston_dem$birth.year[is.null(all_boston_dem$birth.year)] = NA
+all_boston_dem$birth.year[all_boston_dem$birth.year == "1900" 
+                       || all_boston_dem$birth.year == "1917" 
+                       || all_boston_dem$birth.year == "1901" 
+                       || all_boston_dem$birth.year == "1902" 
+                       || all_boston_dem$birth.year == "1886" 
+                       || all_boston_dem$birth.year == "1927" 
+                       || all_boston_dem$birth.year == "1887" 
+                       || all_boston_dem$birth.year == "1929" 
+                       || all_boston_dem$birth.year == "1888"] = NA
 all_boston_dem$age = 2019 - all_boston_dem$birth.year
-all_boston_dem = all_boston_dem[c("bikeid", "usertype", "age", "gender", "yearmonth")]
+all_boston_dem = all_boston_dem[c("bikeid", "usertype", "age", "gender", "starttime")]
 
 install.packages("dplyr")
 library(dplyr)
 
-jan15$age = 2019 - jan15$birth.year
-feb15$age = 2019 - feb15$birth.year
-mar15$age = 2019 - mar15$birth.year
-apr15$age = 2019 - apr15$birth.year
-may15$age = 2019 - may15$birth.year
-jun15$age = 2019 - jun15$birth.year
-jul15$age = 2019 - jul15$birth.year
-aug15$age = 2019 - aug15$birth.year
-sep15$age = 2019 - sep15$birth.year
-oct15$age = 2019 - oct15$birth.year
-nov15$age = 2019 - nov15$birth.year
-dec15$age = 2019 - dec15$birth.year
+jan15dem$age = 2019 - jan15dem$birth.year
+feb15dem$age = 2019 - feb15dem$birth.year
+mar15dem$age = 2019 - mar15dem$birth.year
+apr15dem$age = 2019 - apr15dem$birth.year
+may15dem$age = 2019 - may15dem$birth.year
+jun15dem$age = 2019 - jun15dem$birth.year
+jul15dem$age = 2019 - jul15dem$birth.year
+aug15dem$age = 2019 - aug15dem$birth.year
+sep15dem$age = 2019 - sep15dem$birth.year
+oct15dem$age = 2019 - oct15dem$birth.year
+nov15dem$age = 2019 - nov15dem$birth.year
+dec15dem$age = 2019 - dec15dem$birth.year
 # 
 create_subset = function(x) {
   x[c("bikeid", "usertype", "age", "gender", "yearmonth")];
