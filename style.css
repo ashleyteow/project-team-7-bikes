@@ -17,10 +17,29 @@ h1, h2, h3 {
 	width: 1600px;
 }
 
+/*
+TODO: delete this;
+*/
+.content-column {
+	display: none;
+}
+
+/*
+TODO: delete this;
+*/
+.hourly-trips {
+	display: none;
+}
+
+#gender {
+	display: block;
+}
+
 #map {
 	height: 800px;
     width: 1000px;
     margin: auto;
+    display: none;
 /*    width: 600px;
     height: 400px;
     position: relative;
