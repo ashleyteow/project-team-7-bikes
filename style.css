@@ -10,7 +10,7 @@ h1, h2, h3 {
 }
 
 .bar {
-	fill: grey;
+	fill: blue;
 }
 
 .demographics {
@@ -122,7 +122,9 @@ TODO: delete this;
 }
 
 .linePath {
-	stroke: black;
+	stroke: #0571b0;
+	fill: none;
+	stroke-width: 5px;
 }
 
 /* Fork on GitHub ribbon via https://codepo8.github.io/css-fork-on-github-ribbon/# */  
