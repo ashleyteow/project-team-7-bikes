@@ -67,11 +67,13 @@ aug19 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Pro
 sep19 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/DS4200/Project/BlueBikes Data/201909.csv")
 
 # Merge the individual data files into one
-all_boston = rbind(jan15, feb15, mar15, apr15, may15, jun15, jul15, aug15, sep15, oct15, nov15, dec15,
-                   jan16, feb16, mar16, apr16, may16, jun16, jul16, aug16, sep16, oct16, nov16, dec16,
-                   jan17, feb17, mar17, apr17, may17, jun17, jul17, aug17, sep17, oct17, nov17, dec17,
-                   jan18, feb18, mar18, apr18, may18, jun18, jul18, aug18, sep18, oct18, nov18, dec18,
-                   jan19, feb19, mar19, apr19, may19, jun19, jul19, aug19, sep19)
+# all_boston = rbind(jan15, feb15, mar15, apr15, may15, jun15, jul15, aug15, sep15, oct15, nov15, dec15,
+#                    jan16, feb16, mar16, apr16, may16, jun16, jul16, aug16, sep16, oct16, nov16, dec16,
+#                    jan17, feb17, mar17, apr17, may17, jun17, jul17, aug17, sep17, oct17, nov17, dec17,
+#                    jan18, feb18, mar18, apr18, may18, jun18, jul18, aug18, sep18, oct18, nov18, dec18,
+#                    jan19, feb19, mar19, apr19, may19, jun19, jul19, aug19, sep19)
+all_boston = rbind(oct18, nov18, dec18,
+                                      jan19, feb19, mar19, apr19, may19, jun19, jul19, aug19, sep19)
 all_boston$yearmonth = substr(all_boston$starttime, 1, 7)
 all_boston$age = 2019 - all_boston$birth.year
 all_boston_dem = all_boston[c("bikeid", "usertype", "age", "gender", "yearmonth")]
