@@ -10,13 +10,17 @@ h1, h2, h3 {
 }
 
 .bar {
-	fill: blue;
+	fill: #7570B3;
 }
 
 .demographics {
 	width: 1600px;
 }
 
+.svg-vis-demographics-line {
+	margin-bottom: -60px;
+	margin-top: 50px;
+}
 /*
 TODO: delete this;
 */
