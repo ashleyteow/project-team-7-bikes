@@ -56,13 +56,11 @@ chester_square_end = subset(all_boston, end.station.id == 364 | end.station.id =
 
 chester_square_start_hour = merge(count_start_sub(chester_square_start),
                                   count_start_cust(chester_square_start), by = "start_hour")
-chester_square_start_hour$total = chester_square_start_hour$subscriber 
-                                      + chester_square_start_hour$customer
+chester_square_start_hour$total = chester_square_start_hour$subscriber + chester_square_start_hour$customer
 
 chester_square_end_hour = merge(count_end_sub(chester_square_end),
                                   count_end_cust(chester_square_end), by = "end_hour")
-chester_square_end_hour$total = chester_square_end_hour$subscriber 
-                                + chester_square_end_hour$customer
+chester_square_end_hour$total = chester_square_end_hour$subscriber + chester_square_end_hour$customer
 
 
 ## Tremont St at Northampton St
