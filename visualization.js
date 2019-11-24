@@ -113,9 +113,9 @@ function basic_bar_chart(mydata, title, id) {
 					              .style("left", d3.event.pageX - 50 + "px")
 					              .style("top", d3.event.pageY - 70 + "px")
 					              .style("display", "inline-block")
-					              .html("Members:" + (d.subscriber / d.n) * 100 + "<br>" +       "Non-members:" + (d.customer / d.n) * 100);
+					              .html("Members:   " + (d.subscriber / d.n) * 100 + "%" + "<br>" +       "Non-members:   " + (d.customer / d.n) * 100 + "%");
 					        	})
-		    		.on("mouseout", function(d){ tooltip.style("display", "none")});             	  
+		    		// .on("mouseout", function(d){ tooltip.style("display", "none")});             	  
 
 
 	var line = d3.line()
