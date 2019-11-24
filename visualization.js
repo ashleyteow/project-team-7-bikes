@@ -66,6 +66,8 @@ function basic_bar_chart(mydata, title, id) {
 				.attr('height', height)
 				.attr('margin', margin);
 
+	var tooltip = d3.select("body").append("div").attr("class", "toolTip");				
+
 	// create the x-scale using the keys from a map call
 	// x-scale contains 0:00-23:00, indicating the hour of day in 24-hour time
 	var xScale = d3.scaleBand()
@@ -104,7 +106,16 @@ function basic_bar_chart(mydata, title, id) {
              	  .attr("width", xScale.bandwidth())
              	  .attr("height", function(d) { 
 					return height-margin.bottom-yScale(d.pct);
-             	  });
+             	  })
+					.on("mousemove", function(d){
+					            tooltip
+					              .style("left", d3.event.pageX - 50 + "px")
+					              .style("top", d3.event.pageY - 70 + "px")
+					              .style("display", "inline-block")
+					              .html("Members:" + (d.subscriber / d.n) * 100 + "<br>" +       "Non-members:" + (d.customer / d.n) * 100);
+					        	});
+		    		.on("mouseout", function(d){ tooltip.style("display", "none")});             	  
+
 
 	var line = d3.line()
 	  			 .x(function(d) { return xScale(d.start_hour); })

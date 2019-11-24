@@ -7,15 +7,7 @@ d3.csv('data/demographics_data/age.csv', function(d) {
     age: +d.age
   };
   // create a bar chart with the data that was read in
-}).then(function(data) {
-  lineChart2().x(d => d.yearmonth)
-              .xLabel("Month")
-              .y(d => d.age)
-              .yLabel("Age")
-              .yLabelOffset(40)
-              .selectionDispatcher(d3.dispatch("selectionUpdated"))
-              (data);
-});
+}).then(lineChart);
 
 
 // Read in gender data to be displayed in grouped bar chart representing gender breakdown of the 4 Chester Square Station customers
@@ -284,7 +276,7 @@ function lineChart2(){
           [x0, y0],
           [x1, y1]
         ] = d3.event.selection;
-        d3.selectAll(".linePath").classed("selected", d => )
+        // d3.selectAll(".linePath").classed("selected", d => )
 /*        line.classed("selected", d =>
           x0 <= X(d) && X(d) <= x1 && y0 <= Y(d) && Y(d) <= y1
         );*/
