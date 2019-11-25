@@ -13,6 +13,15 @@ h1, h2, h3 {
 	fill: #7570B3;
 }
 
+.selected {
+	fill: purple;
+}
+
+circle {
+	fill: red;
+	r: 10;
+}
+
 .demographics {
 	width: 1600px;
 }

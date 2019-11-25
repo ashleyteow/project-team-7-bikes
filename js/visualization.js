@@ -48,38 +48,24 @@ d3.csv('data/chester_square_end_hour.csv', function(d) {
 var genderChart;
 var ageChart;
 
-
 // Read in gender data to be displayed in grouped bar chart representing gender breakdown of the 4 Chester Square Station customers
-d3.csv("data/demographics_data/gender.csv", function(d) {
+d3.csv("data/demographics_data/demographics.csv", function(d) {
   return {
     yearmonth: d.yearmonth,
     male: +d.male,
     female: +d.female,
-    unreported: +d.unreported
-  };
-}).then(function(result) {
-   genderChart = gender_grouped_bar_chart2()
-    .x(d => d.yearmonth)
-    .xLabel("Year-Month")
-    .y(d => d.age)
-    .yLabel("Age")
-    .yLabelOffset(40)
-    .selectionDispatcher(d3.dispatch("selectionUpdated"))
-      ("#genders", result);
-
-genderChart.selectionDispatcher().on("selectionUpdated", ageChart.updateSelection);            
-});
-
-
-// Read in age data to be displayed in line chart representing average age
-d3.csv('data/demographics_data/age.csv', function(d) {
-  return {
-    yearmonth: d.yearmonth,
+    unreported: +d.unreported,
+    subscriber: +d.subscriber,
+    customer: +d.customer,
     age: +d.age
+
   };
-  // create a bar chart with the data that was read in
 }).then(function(result) {
-   ageChart = scatterplotLine()
+
+    let genderChart = gender_grouped_bar_chart(result);  
+
+    // lineChart(result);
+    let ageChart = scatterplotLine()
     .x(d => d.yearmonth)
     .xLabel("Year-Month")
     .y(d => d.age)
@@ -88,8 +74,53 @@ d3.csv('data/demographics_data/age.csv', function(d) {
     .selectionDispatcher(d3.dispatch("selectionUpdated"))
       ("#svg-vis-demographics-line", result);
 
-  ageChart.selectionDispatcher().on("selectionUpdated", genderChart.updateSelection);      
+  // genderChart.selectionDispatcher().on("selectionUpdated", ageChart.updateSelection);            
+  // ageChart.selectionDispatcher().on("selectionUpdated", genderChart.updateSelection);      
 });
+
+
+
+// // Read in gender data to be displayed in grouped bar chart representing gender breakdown of the 4 Chester Square Station customers
+// d3.csv("data/demographics_data/gender.csv", function(d) {
+//   return {
+//     yearmonth: d.yearmonth,
+//     male: +d.male,
+//     female: +d.female,
+//     unreported: +d.unreported
+//   };
+// }).then(function(result) {
+//    genderChart = gender_grouped_bar_chart2()
+//     .x(d => d.yearmonth)
+//     .xLabel("Year-Month")
+//     .y(d => d.age)
+//     .yLabel("Age")
+//     .yLabelOffset(40)
+//     .selectionDispatcher(d3.dispatch("selectionUpdated"))
+//       ("#genders", result);
+
+// genderChart.selectionDispatcher().on("selectionUpdated", ageChart.updateSelection);            
+// });
+
+
+// // Read in age data to be displayed in line chart representing average age
+// d3.csv('data/demographics_data/age.csv', function(d) {
+//   return {
+//     yearmonth: d.yearmonth,
+//     age: +d.age
+//   };
+//   // create a bar chart with the data that was read in
+// }).then(function(result) {
+//    ageChart = scatterplotLine()
+//     .x(d => d.yearmonth)
+//     .xLabel("Year-Month")
+//     .y(d => d.age)
+//     .yLabel("Age")
+//     .yLabelOffset(40)
+//     .selectionDispatcher(d3.dispatch("selectionUpdated"))
+//       ("#svg-vis-demographics-line", result);
+
+//   ageChart.selectionDispatcher().on("selectionUpdated", genderChart.updateSelection);      
+// });
 
 // Read in user membership data to be displayed in grouped bar chart representing Bluebikes subscriber/customer breakdown of the 4 Chester Square Station customers
 d3.csv("data/demographics_data/users.csv", function(d) {

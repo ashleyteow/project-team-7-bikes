@@ -70,48 +70,67 @@ function lineChart(data) {
   svg.append('path')
             .attr('d', line(data))
             .attr('class', 'linePath'); 
+  svg.call(d3.brushX()
+              .extent([[0,0], [width, height]])
+              .on("end brush", brushed));
+
+  function brushed() {
+    var extent = d3.event.selection;
+    console.log("hello");
+    console.log(extent);
+    var s = extent.map(x.invert, x);
+    x.domain(s);
+    focuslines.attr("d", function(d) {
+      return line(d.age)
+    });
+    focus.select(".axis--x").call(xAxis);
+    focus.select(".axis--y").call(yAxis);
+  }
 
 
 
-  svg.append('g').append('rect')
-      .attr("x", -xScale.step() / 2)
-      .attr("y", 0)
-      .attr("width", width - margin.left - margin.right + xScale.step())
-      .attr("height", height - margin.top - margin.bottom)
-      .attr("fill", "grey")
-      .attr("opacity", 0); 
+
+
+
+  // svg.append('g').append('rect')
+  //     .attr("x", -xScale.step() / 2)
+  //     .attr("y", 0)
+  //     .attr("width", width - margin.left - margin.right + xScale.step())
+  //     .attr("height", height - margin.top - margin.bottom)
+  //     .attr("fill", "grey")
+  //     .attr("opacity", 0); 
 
   // Set up Brush
-  var lineBrush = d3.brushX()
-    .extent([[-xScale.step() / 2, 0], [width - margin.left - margin.right + xScale.step() / 2, height - margin.bottom - margin.top / 2]])
-    .on('end', lineBrushEnded);  
+  // var lineBrush = d3.brushX()
+  //   .extent([[-xScale.step() / 2, 0], [width - margin.left - margin.right + xScale.step() / 2, height - margin.bottom - margin.top / 2]])
+  //   .on('end', lineBrushEnded);  
 
-  svg.append('g')
-    .attr("class", "brush")
-    .style("opacity", ".5")
-    .attr("brushnum", 1)
-    .call(lineBrush)
+  // svg.append('g')
+  //   .attr("class", "brush")
+  //   .style("opacity", ".5")
+  //   .attr("brushnum", 1)
+  //   .call(lineBrush)
     // .call(lineBrush.move, [
     //   xScale(presentTime) - xScale.step() / 2,
     //   xScale(presentTime) + xScale.step() / 2
     // ]);          
 
-  svg.on("mousedown", function () {
-    var coords = d3.mouse(this);
-    xcoord = coords[0];
-    svg.select('.brush').call(lineBrush.move, [xcoord - xScale.step() / 2, xcoord + xScale.step() / 2]).call(lineBrushEnded);
-  })
+  // svg.on("mousedown", function () {
+  //   var coords = d3.mouse(this);
+  //   xcoord = coords[0];
+  //   svg.select('.brush').call(lineBrush.move, [xcoord - xScale.step() / 2, xcoord + xScale.step() / 2]).call(lineBrushEnded);
+  // })
 
-  function lineBrushEnded() {
-    const selection = d3.event.selection;
-    if (!d3.event.sourceEvent || !selection) return;
-    const range = xScale.domain().map(xScale), dx = xScale.step() / 2;
-    const x0 = range[d3.bisectRight(range, selection[0])] - dx;
-    const x1 = range[d3.bisectRight(range, selection[1]) - 1] + dx;
-    d3.select(this).transition().call(d3.event.target.move, x1 > x0 ? [x0, x1] : null);
-    d3.select(".svg-vis-demographics-line").html(null);
-    // time = formatTime(parseSingle(invertPoint((x1 + x0) / 2)))
+  // function lineBrushEnded() {
+  //   const selection = d3.event.selection;
+  //   if (!d3.event.sourceEvent || !selection) return;
+  //   const range = xScale.domain().map(xScale), dx = xScale.step() / 2;
+  //   const x0 = range[d3.bisectRight(range, selection[0])] - dx;
+  //   const x1 = range[d3.bisectRight(range, selection[1]) - 1] + dx;
+  //   d3.select(this).transition().call(d3.event.target.move, x1 > x0 ? [x0, x1] : null);
+  //   d3.select(".svg-vis-demographics-line").html(null);
+  //   // time = formatTime(parseSingle(invertPoint((x1 + x0) / 2)))
 
-    // AP_stuff(max, data2.filter(function (d) { return d.time == time; }), time)
-  };  
+  //   // AP_stuff(max, data2.filter(function (d) { return d.time == time; }), time)
+  // };  
 };  

@@ -1,5 +1,5 @@
 // ------------------- test line function scatterplot -----------------------------
-
+// TODO: add jquery to acknowledgements
 
 function scatterplotLine() {
 
@@ -43,13 +43,13 @@ function scatterplotLine() {
     svg = svg.append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    var xScale = d3.scaleBand()
-             .domain(d3.map(data, function(d) { return d.yearmonth; }).keys())
-             .range([margin.left, width-margin.right], 1.0);
+    xScale
+         .domain(d3.map(data, function(d) { return d.yearmonth; }).keys())
+         .range([margin.left, width-margin.right], 1.0);
 
-    var yScale = d3.scaleLinear()
-             .domain([0, maxAge + 10])
-             .range([height - margin.bottom - margin.top, 0]);
+    yScale
+         .domain([0, maxAge + 10])
+         .range([height - margin.bottom - margin.top, 0]);
 
     var xAxis = d3.axisBottom(xScale);
     svg.append('g')
@@ -103,15 +103,15 @@ function scatterplotLine() {
       .merge(points)
         .attr("cx", X)
         .attr("cy", Y)        
-        .attr("r",5);
+        .attr("r",3);
         
     selectableElements = points;
 
     svg.call(brush);
 
     // Highlight points when brushed
-    function brush(g) {
-      const brush = d3.brush()
+    function brush(g) {   
+      const brush = d3.brushX()
         .on("start brush", highlight)
         .on("end", brushEnd)
         .extent([
@@ -121,31 +121,63 @@ function scatterplotLine() {
 
       ourBrush = brush;
 
-      g.call(brush); // Adds the brush to this element
+      svg.call(brush); // Adds the brush to this element
 
       // Highlight the selected circles.
       function highlight() {
+        d3.selectAll('.yearmonth').transition().style('opacity', 0.2);
         if (d3.event.selection === null) return;
         const [
-          [x0, y0],
-          [x1, y1]
+          x0, x1
         ] = d3.event.selection;
+
+        
         points.classed("selected", d =>
-          x0 <= X(d) && X(d) <= x1 && y0 <= Y(d) && Y(d) <= y1
+          x0 <= X(d) && X(d) <= x1
         );
 
         // Get the name of our dispatcher's event
         let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
+        // array of selected points
+        var selectedData = svg.selectAll(".selected").data();
+    
 
-        // Let other charts know
-        dispatcher.call(dispatchString, this, svg.selectAll(".selected").data());
+
+        // get the yearmonth from each selected point
+        // selectedData[0].yearmonth
+
+        // Array of g objects of size 12. Get the grouped bars (g tags with yearmonth class) that come from the gender chart that correspond to the year month that was selected in the line chart
+        ;
+
+
+        var counter = 0;
+      
+        var bars = [];
+        while (counter < selectedData.length) {
+          var rects = $("#gender").find(".yearmonth").each(function(idx, val) {
+            if (val.id == selectedData[counter].yearmonth) {
+              bars.push(val)
+            }
+          });
+          counter++
+        }
+
+        for (var i = 0; i < bars.length; i++) {
+          $("#" + bars[i].id).children().each(function(idx, val) {
+            val.style.fill = 'purple';
+          });
+        }
+        d3.selectAll(".yearmonth").transition()
+        .style("opacity", "0.3");   
       }
       
       function brushEnd() {
         // We don't want an infinite recursion
         if (d3.event.sourceEvent.type != "end") {
           d3.select(this).call(brush.move, null);
+          // d3.selectAll('.yearmonth').transition().style('opacity', 1.0);
         }
+        d3.selectAll('.yearmonth').transition().style('opacity', 1.0);
       }
     }
 
@@ -232,10 +264,6 @@ function scatterplotLine() {
 }
 
 
-
-
-
-// ------------------- test line function scatterplot -----------------------------
       
 
 
