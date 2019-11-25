@@ -27,25 +27,18 @@ circle {
 }
 
 .svg-vis-demographics-line {
-	margin-bottom: -60px;
-	margin-top: 50px;
-}
-/*
-TODO: delete this;
-*/
-.content-column {
-	display: none;
+	margin: auto
 }
 
-/*
-TODO: delete this;
-*/
-.hourly-trips {
-	display: block;
-}
 
 #gender {
 	display: block;
+	margin-left: 105px;
+}
+
+#users {
+	display: block;
+	margin-left: 105px;
 }
 
 .toolTip {
@@ -60,10 +53,10 @@ TODO: delete this;
 }
 
 #map {
-	height: 800px;
-    width: 1000px;
+	height: 600px;
+    width: 800px;
     margin: auto;
-    display: none;
+    display: block;
 /*    width: 600px;
     height: 400px;
     position: relative;
@@ -77,11 +70,13 @@ TODO: delete this;
 
 #chester_square_start_trips {
 	margin: auto;
+	display: block;
 }
 
 .trip-toggle-button {
     position: absolute;
-    right: 0;	
+    right: 0;
+    left: 80%;	
 	color: #fff !important;
 	text-transform: uppercase;
 	text-decoration: none;

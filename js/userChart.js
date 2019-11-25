@@ -6,7 +6,7 @@ function users_grouped_bar_chart(data) {
   });
 
   var container = d3.select('.demographics'),
-    width = 800,
+    width = 1200,
     height = 300,
     margin = {top: 50, right: 20, bottom: 60, left: 100},
     barPadding = .2,

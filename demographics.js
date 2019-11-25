@@ -12,7 +12,7 @@ function scatterplotLine() {
       right: 100
     },
     width = 1300,
-    height = 500;
+    height = 300;
     xValue = d => d[0],
     yValue = d => d[1],
     xLabelText = "",
