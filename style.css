@@ -9,15 +9,18 @@ h1, h2, h3 {
 	line-height: 1.2
 }
 
+/* bar in the stations bar chart */
 .bar {
 	fill: #7570B3;
 }
 
+/* the selected data points in the scatterplot */
 .selected {
 	fill: purple;
 	stroke: purple;
 }
 
+/* the data points on the scatterplot */
 circle {
 	fill: white;
 	stroke: #0571b0;
@@ -29,21 +32,30 @@ circle {
 	width: 1600px;
 }
 
+/* styling for the visualization annotations */
+.vis-explanation {
+	font-size: 14px;
+	margin-left: 100px;
+	margin-right: 100px;
+}
+
 .svg-vis-demographics-line {
 	margin: auto
 }
 
-
+/* the gender double bar chart */
 #gender {
 	display: block;
 	margin-left: 105px;
 }
 
+/* the membership double bar chart */
 #users {
 	display: block;
 	margin-left: 105px;
 }
 
+/* tooltip on stations bar charts */
 .toolTip {
   position: absolute;
   text-align: center;
@@ -59,6 +71,7 @@ circle {
   pointer-events: none;
 }
 
+/* formatting the leaflet map */
 #map {
 	height: 300px;
     width: 1000px;
@@ -66,16 +79,19 @@ circle {
     display: block;
 }
 
+/* end trip bar chart */
 #chester_square_end_trips {
 	display: none;
 	margin: 105px;
 }
 
+/* start trip bar chart */
 #chester_square_start_trips {
 	margin: 105px;
 	display: block;
 }
 
+/* button to toggle between start and end */
 .trip-toggle-button {
     position: absolute;
     right: 0;
@@ -105,14 +121,11 @@ circle {
 	 border-color:#BBBBBB;
 }
 
+/* formatting the stations bar charts */
 .hourly-trips {
 	margin: auto;
 	position: relative;
 }
-/*.map-holder {
-	height: 300px;
-	width: 300px;
-}*/
 
 /* Your text should be in a nice narrow column */
 .content-column {
@@ -126,12 +139,14 @@ circle {
   height: 800;
 }
 
+/* line chart representing data from all Boston stations */
 .dataLine {
 	stroke: red;
 	stroke-width: 5px;
 	fill: none;
 }
 
+/* age line chart */
 .linePath {
 	stroke: #0571b0;
 	fill: none;
