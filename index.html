@@ -70,38 +70,34 @@
 
     </div>
 
+            <p>
+        <em>
+        Map description:
+        Above you can find a map of Chester Square. The four blue markers represent the four BlueBikes stations closest and most relevant to the Chester Square neighborhood that is included in our analysis. You can zoom in and out of the Chester Square neighborhood area in the map. You can hover over a blue marker to see the name of the BlueBikes station.
+        </em>
+      </p>
     <div id="map">
     </div>
 
 
     <!-- Your visualization here -->
-    <!--
-		<p>
-			<em>
-			Map description:
-			Below you can find a map of Chester Square. The four blue markers represent the four BlueBikes stations closest and most relevant to the Chester Square neighborhood that is included in our analysis. You can zoom in and out of the Chester Square neighborhood area in the map. You can hover over a blue marker to see the name of the BlueBikes station.
-			</em>
-		</p>
-
-		<p>
-			<em>
-			Demographics visualization description:
-			Below you can find three graphs presenting demographic data for BlueBikes users in Boston. The first line chart displays the change in average age of BlueBikes users in the past year. The next grouped bar chart displays the number of BlueBikes members versus non-members for each month in the past year. The last grouped bar chart displays the gender counts of BlueBikes users (self-reported) for each month in the past year. You can brush over the points on the average age line chart in order to highlight on the other two graphs the member versus nonmember breakdown and gender breakdown for the selected months.
-			</em>
-		</p>
-
-		<p>
-			<em>
-			Daily BlueBikes Usage visualization description:
-			Below you can find a bar chart presenting the percentage of daily trips taken in each hour of an average day for Chester Square BlueBikes stations. The red line outlines the hourly percentage of trips for all BlueBikes stations in Boston, allowing for a comparison between Chester Square and Boston. The current bar chart displays the data for trips starting in Chester Square. You can select the toggle button to see the data for trips ending in Chester Square. You can also hover over each bar to see the percentage of trips in that hour taken by BlueBikes members versus non-members.
-			</em>
-		</p>
-  -->
-
     <div class="vis-holder">
+
       <div class="demographics">
+        <p>
+        <em>
+        Demographics visualization description:
+        Below you can find three graphs presenting demographic data for BlueBikes users in Boston. The first line chart displays the change in average age of BlueBikes users in the past year. The next grouped bar chart displays the number of BlueBikes members versus non-members for each month in the past year. The last grouped bar chart displays the gender counts of BlueBikes users (self-reported) for each month in the past year. You can brush over the points on the average age line chart in order to highlight on the other two graphs the member versus nonmember breakdown and gender breakdown for the selected months.
+        </em>
+      </p>
       </div>
       <div class="hourly-trips">
+      <p>
+        <em>
+        Daily BlueBikes Usage visualization description:
+        Below you can find a bar chart presenting the percentage of daily trips taken in each hour of an average day for Chester Square BlueBikes stations. The red line outlines the hourly percentage of trips for all BlueBikes stations in Boston, allowing for a comparison between Chester Square and Boston. The current bar chart displays the data for trips starting in Chester Square. You can select the toggle button to see the data for trips ending in Chester Square. You can also hover over each bar to see the percentage of trips in that hour taken by BlueBikes members versus non-members.
+        </em>
+      </p>
         <button class="trip-toggle-button" onclick="showStartTrips()">Toggle Trips</button>
         <!-- <button onclick="showEndTrips()">Ending Trips</button> -->
       </div>
@@ -126,7 +122,7 @@
 	         	</p>
       		</video>
 
-      	<h1>Visualization explanation</h1>
+      	<h1>Visualization Explanation</h1>
 
       		<!--<p>
       			<em>
@@ -134,11 +130,24 @@
       			</em>
       		</p>-->
 
-					<p>
-						<em>
-						final visualization screenshots (PNG images), design justifications, UI walk-through, and linked presentation slides.
-						</em>
-			    </p>
+          <p>
+            Design Iterations:
+            <a href="UIWalkthrough.pdf"> Initial Design of Website with UI Walkthrough </a>
+          </p>
+
+          <p>
+            Design Justifications:
+            <ul>
+              <li> Demographics Data </li>
+                <ul>
+                  <li> Age: This chart is a line chart because of the fact that it is exploring how a quantitative variable (average age) changes over time. The specific points are visible in order to distinguish the points that have been plotted from the connecting line itself. These points have no fill color initially to make it clear to the user which months they have brushed over. </li>
+                  <li> Membership Status: <strong>NEEDS TO BE WRITTEN</strong> </li>
+                  <li> Gender: <strong>NEEDS TO BE WRITTEN</strong></li>
+                </ul>
+              <li> Station Data </li>
+              The trip information for the Chester Square stops is represented by a bar chart so that it is easy to see the peaks in Bluebikes usage. A line chart representing Bluebikes usage across Boston so that the usage of the four stations of interest is shown as comparable to that of Bluebikes in general, highlighting that it is a well-used service in the Chester Square neighborhood.
+            </ul>
+          </p>
 
       	<h1>Data Analysis</h1>
       		<!--<p>
