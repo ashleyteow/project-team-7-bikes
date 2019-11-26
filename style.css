@@ -61,13 +61,9 @@ circle {
 
 #map {
 	height: 300px;
-    width: 400px;
+    width: 1000px;
     margin: auto;
     display: block;
-/*    width: 600px;
-    height: 400px;
-    position: relative;
-    outline: none;*/
 }
 
 #chester_square_end_trips {
