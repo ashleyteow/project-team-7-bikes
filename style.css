@@ -148,6 +148,7 @@ circle {
 	line-height:2rem;
 	position:relative;
 	transition:0.5s;
+	display: none;
 }
 #forkongithub a:hover{
 	background:#118;
