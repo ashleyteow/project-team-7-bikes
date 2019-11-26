@@ -71,30 +71,34 @@ function users_grouped_bar_chart(data) {
   svg.append("g")
      .attr("class", "x axis")
      .attr("transform", `translate(0,${height - margin.top - margin.bottom})`)
+     .style("font-size", "12px")
      .call(xAxis);
 
   // Add the Y Axis
   svg.append("g")
      .attr("class", "y axis")
+     .style("font-size", "12px")
      .call(yAxis);
 
   // create a x-axis title
   var xLabel = svg.append("text")
                   .attr("text-anchor", "middle")
-                  .attr("transform", "translate("+ ((width/2)-90) +","+(height-(margin.bottom/3)-40)+")")
+                  .style("font-size", "16px")
+                  .attr("transform", "translate("+ ((width/2)-90) +","+(height-(margin.bottom/3)-50)+")")
                   .text("Year-Month");
 
   // create a y-axis title
   var yLabel = svg.append("text")
                   .attr("text-anchor", "middle")
-                  .attr("transform", "translate("+ ((margin.left/2)-125) +","+(height/2)+")rotate(-90)")
+                  .style("font-size", "16px")
+                  .attr("transform", "translate("+ ((margin.left/2)-115) +","+((height/2)-55)+")rotate(-90)")
                   .text("Number of Users");
 
   // create a chart title
   var chartTitle = svg.append("text")
                       .attr("text-anchor", "middle")
-                      .attr("transform", "translate("+ ((width/2) - 50) +","+((margin.bottom/3)-30)+")")
-                      .text("BlueBikes Usage by Membership from October 2018-September 2019");
+                      .attr("transform", "translate("+ ((width/2) - 90) +","+((margin.bottom/3)-50)+")")
+                      .text("Membership Status of Bluebikes Users");
 
   var color = d3.scaleOrdinal().range(["#e9a3c9", "#a1d76a"]);
 
@@ -108,25 +112,29 @@ function users_grouped_bar_chart(data) {
     d3.select(this).style('opacity', 1.0);
   }
 
-	var legend = svg.selectAll('.legend')
-    .data(["Member", "Non-Member"])
-    .enter()
-    .append('g')
-    .attr('class', 'legend')
-    .attr("transform", function (d, i) {
-      return "translate(" + ((width / 2 + margin.left / 2 - Math.abs((125) * (i - 1) * (i - 2)) - Math.abs((i) * (122) * (i - 2)) - Math.abs((i) * (i - 1) * (10))) - 75) + "," + ((-margin.top / 6) - 30) + ")";
-    });
+  svg.append("rect")
+     .attr("x", width/2-180)
+     .attr("y", (height/4)-95)
+     .attr("width", 15)
+     .attr("height", 15)
+     .style("fill", "#e9a3c9");
+  svg.append("text")
+     .attr("x", width/2-160)
+     .attr("y", (height/4)-86)
+     .text("Member")
+     .style("font-size", "15px")
+     .attr("alignment-baseline","middle");
+  svg.append("rect")
+     .attr("x", width/2-80)
+     .attr("y", (height/4)-95)
+     .attr("width", 15)
+     .attr("height", 15)
+     .style("fill", "#a1d76a");
+  svg.append("text")
+     .attr("x", width/2-60)
+     .attr("y", (height/4)-86)
+     .text("Non-Member")
+     .style("font-size", "15px")
+     .attr("alignment-baseline","middle");
 
-  legend.append('rect')
-    .attr('x', function (d, i) { return (i * 10) + margin.left; })
-    .attr('y', margin.top - 10)
-    .attr('width', 10)
-    .attr('height', 10)
-    .style('fill', color);
-
-
-  legend.append('text')
-    .attr('x', function (d, i) { return (i * 10) + margin.left + 15; })
-    .attr('y', margin.top)
-    .text(function (d) { return d; });
-  }
+}

@@ -1,15 +1,18 @@
 // -------------------- START DISPLAY CHESTER SQUARE MAP CODE --------------------------
 var mymap = L.map('map', {
   center: [42.338389, -71.078518],
-  zoom: 16
+  zoom: 10
   // zoom: 10
 });
 
+mymap.dragging.disable();
+mymap.doubleClickZoom.disable();
+mymap.scrollWheelZoom.disable();
 
-L.marker([42.338921, -71.081050]).addTo(mymap);
-L.marker([42.338606, -71.074023]).addTo(mymap);
-L.marker([42.340811, -71.081176]).addTo(mymap);
-L.marker([42.341297, -71.080406]).addTo(mymap);
+L.marker([42.338921, -71.081050]).bindTooltip("Tremont St @ Northampton St").addTo(mymap);
+L.marker([42.338606, -71.074023]).bindTooltip("Washington St @ Rutland St").addTo(mymap);
+L.marker([42.340811, -71.081176]).bindTooltip("Columbus St @ Massachusetts Ave").addTo(mymap);
+L.marker([42.341332, -71.076847]).bindTooltip("South End Library").addTo(mymap);
 
 
 
@@ -38,7 +41,7 @@ d3.csv('data/chester_square_start_hour.csv', function(d) {
   };
   // create a bar chart with the data that was read in
 }).then(function(result) {
-	basic_bar_chart(result, "Hourly Percentage of BlueBikes Trips Starting in Chester Square", "chester_square_start_trips");
+	basic_bar_chart(result, "Hourly Percentage of Daily Trips Starting in Chester Square", "chester_square_start_trips");
 });
 
 // Reading in the data for the trips that END at all 4 stations around Chester Square then calling the basic_bar_chart function with the appropriate title
@@ -54,7 +57,7 @@ d3.csv('data/chester_square_end_hour.csv', function(d) {
   };
   // create a bar chart with the data that was read in
 }).then(function(result) {
-	basic_bar_chart(result, "Hourly Percentage of BlueBikes Trips Ending in Chester Square", "chester_square_end_trips");
+	basic_bar_chart(result, "Hourly Percentage of Daily Trips Ending in Chester Square", "chester_square_end_trips");
 });
 
 var genderChart;
