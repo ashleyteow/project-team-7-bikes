@@ -237,13 +237,13 @@ function lineChart2(){
 
     svg
     .call(d3.brushX()                 // Add the brush feature using the d3.brush function
-      .extent([ [margin.left, margin.top], [width - margin.right,height - margin.bottom] ] ) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
+      .extent([ [margin.left, margin.top], [width - margin.right, height - margin.bottom] ] ) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
       .on("start brush", updateChart) // Each time the brush selection changes, trigger the 'updateChart' function
     )
 
   // Function that is triggered when brushing is performed
   function updateChart() {
-    extent = d3.event.selection
+    extent = d3.event.selection;
     // line.classed("selected", function(d){ return isBrushed(extent, x(d.yearmonth) ) } )
 
     // d3.selectAll(".linePath").classed("selected", d =>

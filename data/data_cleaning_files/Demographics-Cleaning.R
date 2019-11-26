@@ -73,41 +73,11 @@ all_boston_dem = rbind(jan15dem, feb15dem, mar15dem, apr15dem, may15dem, jun15de
                    jan17dem, feb17dem, mar17dem, apr17dem, may17dem, jun17dem, jul17dem, aug17dem, sep17dem, oct17dem, nov17dem, dec17dem,
                    jan18dem, feb18dem, mar18dem, apr18dem, may18dem, jun18dem, jul18dem, aug18dem, sep18dem, oct18dem, nov18dem, dec18dem,
                    jan19dem, feb19dem, mar19dem, apr19dem, may19dem, jun19dem, jul19dem, aug19dem, sep19dem, oct19dem)
-all_boston_dem$birth.year[all_boston_dem$birth.year == "\\N"] = NA
-all_boston_dem$birth.year[is.null(all_boston_dem$birth.year)] = NA
-all_boston_dem$birth.year[all_boston_dem$birth.year == "1900" 
-                       || all_boston_dem$birth.year == "1917" 
-                       || all_boston_dem$birth.year == "1901" 
-                       || all_boston_dem$birth.year == "1902" 
-                       || all_boston_dem$birth.year == "1886" 
-                       || all_boston_dem$birth.year == "1927" 
-                       || all_boston_dem$birth.year == "1887" 
-                       || all_boston_dem$birth.year == "1929" 
-                       || all_boston_dem$birth.year == "1888"] = NA
-all_boston_dem$age = 2019 - all_boston_dem$birth.year
 all_boston_dem = all_boston_dem[c("bikeid", "usertype", "age", "gender", "starttime")]
+names(all_boston_dem) = c("bikeid", "usertype", "age", "gender", "yearmonth")
 
 install.packages("dplyr")
 library(dplyr)
-
-jan15dem$age = 2019 - jan15dem$birth.year
-feb15dem$age = 2019 - feb15dem$birth.year
-mar15dem$age = 2019 - mar15dem$birth.year
-apr15dem$age = 2019 - apr15dem$birth.year
-may15dem$age = 2019 - may15dem$birth.year
-jun15dem$age = 2019 - jun15dem$birth.year
-jul15dem$age = 2019 - jul15dem$birth.year
-aug15dem$age = 2019 - aug15dem$birth.year
-sep15dem$age = 2019 - sep15dem$birth.year
-oct15dem$age = 2019 - oct15dem$birth.year
-nov15dem$age = 2019 - nov15dem$birth.year
-dec15dem$age = 2019 - dec15dem$birth.year
-# 
-create_subset = function(x) {
-  x[c("bikeid", "usertype", "age", "gender", "yearmonth")];
-}
-
-jan15_dem = create_subset(jan15)
 
 ## Subscriber/Customer Count
 count_sub = function(x) {
@@ -160,10 +130,10 @@ gender = merge(gender1, non_reported, by = "yearmonth")
 avg_age = function(x) {
   x %>%
     group_by(yearmonth) %>%
-    summarize(age = mean(age));
+    summarize(age = mean(age, na.rm = TRUE));
 }
 
-age = avg_age(all_boston_dem)
+age_df = avg_age(all_boston_dem)
 
 # Write data frames to .csv files
 write.csv(users, 
