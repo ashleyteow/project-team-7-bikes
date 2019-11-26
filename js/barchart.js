@@ -103,15 +103,27 @@ function basic_bar_chart(mydata, title, id) {
 
 
     svg.append("rect")
-     .attr("x", (width/2) - 85)
+     .attr("x", (width/2) - 200)
      .attr("y", (height/3) - 140)
      .attr("width", 30)
      .attr("height", 5)
      .style("fill", "red");
   	svg.append("text")
-     .attr("x", width/2-40)
+     .attr("x", width/2-160)
      .attr("y", (height/3)-136)
-     .text("All of Boston")
+     .text("All Boston Stations")
+     .style("font-size", "15px")
+     .attr("alignment-baseline","middle");
+    svg.append("rect")
+     .attr("x", (width/2))
+     .attr("y", (height/3) - 140)
+     .attr("width", 30)
+     .attr("height", 5)
+     .style("fill", "#7570B3");
+  	svg.append("text")
+     .attr("x", width/2+40)
+     .attr("y", (height/3)-136)
+     .text("Chester Square Stations")
      .style("font-size", "15px")
      .attr("alignment-baseline","middle");
 };
