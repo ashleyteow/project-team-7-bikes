@@ -10,17 +10,53 @@ h1, h2, h3 {
 }
 
 .bar {
-	fill: blue;
+	fill: #7570B3;
+}
+
+.selected {
+	fill: purple;
+}
+
+circle {
+	fill: red;
+	r: 10;
 }
 
 .demographics {
 	width: 1600px;
 }
 
+.svg-vis-demographics-line {
+	margin: auto
+}
+
+
+#gender {
+	display: block;
+	margin-left: 105px;
+}
+
+#users {
+	display: block;
+	margin-left: 105px;
+}
+
+.toolTip {
+  position: absolute;
+  display: none;
+  min-width: 80px;
+  height: auto;
+  background: none repeat scroll 0 0 #ffffff;
+  border: 1px solid #6F257F;
+  padding: 14px;
+  text-align: center;
+}
+
 #map {
-	height: 800px;
-    width: 1000px;
+	height: 600px;
+    width: 800px;
     margin: auto;
+    display: block;
 /*    width: 600px;
     height: 400px;
     position: relative;
@@ -34,11 +70,13 @@ h1, h2, h3 {
 
 #chester_square_start_trips {
 	margin: auto;
+	display: block;
 }
 
 .trip-toggle-button {
     position: absolute;
-    right: 0;	
+    right: 0;
+    left: 80%;	
 	color: #fff !important;
 	text-transform: uppercase;
 	text-decoration: none;

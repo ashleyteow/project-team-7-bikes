@@ -19,6 +19,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="/favicons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	</head>
 
   	<!-- Main page content -->
@@ -49,13 +50,13 @@
 
     <p>
     	<em>
-    	Currently, the bike lanes available for cyclists traveling through Chester Square area are too narrow and too close to incoming traffic for cyclists to feel safe. In addition, the availability of decent parking spaces for them are scarcely limited from our observation, which is why there might not be many cyclists in the area. Something else we discovered during our site visits, was that there are currently 4 BlueBikes stations neighboring the Chester Square area. We decided to investigate these stations further for their usage data in order to determine whether cyclists are making use of these stations as an alternative to having their own bikes. BlueBikes offers public access to their system data of all BlueBikes trips to allow people to use their data for any type of analysis and visualization.
+    	Currently, the bike lanes available for cyclists traveling through Chester Square area are too narrow and too close to incoming traffic for cyclists to feel safe. In addition, the availability of decent parking spaces for them in the Chester Square area are scarcely limited from our observation, which is a possible explanation as to why there might not be many cyclists in the area. Something else we discovered during our site visits, was that there are currently four BlueBikes stations neighboring the Chester Square area. We decided to investigate these stations further to analyze their usage in order to determine whether cyclists are making use of these stations as an alternative to having their own bikes. BlueBikes offers public access to their system data of all BlueBikes trips since 2015 to allow people to use their data for any type of analysis and visualization.
     	</em>
 	</p>
 
     <p>
     	<em>
-    	We analyzed the four relevant BlueBikes stations around Chester Square as a single data set that acts as the representative BlueBikes data set for Chester Square as a whole. By looking into the hourly usage of the BlueBikes stations and compare that to the average hourly usage for all of the BlueBikes stations in Boston, as well as the breakdown of whether or not these trips were taken by subscribers or non-subscribers, we were able to recognize a trend of mainly subscribers in the Chester Square neighborhood. BlueBikes subscribers typically have shorter trip durations because they are utilizing the service as an alternative to a ~20min walk. Bluebikes customers generally have longer trip durations, because they tend to want to make as much use out of their rented time as possible. As a means to increase bike usage and alleviate some of these cyclists' worries, we created our visualizations in a way that highlights the short but frequent trips taken at these stations. We wanted to make an argument it might be a feasible option for Bluebikes to have another station in this area as a means to further increase bike usage for the subscribers in the nighborhood. This is why we also visualized the BlueBikes user demographics in Boston in order to provide insight as to how or whether Chester Square residents associate with the BlueBikes user demographics in Boston.
+    	We first analyzed the four relevant BlueBikes stations around Chester Square as a single data set that acts as the representative BlueBikes data set for the Chester Square area as a whole. We looked into the hourly usage of the Chester Square BlueBikes stations and compared that to the average hourly usage for all of BlueBikes stations in Boston. With this hourly analysis, along with a breakdown of whether the trips for each hour were taken by BlueBikes members or non-members, we were able to recognize a trend of mainly members in the Chester Square neighborhood. As a means to analyze bike usage for an average day in Chester Square, we created our visualizations in a way that highlights the trips taken to and from these stations. We also wanted to make an argument that it might be a feasible option for Bluebikes to establish another station within the Chester Square area as a means to further increase bike usage for the members in the nighborhood. This is why we also visualized the BlueBikes user demographics for all of Boston in order to provide insight as to how or whether Chester Square residents fit into the BlueBikes user demographics in Boston. By considering the usage of the Chester Square BlueBikes stations along with the demographics of BlueBikes users in Boston, we explore the possibility of establishing a new BlueBikes station to better accomodate Chester Square residents and their biking transportation needs with an end goal of promoting bike usage as a whole.
     	</em>
     </p>
 
@@ -235,6 +236,7 @@
 	        <li><a href="http://bl.ocks.org/phoebebright/3061203">D3 Axis Labels</a> by Phoebe Bright. </li>
 	        <li><a href="https://medium.com/@vaibhavkumar_19430/how-to-create-a-grouped-bar-chart-in-d3-js-232c54f85894">How to Create a Grouped Bar Chart in d3.js</a> by Vaibhav Kumar. </li>
           <li><a href="https://leafletjs.com/examples.html"> Leaflet: an open-source JavaScript library for mobile-friendly interactive maps</a></li>
+          <li><a href="https://jquery.com/"> JQuery</a></li>
 	      </ul>
 
     </div>
@@ -242,7 +244,10 @@
     <!-- Scripts at the end avoid need for dealing with async, defer, or onload event handlers -->
     <script src="lib/d3.v5.12.0/d3.min.js"></script>
     <script src="lib/leaflet/leaflet.js"></script>
-    <script src="visualization.js"></script>
     <script src="demographics.js"></script>
+    <script src="js/barchart.js"></script>
+    <script src="js/genderChart.js"></script>
+    <script src="js/userChart.js"></script>
+    <script src="js/visualization.js"></script>
 	</body>
 </html>
