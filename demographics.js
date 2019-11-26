@@ -3,12 +3,7 @@ function scatterplotLine() {
 
   // Based on Mike Bostock's margin convention
   // https://bl.ocks.org/mbostock/3019563
-  let margin = {
-      top: 40,
-      bottom: 80,
-      left: 80,
-      right: 100
-    },
+  let margin = {top: 50, right: 20, bottom: 60, left: 100},
     width = 1300,
     height = 300;
     xValue = d => d[0],
@@ -53,32 +48,37 @@ function scatterplotLine() {
     svg.append('g')
             .attr('class', 'x axis')
             .attr('transform', 'translate(0, ' + (height - margin.bottom - margin.top) + ')')
+            .style("font-size", "12px")
             .call(xAxis.scale(xScale));
 
   // create a x-axis title
     var xLabel = svg.append("text")
                     .attr("text-anchor", "middle")
-                    .attr("transform", "translate("+ (width/2) +","+(height-(margin.bottom/3)-40)+")")
-                    .text("Year-Month");    
+                    .attr("transform", "translate("+ ((width/2)-20) +","+(height-(margin.bottom/3)-50)+")")
+                    .text("Year-Month")
+                    .style("font-size", "16px")
+                    .style("fill", "black");
 
     var yAxis = d3.axisLeft(yScale);
       svg.append('g')
          .attr('class', 'y axis')
          .attr("transform", `translate(${margin.left}, 0)`)
+         .style("font-size", "12px")
          .call(yAxis.scale(yScale));                                 
 
     // create a y-axis title
     var yLabel = svg.append("text")
                     .attr("text-anchor", "middle")
-                    .attr("transform", "translate("+ (margin.left/2) +","+(height/2)+")rotate(-90)")
+                    .attr("transform", "translate("+ (margin.left/2) +","+((height/2)-55)+")rotate(-90)")
                     .text("Average User Age")
+                    .style("font-size", "16px")
                     .style("fill", "black");
 
     // create a chart title
     var chartTitle = svg.append("text")
                         .attr("text-anchor", "middle")
-                        .attr("transform", "translate("+ (width/2) +","+((margin.bottom/4))+")")
-                        .text("Average Age of BlueBikes Users from 10/2018-9/2019")                
+                        .attr("transform", "translate("+ (width/2) +","+((margin.bottom/4)-15)+")")
+                        .text("Average Age of Bluebikes Users")                
                         .style("fill", "black");
 
     var line = d3.line()
@@ -150,12 +150,12 @@ function scatterplotLine() {
           var selectedMonth = selectedData[counter].yearmonth;
           $("#gender").find("." + selectedMonth).each(function(idx, val) {
             // if (val.class.includes(selectedMonth)) {
-            bars.push(val)
+            bars.push(val);
             // }
           });
           $("#users").find("." + selectedMonth).each(function(idx, val) {
             // if (val.class.toString().includes(selectedMonth)) {
-            bars.push(val)
+            bars.push(val);
             // }
           });
 
@@ -164,7 +164,7 @@ function scatterplotLine() {
 
         
         // console.log(bars[0].className.animVal);
-        // change style to highlighted bars
+        // change style of highlighted bars
         for (var i = 0; i < bars.length; i++) {
           bars[i].childNodes.forEach(function(element) {
             element.style.stroke = "purple";
@@ -174,14 +174,13 @@ function scatterplotLine() {
 
         // keep the rest of the bars at a lighter opacity
         d3.selectAll(".yearmonth").transition()
-        .style("opacity", "0.3");   
+        .style("opacity", "0.3");
       }
       
       function brushEnd() {
         // We don't want an infinite recursion
         if (d3.event.sourceEvent.type != "end") {
           d3.select(this).call(brush.move, null);
-          // d3.selectAll('.yearmonth').transition().style('opacity', 1.0);
         }
         d3.selectAll('.yearmonth').transition().style('opacity', 1.0);
       }
@@ -268,20 +267,3 @@ function scatterplotLine() {
 
   return chart;
 }
-
-
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -15,11 +15,14 @@ h1, h2, h3 {
 
 .selected {
 	fill: purple;
+	stroke: purple;
 }
 
 circle {
-	fill: red;
-	r: 10;
+	fill: white;
+	stroke: #0571b0;
+	stroke-width: 5;
+	r: 5;
 }
 
 .demographics {
@@ -43,18 +46,22 @@ circle {
 
 .toolTip {
   position: absolute;
-  display: none;
-  min-width: 80px;
-  height: auto;
-  background: none repeat scroll 0 0 #ffffff;
-  border: 1px solid #6F257F;
-  padding: 14px;
   text-align: center;
+  max-width: 120px;
+  max-height: 65px;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  margin-top: -30px;
+  font: 12px sans-serif;
+  background: black;
+  color: white;
+  pointer-events: none;
 }
 
 #map {
-	height: 600px;
-    width: 800px;
+	height: 300px;
+    width: 400px;
     margin: auto;
     display: block;
 /*    width: 600px;
@@ -65,11 +72,11 @@ circle {
 
 #chester_square_end_trips {
 	display: none;
-	margin: auto;
+	margin: 105px;
 }
 
 #chester_square_start_trips {
-	margin: auto;
+	margin: 105px;
 	display: block;
 }
 
@@ -80,7 +87,7 @@ circle {
 	color: #fff !important;
 	text-transform: uppercase;
 	text-decoration: none;
-	background: #ed3330;
+	background: black;
 	padding: 20px;
 	border-radius: 5px;
 	display: inline-block;
@@ -89,7 +96,7 @@ circle {
 }
 
 .trip-toggle-button:hover {
-	background: #434343;
+	background: blue;
 	letter-spacing: 1px;
 	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
 	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
@@ -138,15 +145,12 @@ circle {
 /* Fork on GitHub ribbon via https://codepo8.github.io/css-fork-on-github-ribbon/# */  
 #forkongithub a{
 	background:#00F;
-	color:#fff;
+	color:white;
 	text-decoration:none;
 	font-family:arial,sans-serif;
-	text-align:center;
+	text-align:right;
 	font-weight:bold;
-	padding:5px 40px;
 	font-size:1rem;
-	line-height:2rem;
-	position:relative;
 	transition:0.5s;
 	display: none;
 }
@@ -171,24 +175,12 @@ circle {
 @media screen and (min-width:800px){
 	#forkongithub{
 		position:fixed;
-		display:block;
+		/*display:block;*/
 		top:0;
 		right:0;
-		width:200px;
-		overflow:hidden;
+		width:100px;
+		/*overflow:hidden;*/
 		height:200px;
-		z-index:9999;
-	}
-	#forkongithub a{
-		width:200px;
-		position:absolute;
-		top:60px;
-		right:-60px;
-		transform:rotate(45deg);
-		-webkit-transform:rotate(45deg);
-		-ms-transform:rotate(45deg);
-		-moz-transform:rotate(45deg);
-		-o-transform:rotate(45deg);
-		box-shadow:4px 4px 10px rgba(0,0,0,0.8);
+		/*z-index:9999;*/
 	}
 }

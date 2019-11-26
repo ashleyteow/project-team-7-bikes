@@ -92,30 +92,35 @@ function gender_grouped_bar_chart(data) {
   svg.append("g")
      .attr("class", "x axis")
      .attr("transform", `translate(0,${height - margin.top - margin.bottom})`)
+     .style("font-size", "12px")
      .call(xAxis);
 
   // Add the Y Axis
   svg.append("g")
      .attr("class", "y axis")
+     .style("font-size", "12px")
      .call(yAxis); 
 
   // create a x-axis title
   var xLabel = svg.append("text")
+                  .style("font-size", "16px")
                   .attr("text-anchor", "middle")
-                  .attr("transform", "translate("+ ((width/2)-90) +","+(height-(margin.bottom/3)-40)+")")
+                  .attr("transform", "translate("+ ((width/2)-90) +","+(height-(margin.bottom/3)-50)+")")
                   .text("Year-Month");
 
   // create a y-axis title
   var yLabel = svg.append("text")
+                   .style("font-size", "16px")
                   .attr("text-anchor", "middle")
-                  .attr("transform", "translate("+ ((margin.left/2)-125) +","+(height/2)+")rotate(-90)")
+                  .attr("transform", "translate("+ ((margin.left/2)-115) +","+((height/2) - 55)+")rotate(-90)")
                   .text("Number of Users");
 
   // create a chart title
   var chartTitle = svg.append("text")
+                      .attr("class", "label")
                       .attr("text-anchor", "middle")
-                      .attr("transform", "translate("+ ((width/2) - 30) +","+((margin.bottom/3)-30)+")")
-                      .text("BlueBikes Usage by Gender from October 2018-September 2019");
+                      .attr("transform", "translate("+ ((width/2) - 90) +","+((margin.bottom/3)-45)+")")
+                      .text("Gender of Bluebikes Users");
 
   var color = d3.scaleOrdinal().range(["#66c2a5", "#fc8d62", "#8da0cb"]);
 
@@ -129,25 +134,40 @@ function gender_grouped_bar_chart(data) {
     d3.select(this).style('opacity', 1.0);
   }
 
-	var legend = svg.selectAll('.legend')
-    .data(["Male", "Female", "Unreported"])
-    .enter()
-    .append('g')
-    .attr('class', 'legend')
-    .attr("transform", function (d, i) {
-      return "translate(" + ((width / 2 + margin.left / 2 - Math.abs((125) * (i - 1) * (i - 2)) - Math.abs((i) * (122) * (i - 2)) - Math.abs((i) * (i - 1) * (10))) - 115) + "," + ((-margin.top / 6) - 30) + ")";
-    });
-
-  legend.append('rect')
-    .attr('x', function (d, i) { return (i * 10) + margin.left; })
-    .attr('y', margin.top - 10)
-    .attr('width', 10)
-    .attr('height', 10)
-    .style('fill', color);
-
-
-  legend.append('text')
-    .attr('x', function (d, i) { return (i * 10) + margin.left + 15; })
-    .attr('y', margin.top)
-    .text(function (d) { return d; });
+	svg.append("rect")
+	   .attr("x", width/2-230)
+	   .attr("y", (height/4)-90)
+	   .attr("width", 15)
+     .attr("height", 15)
+	   .style("fill", "#66c2a5");
+	svg.append("text")
+	   .attr("x", width/2-205)
+	   .attr("y", (height/4)-81)
+	   .text("Male")
+	   .style("font-size", "15px")
+	   .attr("alignment-baseline","middle");
+  svg.append("rect")
+     .attr("x", width/2-140)
+     .attr("y", (height/4)-90)
+     .attr("width", 15)
+     .attr("height", 15)
+     .style("fill", "#fc8d62");
+	svg.append("text")
+     .attr("x", width/2-115)
+     .attr("y", (height/4)-81)
+	   .text("Female")
+	   .style("font-size", "15px")
+	   .attr("alignment-baseline","middle");
+  svg.append("rect")
+     .attr("x", (width/2)-40)
+     .attr("y", (height/4)-90)
+     .attr("width", 15)
+     .attr("height", 15)
+     .style("fill", "#8da0cb");
+  svg.append("text")
+     .attr("x", (width/2)-20)
+     .attr("y", (height/4)-81)
+     .text("Unreported")
+     .style("font-size", "15px")
+     .attr("alignment-baseline","middle");
 };

@@ -1,9 +1,9 @@
 // Function to create a bar chart using attributes read in from the Chester Square BlueBikes station dataset
 function basic_bar_chart(mydata, title, id) {
 	// svg width
-	var width = 1200;
+	var width = 1300;
 	// svg height
-	var height = 800;
+	var height = 600;
 	// margins around visualization
 	var margin = {
 		top: 80,
@@ -31,7 +31,7 @@ function basic_bar_chart(mydata, title, id) {
 
 	// create the y-scale with the domain being the minimum # of rides to the maximum number of rides
 	var yScale = d3.scaleLinear()
-				   .domain([0, 25])
+				   .domain([0, 15])
 				   .range([height-margin.bottom, margin.top]);
 
 	// add the x-axis onto the svg, scaled to xScale
@@ -66,10 +66,10 @@ function basic_bar_chart(mydata, title, id) {
 					              .style("left", d3.event.pageX - 50 + "px")
 					              .style("top", d3.event.pageY - 70 + "px")
 					              .style("display", "inline-block")
-					              .html("Members:   " + ((d.subscriber / d.n) * 100).toFixed(2) + "%" + "<br>" +       "Non-members:   " + ((d.customer / d.n) * 100).toFixed(2) + "%");
+					              .html("Members:  <br> " + ((d.subscriber / d.n) * 100).toFixed(2) + "%" + "<br>" +
+					              	"Non-members:  <br> " + ((d.customer / d.n) * 100).toFixed(2) + "%");
 					        	})
-		    		.on("mouseout", function(d){ tooltip.style("display", "none")});             	  
-
+		    		.on("mouseout", function(d){ tooltip.style("display", "none"); });    
 
 	var line = d3.line()
 	  			 .x(function(d) { return xScale(d.start_hour); })
@@ -83,17 +83,33 @@ function basic_bar_chart(mydata, title, id) {
     var xLabel = svg.append("text")
             		.attr("text-anchor", "middle")
             		.attr("transform", "translate("+ (width/2) +","+(height-(margin.bottom/3))+")")
+            		.style("font-size", "16px")
             		.text("Hour of Day");
 
     // create a y-axis title
     var yLabel = svg.append("text")
             		.attr("text-anchor", "middle")
             		.attr("transform", "translate("+ (margin.left/2) +","+(height/2)+")rotate(-90)")
-            		.text("Percent of Daily Trips");
+            		.style("font-size", "16px")
+            		.text("Percent of Daily Trips (%)");
 
     // create a chart title
     var chartTitle = svg.append("text")
             		.attr("text-anchor", "middle")
             		.attr("transform", "translate("+ (width/2) +","+(15+(margin.bottom/3))+")")
             		.text(title);
+
+
+    svg.append("rect")
+     .attr("x", (width/2) - 85)
+     .attr("y", (height/3) - 140)
+     .attr("width", 30)
+     .attr("height", 5)
+     .style("fill", "red");
+  	svg.append("text")
+     .attr("x", width/2-40)
+     .attr("y", (height/3)-136)
+     .text("All of Boston")
+     .style("font-size", "15px")
+     .attr("alignment-baseline","middle");
 };
