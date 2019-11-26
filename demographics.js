@@ -1,6 +1,4 @@
-// ------------------- test line function scatterplot -----------------------------
-// TODO: add jquery to acknowledgements
-
+// Draws the average age line chart below 
 function scatterplotLine() {
 
   // Based on Mike Bostock's margin convention
@@ -73,13 +71,15 @@ function scatterplotLine() {
     var yLabel = svg.append("text")
                     .attr("text-anchor", "middle")
                     .attr("transform", "translate("+ (margin.left/2) +","+(height/2)+")rotate(-90)")
-                    .text("Average User Age");
+                    .text("Average User Age")
+                    .style("fill", "black");
 
     // create a chart title
     var chartTitle = svg.append("text")
                         .attr("text-anchor", "middle")
-                        .attr("transform", "translate("+ (width/2) +","+((margin.bottom/3)-10)+")")
-                        .text("Average Age of BlueBikes Users from 10/2018-9/2019");                  
+                        .attr("transform", "translate("+ (width/2) +","+((margin.bottom/4))+")")
+                        .text("Average Age of BlueBikes Users from 10/2018-9/2019")                
+                        .style("fill", "black");
 
     var line = d3.line()
                .x(function(d) { return xScale(d.yearmonth); })    
@@ -120,18 +120,20 @@ function scatterplotLine() {
         ]);
 
       ourBrush = brush;
-
       svg.call(brush); // Adds the brush to this element
 
       // Highlight the selected circles.
       function highlight() {
+        // make all bars opaque upon click brush
         d3.selectAll('.yearmonth').transition().style('opacity', 0.2);
+
+        // set X values for d3 event selection
         if (d3.event.selection === null) return;
         const [
           x0, x1
         ] = d3.event.selection;
 
-        
+        // add selected classes to these points based on their x value read in from data
         points.classed("selected", d =>
           x0 <= X(d) && X(d) <= x1
         );
@@ -140,33 +142,37 @@ function scatterplotLine() {
         let dispatchString = Object.getOwnPropertyNames(dispatcher._)[0];
         // array of selected points
         var selectedData = svg.selectAll(".selected").data();
-    
 
-
-        // get the yearmonth from each selected point
-        // selectedData[0].yearmonth
-
-        // Array of g objects of size 12. Get the grouped bars (g tags with yearmonth class) that come from the gender chart that correspond to the year month that was selected in the line chart
-        ;
-
-
+        // loop through and retrieve all bars that correspond to the yearmonth from selected data 
         var counter = 0;
-      
         var bars = [];
         while (counter < selectedData.length) {
-          var rects = $("#gender").find(".yearmonth").each(function(idx, val) {
-            if (val.id == selectedData[counter].yearmonth) {
-              bars.push(val)
-            }
+          var selectedMonth = selectedData[counter].yearmonth;
+          $("#gender").find("." + selectedMonth).each(function(idx, val) {
+            // if (val.class.includes(selectedMonth)) {
+            bars.push(val)
+            // }
           });
+          $("#users").find("." + selectedMonth).each(function(idx, val) {
+            // if (val.class.toString().includes(selectedMonth)) {
+            bars.push(val)
+            // }
+          });
+
           counter++
         }
 
+        
+        // console.log(bars[0].className.animVal);
+        // change style to highlighted bars
         for (var i = 0; i < bars.length; i++) {
-          $("#" + bars[i].id).children().each(function(idx, val) {
-            val.style.fill = 'purple';
+          bars[i].childNodes.forEach(function(element) {
+            element.style.stroke = "purple";
+            element.setAttribute("stroke-width", 5);
           });
         }
+
+        // keep the rest of the bars at a lighter opacity
         d3.selectAll(".yearmonth").transition()
         .style("opacity", "0.3");   
       }

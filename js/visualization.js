@@ -82,13 +82,14 @@ d3.csv("data/demographics_data/demographics.csv", function(d) {
     .yLabelOffset(40)
     .selectionDispatcher(d3.dispatch("selectionUpdated"))
       ("#svg-vis-demographics-line", result);  
-
-    let genderChart = gender_grouped_bar_chart(result);  
     let usersChart = users_grouped_bar_chart(result);  
+    let genderChart = gender_grouped_bar_chart(result);  
+    
     
 });
 
 
+// Helper function for the toggle buttons
 function showStartTrips() {
   var startTrips = document.getElementById("chester_square_start_trips");
   var endTrips = document.getElementById("chester_square_end_trips");

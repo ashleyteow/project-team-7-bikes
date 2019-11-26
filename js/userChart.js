@@ -34,8 +34,10 @@ function users_grouped_bar_chart(data) {
   var model_name = svg.selectAll(".yearmonth")
     .data(models)
     .enter().append("g")
-    .attr("class", "yearmonth")
-    .attr("transform", d => `translate(${xScale0(d.yearmonth)},0)`);
+    .attr("class", d => "yearmonth" + " " + d.yearmonth)
+    .attr("transform", d => `translate(${xScale0(d.yearmonth)},0)`)
+    .on("mouseover", handleMouseOver)
+    .on("mouseout", handleMouseOut);
 
   /* Add field1 bars */
   model_name.selectAll(".bar.field1")
@@ -96,7 +98,15 @@ function users_grouped_bar_chart(data) {
 
   var color = d3.scaleOrdinal().range(["#e9a3c9", "#a1d76a"]);
 
+  // highlights hovered over bar in this grouped bar chart
+  function handleMouseOver(d, i) {
+    d3.select(this).style('opacity', 0.2);
+  }
 
+  // resets mouse opacity on mouse out
+  function handleMouseOut(d, i) {
+    d3.select(this).style('opacity', 1.0);
+  }
 
 	var legend = svg.selectAll('.legend')
     .data(["Member", "Non-Member"])
