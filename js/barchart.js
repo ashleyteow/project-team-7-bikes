@@ -37,11 +37,13 @@ function basic_bar_chart(mydata, title, id) {
 	// add the x-axis onto the svg, scaled to xScale
 	var xAxis = svg.append("g")
 			   	   .attr("transform", `translate(0, ${height-margin.bottom})`)
+     			   .style("font-size", "12px")
                	   .call(d3.axisBottom().scale(xScale));
 	
 	// add the y-axis onto the svg, scaled to yScale
 	var yAxis = svg.append("g")
 			   	   .attr("transform", `translate(${margin.left}, 0)`)
+			   	   .style("font-size", "12px")
                	   .call(d3.axisLeft().scale(yScale));
 
     // append the bars onto the svg representing the data
