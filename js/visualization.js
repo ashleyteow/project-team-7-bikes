@@ -1,19 +1,24 @@
+/* visualization.js: this is where our data is read in from our csv files stored in /data. After reading them in, we call on the appropriate visualization function to create a kind of chart using the existing data. Eg. the function called when reading in the chester_square_start_hour.csv file calls on the basic_bar_chart function that is stored in its own file within this js directory.*/
 // -------------------- START DISPLAY CHESTER SQUARE MAP CODE --------------------------
-var mymap = L.map('map', {
+
+// Sets the configuration for loading in the map from the Leaflet API, with our default zooms
+// as well as the coordinate set to the center of Chester Square.
+let mymap = L.map('map', {
   center: [42.338389, -71.078518],
   zoom: 10
   // zoom: 10
 });
 
+// Disable zooms for the map because we just want a static map with the markers representing the stations.
 mymap.dragging.disable();
 mymap.doubleClickZoom.disable();
 mymap.scrollWheelZoom.disable();
 
+// Add markers for each Bluebike lcocation in the Chester Square area.
 L.marker([42.338921, -71.081050]).bindTooltip("Tremont St @ Northampton St").addTo(mymap);
 L.marker([42.338606, -71.074023]).bindTooltip("Washington St @ Rutland St").addTo(mymap);
 L.marker([42.340811, -71.081176]).bindTooltip("Columbus St @ Massachusetts Ave").addTo(mymap);
 L.marker([42.341332, -71.076847]).bindTooltip("South End Library").addTo(mymap);
-
 
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -23,7 +28,6 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     id: 'mapbox.streets',
     accessToken: 'pk.eyJ1IjoiYXNobGV5dGVvdyIsImEiOiJjazM1OWMxZjkxY2hqM2NwYjI0ZmU1Zzg1In0.tIRp8wbJTjo6Rqdwii7Vmw'
 }).addTo(mymap);
-
 
 // -------------------- END DISPLAY CHESTER SQUARE MAP CODE --------------------------
 
@@ -60,9 +64,6 @@ d3.csv('data/chester_square_end_hour.csv', function(d) {
 	basic_bar_chart(result, "Hourly Percentage of Daily Trips Ending in Chester Square", "chester_square_end_trips");
 });
 
-var genderChart;
-var ageChart;
-
 // Read in gender data to be displayed in grouped bar chart representing gender breakdown of the 4 Chester Square Station customers
 d3.csv("data/demographics_data/demographics.csv", function(d) {
   return {
@@ -76,7 +77,6 @@ d3.csv("data/demographics_data/demographics.csv", function(d) {
 
   };
 }).then(function(result) {
-
     let ageChart = scatterplotLine()
     .x(d => d.yearmonth)
     .xLabel("Year-Month")
@@ -88,14 +88,13 @@ d3.csv("data/demographics_data/demographics.csv", function(d) {
     let usersChart = users_grouped_bar_chart(result);  
     let genderChart = gender_grouped_bar_chart(result);  
     
-    
 });
 
 
-// Helper function for the toggle buttons
+// Helper function for the toggle buttons. It is called as an onclick css selector in the index.html page.
 function showStartTrips() {
-  var startTrips = document.getElementById("chester_square_start_trips");
-  var endTrips = document.getElementById("chester_square_end_trips");
+  let startTrips = document.getElementById("chester_square_start_trips");
+  let endTrips = document.getElementById("chester_square_end_trips");
   if (startTrips.style.display === "none") {
     startTrips.style.display = "block";
     endTrips.style.display = "none";
