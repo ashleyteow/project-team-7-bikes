@@ -81,9 +81,13 @@ circle {
 
 /* Styling for the visualization annotations */
 .vis-explanation {
-	font-size: 14px;
-	margin-left: 100px;
-	margin-right: 100px;
+	font-size: 16px;
+	text-align: center;
+}
+
+.map-caption {
+	max-width: 1000px;
+    margin: 40px auto;
 }
 
 /* Styling for the age demographic line chart */

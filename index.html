@@ -63,27 +63,30 @@
       <h1>Visualization</h1>
 
       </div>
-
-              <p class="vis-explanation">
+      <div class="map-caption">
+        <p class="vis-explanation">
           <em>
           Below you can find a map of Chester Square. The four blue markers represent the four BlueBikes stations closest and most relevant to the Chester Square neighborhood that is included in our analysis. You can zoom in and out of the Chester Square neighborhood area in the map. You can hover over a blue marker to see the name of the BlueBikes station.
           </em>
         </p>
+      </div>
       <div id="map">
       </div>
 
-
+      <div class="map-caption">
+        <p class="vis-explanation">
+          <em>
+          Below you can find three graphs presenting demographic data for BlueBikes users in Boston. The first line chart displays the change in average age of BlueBikes users in the past year. The next grouped bar chart displays the number of BlueBikes members versus non-members for each month in the past year. The last grouped bar chart displays the gender counts of BlueBikes users (self-reported) for each month in the past year. You can brush over the points on the average age line chart in order to highlight on the other two graphs the member versus nonmember breakdown and gender breakdown for the selected months.
+          </em>
+        </p>
+      </div>
       <!-- Your visualization here -->
       <div class="vis-holder">
         <div>
           <p> <br> </p>
         </div>
         <div class="demographics">
-          <p class="vis-explanation">
-          <em>
-          Below you can find three graphs presenting demographic data for BlueBikes users in Boston. The first line chart displays the change in average age of BlueBikes users in the past year. The next grouped bar chart displays the number of BlueBikes members versus non-members for each month in the past year. The last grouped bar chart displays the gender counts of BlueBikes users (self-reported) for each month in the past year. You can brush over the points on the average age line chart in order to highlight on the other two graphs the member versus nonmember breakdown and gender breakdown for the selected months.
-          </em>
-        </p>
+       
         </div>
               <div>
           <p> <br> </p>
@@ -123,9 +126,9 @@
               <ul>
                 <li> Demographics Data </li>
                   <ul>
-                    <li> Age: This chart is a line chart because of the fact that it is exploring how a quantitative variable (average age) changes over time. The specific points are visible in order to distinguish the points that have been plotted from the connecting line itself. These points have no fill color initially to make it clear to the user which months they have brushed over. </li>
-                    <li> Membership Status: <strong>NEEDS TO BE WRITTEN</strong> </li>
-                    <li> Gender: <strong>NEEDS TO BE WRITTEN</strong></li>
+                    <li> <strong>Age:</strong> This chart is a line chart because of the fact that it is exploring how a quantitative variable (average age) changes over time. The specific points are visible in order to distinguish the points that have been plotted from the connecting line itself. These points have no fill color initially to make it clear to the user which months they have brushed over. </li>
+                    <li> <strong>Membership Status:</strong>  This chart is a grouped bar chart because we wanted to illustrate the significant difference that exists between members and non-members in the Chester Square area. The y-axis represents the number of users that frequented that station and the x-axis represents the month of the year that value is corresponding to.</li>
+                    <li> <strong>Gender:</strong>  This chart is a grouped bar chart because we wanted to display the gender breakdown for the stations in the Chester Square area as another means of analyzing demographic data. Similarly, the y-axis represents the number of users that frequented that station and the x-axis represents the month of the year that value is corresponding to.</li>
                   </ul>
                 <li> Station Data </li>
                 The trip information for the Chester Square stops is represented by a bar chart so that it is easy to see the peaks in Bluebikes usage. A line chart representing Bluebikes usage across Boston so that the usage of the four stations of interest is shown as comparable to that of Bluebikes in general, highlighting that it is a well-used service in the Chester Square neighborhood.
@@ -250,7 +253,7 @@
       <!-- Scripts at the end avoid need for dealing with async, defer, or onload event handlers -->
       <script src="lib/d3.v5.12.0/d3.min.js"></script>
       <script src="lib/leaflet/leaflet.js"></script>
-      <script src="demographics.js"></script>
+      <script src="js/ageLineChart.js"></script>
       <script src="js/barchart.js"></script>
       <script src="js/genderChart.js"></script>
       <script src="js/userChart.js"></script>

@@ -1,4 +1,9 @@
-/* visualization.js: this is where our data is read in from our csv files stored in /data. After reading them in, we call on the appropriate visualization function to create a kind of chart using the existing data. Eg. the function called when reading in the chester_square_start_hour.csv file calls on the basic_bar_chart function that is stored in its own file within this js directory.*/
+/* visualization.js: this is where our data is read in from our csv files stored 
+in /data. After reading them in, we call on the appropriate
+ visualization function to create a kind of chart using the existing data. 
+ Eg. the function called when reading in the chester_square_start_hour.csv file
+  calls on the basic_bar_chart function that is stored in its own file within 
+  this js directory.*/
 // -------------------- START DISPLAY CHESTER SQUARE MAP CODE --------------------------
 
 // Sets the configuration for loading in the map from the Leaflet API, with our default zooms
@@ -6,7 +11,6 @@
 let mymap = L.map('map', {
   center: [42.338389, -71.078518],
   zoom: 10
-  // zoom: 10
 });
 
 // Disable zooms for the map because we just want a static map with the markers representing the stations.
@@ -41,7 +45,6 @@ d3.csv('data/chester_square_start_hour.csv', function(d) {
 		customer: +d.customer,
 		pct: +d.pct * 100,
 		all_boston_pct: +d.all_boston_pct * 100
-		// all_boston_pct: +d.all_boston_pct * 100
   };
   // create a bar chart with the data that was read in
 }).then(function(result) {
@@ -57,7 +60,6 @@ d3.csv('data/chester_square_end_hour.csv', function(d) {
 		customer: +d.customer,
 		pct: +d.pct * 100,
 		all_boston_pct: +d.all_boston_pct * 100
-		// all_boston_pct: +d.all_boston_pct * 100
   };
   // create a bar chart with the data that was read in
 }).then(function(result) {
