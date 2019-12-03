@@ -67,7 +67,7 @@ d3.csv('data/chester_square_end_hour.csv', function(d) {
 });
 
 // Read in gender data to be displayed in grouped bar chart representing gender breakdown of the 4 Chester Square Station customers
-d3.csv("data/demographics_data/demographics.csv", function(d) {
+d3.csv("data/demographics.csv", function(d) {
   return {
     yearmonth: d.yearmonth,
     male: +d.male,
