@@ -1,12 +1,16 @@
+/* Disclaimer: This function is very similar to the function in js/userChart.js. They both produce grouped bar charts, except this one has a 3rd grouped bar 
+representing those users who chose to not report their gender.*/
+
+
 // Function to create a gender grouped bar chart using attributes read in from the Chester Square BlueBikes station dataset
 function gender_grouped_bar_chart(data) {
-  var models = data.map(i => {
+  let models = data.map(i => {
     i.yearmonth = i.yearmonth;
     return i;
   });
 
-  var width = 1200;
-  var height = 300;
+  let width = 1200;
+  let height = 300;
 
   let margin = {
     top: 50,
@@ -15,8 +19,8 @@ function gender_grouped_bar_chart(data) {
     left: 100
   }
 
-  var barPadding = .2;
-  var axisTicks = {qty: 10, outerSize: 0};
+  let barPadding = .2;
+  let axisTicks = {qty: 10, outerSize: 0};
     
 
   let svg = d3.select(".demographics")
@@ -27,24 +31,26 @@ function gender_grouped_bar_chart(data) {
      .append("g")
      .attr("transform", `translate(${margin.left},${margin.top})`);
 
-  var xScale0 = d3.scaleBand().range([0, width - margin.left - margin.right]).padding(barPadding);
-  var xScale1 = d3.scaleBand();
-  var yScale = d3.scaleLinear().range([height - margin.top - margin.bottom, 0]);
+  let xScale0 = d3.scaleBand().range([0, width - margin.left - margin.right]).padding(barPadding);
+  let xScale1 = d3.scaleBand();
+  let yScale = d3.scaleLinear().range([height - margin.top - margin.bottom, 0]);
 
-  var xAxis = d3.axisBottom(xScale0).tickSizeOuter(axisTicks.outerSize);
-  var yAxis = d3.axisLeft(yScale).ticks(axisTicks.qty).tickSizeOuter(axisTicks.outerSize);
+  let xAxis = d3.axisBottom(xScale0).tickSizeOuter(axisTicks.outerSize);
+  let yAxis = d3.axisLeft(yScale).ticks(axisTicks.qty).tickSizeOuter(axisTicks.outerSize);
 
   xScale0.domain(models.map(d => d.yearmonth));
   xScale1.domain(['male', 'female', 'unreported']).range([0, xScale0.bandwidth()]);
   yScale.domain([0, 250000]);
 
-  var model_name = svg.selectAll(".yearmonth")
+  let model_name = svg.selectAll(".yearmonth")
     .data(models)
     .enter().append("g")
     .attr("class", d => "yearmonth" + " " + d.yearmonth)
     .attr("transform", d => `translate(${xScale0(d.yearmonth)},0)`)
     .on("mouseover", handleMouseOver)
     .on("mouseout", handleMouseOut);
+
+    // ^ handles highlighting functions when mousing over the charts
 
   /* Add field1 bars */
   model_name.selectAll(".bar.field1")
@@ -102,27 +108,27 @@ function gender_grouped_bar_chart(data) {
      .call(yAxis); 
 
   // create a x-axis title
-  var xLabel = svg.append("text")
+  let xLabel = svg.append("text")
                   .style("font-size", "16px")
                   .attr("text-anchor", "middle")
                   .attr("transform", "translate("+ ((width/2)-90) +","+(height-(margin.bottom/3)-50)+")")
                   .text("Year-Month");
 
   // create a y-axis title
-  var yLabel = svg.append("text")
+  let yLabel = svg.append("text")
                    .style("font-size", "16px")
                   .attr("text-anchor", "middle")
                   .attr("transform", "translate("+ ((margin.left/2)-115) +","+((height/2) - 55)+")rotate(-90)")
                   .text("Number of Users");
 
   // create a chart title
-  var chartTitle = svg.append("text")
+  let chartTitle = svg.append("text")
                       .attr("class", "label")
                       .attr("text-anchor", "middle")
                       .attr("transform", "translate("+ ((width/2) - 90) +","+((margin.bottom/3)-45)+")")
                       .text("Gender of Bluebikes Users");
 
-  var color = d3.scaleOrdinal().range(["#66c2a5", "#fc8d62", "#8da0cb"]);
+  let color = d3.scaleOrdinal().range(["#66c2a5", "#fc8d62", "#8da0cb"]);
 
   // highlights hovered over bar in this grouped bar chart
   function handleMouseOver(d, i) {
