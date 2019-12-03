@@ -16,14 +16,16 @@ em {
 /* Fork on GitHub ribbon via https://codepo8.github.io/css-fork-on-github-ribbon/# */  
 #forkongithub a{
 	background:#00F;
-	color:white;
+	color:#fff;
 	text-decoration:none;
 	font-family:arial,sans-serif;
-	text-align:right;
+	text-align:center;
 	font-weight:bold;
+	padding:5px 40px;
 	font-size:1rem;
+	line-height:1.4rem;
+	position:relative;
 	transition:0.5s;
-	display: none;
 }
 #forkongithub a:hover{
 	background:#118;
@@ -43,16 +45,28 @@ em {
 	bottom:1px;
 	top:auto;
 }
-@media screen and (min-width:800px){
+@media screen and (min-width:1000px){
 	#forkongithub{
 		position:fixed;
-		/*display:block;*/
+		display:block;
 		top:0;
 		right:0;
-		width:100px;
-		/*overflow:hidden;*/
+		width:200px;
+		overflow:hidden;
 		height:200px;
-		/*z-index:9999;*/
+		z-index:9999;
+	}
+	#forkongithub a{
+		width:200px;
+		position:absolute;
+		top:60px;
+		right:-60px;
+		transform:rotate(45deg);
+		-webkit-transform:rotate(45deg);
+		-ms-transform:rotate(45deg);
+		-moz-transform:rotate(45deg);
+		-o-transform:rotate(45deg);
+		box-shadow:4px 4px 10px rgba(0,0,0,0.8);
 	}
 }
 
