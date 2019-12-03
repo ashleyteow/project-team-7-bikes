@@ -75,6 +75,26 @@ em {
 	fill: #7570B3;
 }
 
+.bar.subscriber {
+	fill: #e9a3c9;
+}
+
+.bar.customer {
+	fill: #a1d76a;
+}
+
+.x.axis {
+	font-size: 12px;
+}
+
+.y.axis {
+	font-size: 12px;
+}
+
+text {
+	/*font-size: 16px;*/
+}
+
 /* Styling for the selected data points in the scatterplot */
 .selected {
 	fill: purple;

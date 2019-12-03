@@ -47,7 +47,6 @@ function users_grouped_bar_chart(data) {
     .enter()
     .append("rect")
     .attr("class", "bar subscriber")
-  .style("fill","#e9a3c9")
     .attr("x", d => xScale1('subscriber'))
     .attr("y", d => yScale(d.subscriber))
     .attr("width", xScale1.bandwidth())
@@ -61,7 +60,6 @@ function users_grouped_bar_chart(data) {
     .enter()
     .append("rect")
     .attr("class", "bar customer")
-  .style("fill","#a1d76a")
     .attr("x", d => xScale1('customer'))
     .attr("y", d => yScale(d.customer))
     .attr("width", xScale1.bandwidth())
@@ -73,13 +71,11 @@ function users_grouped_bar_chart(data) {
   svg.append("g")
      .attr("class", "x axis")
      .attr("transform", `translate(0,${height - margin.top - margin.bottom})`)
-     .style("font-size", "12px")
      .call(xAxis);
 
   // Add the Y Axis
   svg.append("g")
      .attr("class", "y axis")
-     .style("font-size", "12px")
      .call(yAxis);
 
   // create a x-axis title
