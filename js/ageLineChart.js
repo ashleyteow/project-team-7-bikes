@@ -77,9 +77,11 @@ function scatterplotLine() {
     // create a chart title
     var chartTitle = svg.append("text")
                         .attr("text-anchor", "middle")
+                        .attr("class", "chartTitle")
                         .attr("transform", "translate("+ (width/2) +","+((margin.bottom/4)-15)+")")
                         .text("Average Age of Bluebikes Users")                
-                        .style("fill", "black");
+                        
+
 
     var line = d3.line()
                .x(function(d) { return xScale(d.yearmonth); })    

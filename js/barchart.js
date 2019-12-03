@@ -1,5 +1,5 @@
 // Function to create a bar chart using attributes read in from the Chester Square BlueBikes station dataset
-function basic_bar_chart(mydata, title, id) {
+function basic_bar_chart(mydata, title, id, start) {
 	// svg width
 	let width = 1300;
 	// svg height
@@ -25,7 +25,7 @@ function basic_bar_chart(mydata, title, id) {
 	// create the x-scale using the keys from a map call
 	// x-scale contains 0:00-23:00, indicating the hour of day in 24-hour time
 	let xScale = d3.scaleBand()
-	  			   .domain(d3.map(mydata, function(d) { return d.start_hour; }).keys())
+	  			   .domain(d3.map(mydata, function(d) { return d.hour }).keys())
 	  			   .range([margin.left, width-margin.right])
 	  			   .padding(0.1);
 
@@ -54,28 +54,53 @@ function basic_bar_chart(mydata, title, id) {
     			  .append("rect")
     			  .attr("class", "bar")
              	  .attr("x", function(d) { 
-             	  	return xScale(d.start_hour);
+             	  	return xScale(d.hour);
              	  	 })
              	  .attr("y", function(d) {
-             	   return yScale(d.pct);
-             	    })
+                    if (start) {
+                        return yScale(d.pct_start);     
+                    }
+                    else {
+                        return yScale(d.pct_end);        
+                    }
+             	   
+             	  })
              	  .attr("width", xScale.bandwidth())
              	  .attr("height", function(d) { 
-					return height-margin.bottom-yScale(d.pct);
+                    if (start) {
+                        return height-margin.bottom-yScale(d.pct_start);    
+                    }
+                    else {
+                        return height-margin.bottom-yScale(d.pct_end);       
+                    }
+					
              	  })
-					.on("mouseover", function(d){
-					            tooltip
-					              .style("left", d3.event.pageX - 50 + "px")
-					              .style("top", d3.event.pageY - 70 + "px")
-					              .style("display", "inline-block")
-					              .html("Members:  <br> " + ((d.subscriber / d.n) * 100).toFixed(2) + "%" + "<br>" +
-					              	"Non-members:  <br> " + ((d.customer / d.n) * 100).toFixed(2) + "%");
-					        	})
-		    		.on("mouseout", function(d){ tooltip.style("display", "none"); });    
+    				.on("mouseover", function(d){
+    				            tooltip.style("left", d3.event.pageX - 50 + "px")
+    			                tooltip.style("top", d3.event.pageY - 70 + "px")
+    				            tooltip.style("display", "inline-block")
+
+                                if (start) {
+                                  tooltip.html("Members:  <br> " + ((d.subscriber_start / d.total_start) * 100).toFixed(2) + "%" + "<br>" +
+                                    "Non-members:  <br> " + ((d.customer_start / d.total_start) * 100).toFixed(2) + "%");  
+                                }
+                                else {
+                                  tooltip.html("Members:  <br> " + ((d.subscriber_end / d.total_end) * 100).toFixed(2) + "%" + "<br>" +
+                                    "Non-members:  <br> " + ((d.customer_end / d.total_end) * 100).toFixed(2) + "%");                                      
+                                }            
+    	        	})
+    	    		.on("mouseout", function(d){ tooltip.style("display", "none"); });    
 
 	let line = d3.line()
-	  			 .x(function(d) { return xScale(d.start_hour); })
-	  			 .y(function(d) { return yScale(d.all_boston_pct); })
+	  			 .x(function(d) { return xScale(d.hour); })
+	  			 .y(function(d) { 
+                    if (start) {
+                        return yScale(d.all_boston_pct_start);
+                    }
+                    else {
+                        return yScale(d.all_boston_pct_end);                        
+                    }
+                 })
 	
 	svg.append('path')
   			  .attr('d', line(mydata))
