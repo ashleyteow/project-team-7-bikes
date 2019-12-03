@@ -50,7 +50,7 @@
 
       <p>
       	<em>
-      	Currently, the bike lanes available for cyclists traveling through Chester Square area are too narrow and too close to incoming traffic for cyclists to feel safe in the lanes. In addition, the availability of decent parking spaces for them in the Chester Square area are scarcely limited from our observation, which are possible explanations as to why there appears to not be many cyclists in the area. Something else we discovered during our site visits, was that there are currently five BlueBikes stations neighboring the Chester Square area. We decided to investigate these stations further to analyze their usage in order to determine whether cyclists are making use of these stations as an alternative to having their own bikes. BlueBikes offers public access to their system data of all BlueBikes trips since 2015 to allow people to use their data for any type of analysis and visualization.
+          Currently, the bike lanes available for cyclists traveling through Chester Square area are too narrow and too close to incoming traffic for cyclists to feel safe in the lanes. In addition, the availability of decent parking spaces for them in the Chester Square area are scarcely limited from our observation, which are possible explanations as to why there appears to not be many cyclists in the area. Something else we discovered during our site visits, was that there are currently five BlueBikes stations neighboring the Chester Square area. We decided to investigate these stations further to analyze their usage in order to determine whether cyclists are making use of these stations as an alternative to having their own bikes. BlueBikes offers public access to their system data of all BlueBikes trips since 2015 to allow people to use their data for any type of analysis and visualization.
       	</em>
   	</p>
 
@@ -66,7 +66,7 @@
       <div class="map-caption">
         <p class="vis-explanation">
           <em>
-          Below you can find a map of Chester Square. The five blue markers represent the five BlueBikes stations closest and most relevant to the Chester Square neighborhood that is included in our analysis. You can zoom in and out of the Chester Square neighborhood area in the map. You can hover over a blue marker to see the name of the BlueBikes station.
+            Below you can find a map of Chester Square. The five blue markers represent the five BlueBikes stations closest and most relevant to the Chester Square neighborhood that is included in our analysis. You can zoom in and out of the Chester Square neighborhood area in the map. You can hover over a blue marker to see the name of the BlueBikes station.
           </em>
         </p>
       </div>
@@ -76,36 +76,40 @@
 
     <!-- Your writeup goes here -->
     <div class = "content-column">
+      <h1>Demo Video</h1>
+          <video controls width="100%">
+            <source src="DemoVideo.mp4" type="video/mp4">
+            <p>
+              Your browser doesn't support HTML5 video. Here is
+              a <a href="https://www.youtube.com/watch?v=maxVM91n5hY&feature=youtu.be">link to the video</a> instead.
+            </p>
+          </video>
 
-    	<h1>Demo Video</h1>
-
-      		<!--<p>
-      			<em>
-      			Embedded MP4 demo video using the HTML5 &lt;video&gt; tag. For example, this screen recording Prof. Cody Dunne made of Mike Bostock's flexible transitions in D3 slide:
-      			</em>
-      		</p>-->
-
-      		<video controls width="100%">
-	        	<source src="http://www.ccs.neu.edu/home/cody/courses/shared/d3-flexible-transitions.mp4" type="video/mp4">
-	        	<p>
-	        		Your browser doesn't support HTML5 video. Here is
-	         		a <a href="http://www.ccs.neu.edu/home/cody/courses/shared/d3-flexible-transitions.mp4">link to the video</a> instead.
-	         	</p>
-      		</video>
-
-      	<h1>Visualization explanation</h1>
+          <h1>Visualization explanation</h1>
 
       		<!--<p>
       			<em>
       			final visualization screenshots (PNG images), design justifications, UI walk-through, and linked presentation slides.
       			</em>
       		</p>-->
+            <p>
+              Design Iterations:
+              <a href="UIWalkthrough.pdf"> Initial Design of Website with UI Walkthrough </a>
+            </p>
 
-					<p>
-						<em>
-						final visualization screenshots (PNG images), design justifications, UI walk-through, and linked presentation slides.
-						</em>
-			    </p>
+            <p>
+              Design Justifications:
+              <ul>
+                <li> Demographics Data </li>
+                  <ul>
+                    <li> <strong>Age:</strong> This chart is a line chart because of the fact that it is exploring how a quantitative variable (average age) changes over time. The specific points are visible in order to distinguish the points that have been plotted from the connecting line itself. These points have no fill color initially to make it clear to the user which months they have brushed over. </li>
+                    <li> <strong>Membership Status:</strong>  This chart is a grouped bar chart because we wanted to illustrate the significant difference that exists between members and non-members in the Chester Square area. The y-axis represents the number of users that frequented that station and the x-axis represents the month of the year that value is corresponding to.</li>
+                    <li> <strong>Gender:</strong>  This chart is a grouped bar chart because we wanted to display the gender breakdown for the stations in the Chester Square area as another means of analyzing demographic data. Similarly, the y-axis represents the number of users that frequented that station and the x-axis represents the month of the year that value is corresponding to.</li>
+                  </ul>
+                <li> Station Data </li>
+                The trip information for the Chester Square stops is represented by a bar chart so that it is easy to see the peaks in Bluebikes usage. A line chart representing Bluebikes usage across Boston so that the usage of the five stations of interest is shown as comparable to that of Bluebikes in general, highlighting that it is a well-used service in the Chester Square neighborhood.
+              </ul>
+            </p>
 
       	<h1>Data Analysis</h1>
       		<!--<p>
@@ -148,7 +152,6 @@
      			Expectation: Data sources match the problem statement and are appropriate. These descriptions should be very explicit so someone could read your page and properly reproduce your results.
      			</em>
      		</p>-->
-
 
       	<h1>Task Analysis</h1>
 
@@ -220,48 +223,13 @@
       			</em>
       		</p>
 
-      <!-- Your writeup goes here -->
-      <div class = "content-column">
+          <p>
+            <em>
+            Future improvement could include expanding the hourly usage analysis to more than just the five stations near Chester Square. In this way, the hourly usage of BlueBikes stations in another neighborhood in Boston, analogous to the layout of Chester Square, could be analyzed and compared to that of Chester Square. Another future improvement could include visualizing the demographics of BlueBikes users for the past five years instead of being limited to the past year, or having both data for the past five years and the past year to observe both change over a large period of time and seasonal change in BlueBikes user demographics. In this way, the change in user demographics could be discussed in order to address how well Chester Square residents fit into the demographics outlined.
+            </em>
+          </p>
+        </div>
 
-      	<h1>Demo Video</h1>
-
-        		<video controls width="100%">
-  	        	<source src="DemoVideo.mp4" type="video/mp4">
-  	        	<p>
-  	        		Your browser doesn't support HTML5 video. Here is
-  	         		a <a href="https://www.youtube.com/watch?v=maxVM91n5hY&feature=youtu.be">link to the video</a> instead.
-  	         	</p>
-        		</video>
-
-        	<h1>Visualization Explanation</h1>
-
-            <p>
-              Design Iterations:
-              <a href="UIWalkthrough.pdf"> Initial Design of Website with UI Walkthrough </a>
-            </p>
-
-            <p>
-              Design Justifications:
-              <ul>
-                <li> Demographics Data </li>
-                  <ul>
-                    <li> <strong>Age:</strong> This chart is a line chart because of the fact that it is exploring how a quantitative variable (average age) changes over time. The specific points are visible in order to distinguish the points that have been plotted from the connecting line itself. These points have no fill color initially to make it clear to the user which months they have brushed over. </li>
-                    <li> <strong>Membership Status:</strong>  This chart is a grouped bar chart because we wanted to illustrate the significant difference that exists between members and non-members in the Chester Square area. The y-axis represents the number of users that frequented that station and the x-axis represents the month of the year that value is corresponding to.</li>
-                    <li> <strong>Gender:</strong>  This chart is a grouped bar chart because we wanted to display the gender breakdown for the stations in the Chester Square area as another means of analyzing demographic data. Similarly, the y-axis represents the number of users that frequented that station and the x-axis represents the month of the year that value is corresponding to.</li>
-                  </ul>
-                <li> Station Data </li>
-                The trip information for the Chester Square stops is represented by a bar chart so that it is easy to see the peaks in Bluebikes usage. A line chart representing Bluebikes usage across Boston so that the usage of the five stations of interest is shown as comparable to that of Bluebikes in general, highlighting that it is a well-used service in the Chester Square neighborhood.
-              </ul>
-            </p>
-
-        	<h1>Data Analysis</h1>
-      		<p>
-      			<em>
-      			Future improvement could include expanding the hourly usage analysis to more than just the five stations near Chester Square. In this way, the hourly usage of BlueBikes stations in another neighborhood in Boston, analogous to the layout of Chester Square, could be analyzed and compared to that of Chester Square. Another future improvement could include visualizing the demographics of BlueBikes users for the past five years instead of being limited to the past year, or having both data for the past five years and the past year to observe both change over a large period of time and seasonal change in BlueBikes user demographics. In this way, the change in user demographics could be discussed in order to address how well Chester Square residents fit into the demographics outlined.
-      			</em>
-      		</p>
-
-      </div>
 
       <!-- Scripts at the end avoid need for dealing with async, defer, or onload event handlers -->
       <script src="lib/d3.v5.12.0/d3.min.js"></script>
