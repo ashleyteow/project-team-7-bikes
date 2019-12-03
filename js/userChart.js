@@ -1,18 +1,18 @@
 // Function to create a user membership grouped bar chart using attributes read in from the Chester Square BlueBikes station dataset
 function users_grouped_bar_chart(data) {
-  var models = data.map(i => {
+  let models = data.map(i => {
     i.yearmonth = i.yearmonth;
     return i;
   });
 
-  var container = d3.select('.demographics'),
+  let container = d3.select('.demographics'),
     width = 1200,
     height = 300,
     margin = {top: 50, right: 20, bottom: 60, left: 100},
     barPadding = .2,
     axisTicks = {qty: 10, outerSize: 0};
 
-  var svg = container
+  let svg = container
      .append("svg")
      .attr("id", "users")
      .attr("width", width)
@@ -20,24 +20,26 @@ function users_grouped_bar_chart(data) {
      .append("g")
      .attr("transform", `translate(${margin.left},${margin.top})`);
 
-  var xScale0 = d3.scaleBand().range([0, width - margin.left - margin.right]).padding(barPadding);
-  var xScale1 = d3.scaleBand();
-  var yScale = d3.scaleLinear().range([height - margin.top - margin.bottom, 0]);
+  let xScale0 = d3.scaleBand().range([0, width - margin.left - margin.right]).padding(barPadding);
+  let xScale1 = d3.scaleBand();
+  let yScale = d3.scaleLinear().range([height - margin.top - margin.bottom, 0]);
 
-  var xAxis = d3.axisBottom(xScale0).tickSizeOuter(axisTicks.outerSize);
-  var yAxis = d3.axisLeft(yScale).ticks(axisTicks.qty).tickSizeOuter(axisTicks.outerSize);
+  let xAxis = d3.axisBottom(xScale0).tickSizeOuter(axisTicks.outerSize);
+  let yAxis = d3.axisLeft(yScale).ticks(axisTicks.qty).tickSizeOuter(axisTicks.outerSize);
 
   xScale0.domain(models.map(d => d.yearmonth));
   xScale1.domain(['subscriber', 'customer']).range([0, xScale0.bandwidth()]);
   yScale.domain([0, 290000]);
 
-  var model_name = svg.selectAll(".yearmonth")
+  let model_name = svg.selectAll(".yearmonth")
     .data(models)
     .enter().append("g")
     .attr("class", d => "yearmonth" + " " + d.yearmonth)
     .attr("transform", d => `translate(${xScale0(d.yearmonth)},0)`)
     .on("mouseover", handleMouseOver)
     .on("mouseout", handleMouseOut);
+
+  // ^ handles highlighting functions when mousing over the charts    
 
   /* Add field1 bars */
   model_name.selectAll(".bar.field1")
@@ -81,26 +83,26 @@ function users_grouped_bar_chart(data) {
      .call(yAxis);
 
   // create a x-axis title
-  var xLabel = svg.append("text")
+  let xLabel = svg.append("text")
                   .attr("text-anchor", "middle")
                   .style("font-size", "16px")
                   .attr("transform", "translate("+ ((width/2)-90) +","+(height-(margin.bottom/3)-50)+")")
                   .text("Year-Month");
 
   // create a y-axis title
-  var yLabel = svg.append("text")
+  let yLabel = svg.append("text")
                   .attr("text-anchor", "middle")
                   .style("font-size", "16px")
                   .attr("transform", "translate("+ ((margin.left/2)-115) +","+((height/2)-55)+")rotate(-90)")
                   .text("Number of Users");
 
   // create a chart title
-  var chartTitle = svg.append("text")
+  let chartTitle = svg.append("text")
                       .attr("text-anchor", "middle")
                       .attr("transform", "translate("+ ((width/2) - 90) +","+((margin.bottom/3)-50)+")")
                       .text("Membership Status of Bluebikes Users");
 
-  var color = d3.scaleOrdinal().range(["#e9a3c9", "#a1d76a"]);
+  let color = d3.scaleOrdinal().range(["#e9a3c9", "#a1d76a"]);
 
   // highlights hovered over bar in this grouped bar chart
   function handleMouseOver(d, i) {
