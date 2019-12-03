@@ -36,34 +36,25 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 // -------------------- END DISPLAY CHESTER SQUARE MAP CODE --------------------------
 
 
-// Reading in the data for the trips that START at all 4 stations around Chester Square then calling the basic_bar_chart function with the appropriate title
-d3.csv('data/chester_square_start_hour.csv', function(d) {
-  return {
-		start_hour: d.start_hour,
-		n: +d.total,
-		subscriber: +d.subscriber,
-		customer: +d.customer,
-		pct: +d.pct * 100,
-		all_boston_pct: +d.all_boston_pct * 100
-  };
-  // create a bar chart with the data that was read in
-}).then(function(result) {
-	basic_bar_chart(result, "Hourly Percentage of Daily Trips Starting in Chester Square", "chester_square_start_trips");
-});
-
 // Reading in the data for the trips that END at all 4 stations around Chester Square then calling the basic_bar_chart function with the appropriate title
-d3.csv('data/chester_square_end_hour.csv', function(d) {
+d3.csv('data/chester_square.csv', function(d) {
   return {
-		start_hour: d.start_hour,
-		n: +d.total,
-		subscriber: +d.subscriber,
-		customer: +d.customer,
-		pct: +d.pct * 100,
-		all_boston_pct: +d.all_boston_pct * 100
+    hour: d.hour,
+    subscriber_start: d.subscriber_start,
+    customer_start: d.customer_start,
+    total_start: +d.total_start,
+    pct_start: +d.pct_start * 100,
+    all_boston_pct_start: +d.all_boston_pct_start * 100,
+    subscriber_end: d.subscriber_end,
+    customer_end: d.customer_end,
+    total_end: +d.total_end,
+    pct_end: +d.pct_end * 100,
+    all_boston_pct_end: +d.all_boston_pct_end * 100
   };
   // create a bar chart with the data that was read in
 }).then(function(result) {
-	basic_bar_chart(result, "Hourly Percentage of Daily Trips Ending in Chester Square", "chester_square_end_trips");
+  basic_bar_chart(result, "Hourly Percentage of Daily Trips Ending in Chester Square", "chester_square_end_trips", false);
+  basic_bar_chart(result, "Hourly Percentage of Daily Trips Starting in Chester Square", "chester_square_start_trips", true);
 });
 
 // Read in gender data to be displayed in grouped bar chart representing gender breakdown of the 4 Chester Square Station customers
