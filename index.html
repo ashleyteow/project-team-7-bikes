@@ -62,7 +62,7 @@
 
     <h1>Visualization</h1>
 
-  </div>
+
   <div class="map-caption">
     <p class="vis-explanation">
       <em>
@@ -70,12 +70,29 @@
       </em>
     </p>
   </div>
+  </div>
+
   <div id="map">
+  </div>
+
+  <!-- Your visualization here -->
+<div class="vis-holder">
+  <div class="demographics">
+      <p class="vis-explanation">
+          Below you can find three graphs presenting demographic data for BlueBikes users in Boston. The first line chart displays the change in average age of BlueBikes users in the past year. The next grouped bar chart displays the number of BlueBikes members versus non-members for each month in the past year. The last grouped bar chart displays the gender counts of BlueBikes users (self-reported) for each month in the past year. You can brush over the points on the average age line chart in order to highlight on the other two graphs the member versus nonmember breakdown and gender breakdown for the selected months.
+      </p>
+  </div>
+  <div class="hourly-trips">
+    <p class="vis-explanation">
+      Below you can find a bar chart presenting the percentage of daily trips taken in each hour of an average day for Chester Square BlueBikes stations. The red line outlines the hourly percentage of trips for all BlueBikes stations in Boston, allowing for a comparison between Chester Square and Boston. The current bar chart displays the data for trips starting in Chester Square. You can select the toggle button to see the data for trips ending in Chester Square. You can also hover over each bar to see the percentage of trips in that hour taken by BlueBikes members versus non-members.
+    </p>
+  <button class="trip-toggle-button" onclick="showStartTrips()">Toggle Trips</button>
   </div>
 </div>
 
 <!-- Your writeup goes here -->
 <div class = "content-column">
+
   <h1>Demo Video</h1>
   <video controls width="100%">
     <source src="DemoVideo.mp4" type="video/mp4">
@@ -228,6 +245,7 @@ Expectation: Clearly describes domain tasks, processes, goals and abstract tasks
     Future improvements could include expanding the hourly usage analysis to more than just the five stations near Chester Square. In this way, the hourly usage of BlueBikes stations in another neighborhood in Boston, analogous to the layout of Chester Square, could be analyzed and compared to that of Chester Square. Another future improvement could include visualizing the demographics of BlueBikes users for the past five years instead of being limited to the past year, or having both data for the past five years and the past year to observe both change over a large period of time and seasonal change in BlueBikes user demographics. In this way, the change in user demographics could be discussed in order to address how well Chester Square residents fit into the demographics outlined.
   </em>
 </p>
+
 <h1>Acknowledgements</h1>
 
 <p>
