@@ -81,19 +81,18 @@ function users_grouped_bar_chart(data) {
   // create a x-axis title
   let xLabel = svg.append("text")
                   .attr("text-anchor", "middle")
-                  .style("font-size", "16px")
                   .attr("transform", "translate("+ ((width/2)-90) +","+(height-(margin.bottom/3)-50)+")")
                   .text("Year-Month");
 
   // create a y-axis title
   let yLabel = svg.append("text")
                   .attr("text-anchor", "middle")
-                  .style("font-size", "16px")
                   .attr("transform", "translate("+ ((margin.left/2)-115) +","+((height/2)-55)+")rotate(-90)")
                   .text("Number of Users");
 
   // create a chart title
   let chartTitle = svg.append("text")
+                      .attr("class", "chartTitle")
                       .attr("text-anchor", "middle")
                       .attr("transform", "translate("+ ((width/2) - 90) +","+((margin.bottom/3)-50)+")")
                       .text("Membership Status of Bluebikes Users");
