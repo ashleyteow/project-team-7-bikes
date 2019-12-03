@@ -123,7 +123,7 @@ function gender_grouped_bar_chart(data) {
 
   // create a chart title
   let chartTitle = svg.append("text")
-                      .attr("class", "label")
+                      .attr("class", "chartTitle")
                       .attr("text-anchor", "middle")
                       .attr("transform", "translate("+ ((width/2) - 90) +","+((margin.bottom/3)-45)+")")
                       .text("Gender of Bluebikes Users");

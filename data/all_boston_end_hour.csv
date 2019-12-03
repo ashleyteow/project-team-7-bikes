@@ -1,4 +1,4 @@
-,hour,subscriber,customer,total,all_boston_pct
+,end_hour,subscriber,customer,total,all_boston_pct
 1,0:00,14395,7011,21406,0.009157467
 2,1:00,8511,5494,14005,0.005991326
 3,2:00,5427,4114,9541,0.004081631
