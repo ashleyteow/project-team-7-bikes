@@ -1,5 +1,5 @@
 // Function to create a user membership grouped bar chart using attributes read in from the Chester Square BlueBikes station dataset
-function grouped_bar_chart(data, id) {
+function grouped_bar_chart(data, id, title) {
   let models = data.map(i => {
     i.yearmonth = i.yearmonth;
     return i;
@@ -14,7 +14,7 @@ function grouped_bar_chart(data, id) {
 
   let svg = container
      .append("svg")
-     .attr("id", "users")
+     .attr("id", id)
      .attr("width", width)
      .attr("height", height)
      .append("g")
@@ -46,47 +46,76 @@ function grouped_bar_chart(data, id) {
 
   // ^ handles highlighting functions when mousing over the charts    
 
-  var slice = svg.selectAll(".slice")
-      .data(data)
-      .enter().append("g")
-      .attr("class", "g")
-      .attr("transform",function(d) { return "translate(" + x0(d.categorie) + ",0)"; });
+  if (id == "users") {
+    // /* Add field1 bars */
+    model_name.selectAll(".bar.field1")
+      .data(d => [d])
+      .enter()
+      .append("rect")
+      .attr("class", "bar subscriber")
+      .attr("x", d => xScale1('subscriber'))
+      .attr("y", d => yScale(d.subscriber))
+      .attr("width", xScale1.bandwidth())
+      .attr("height", d => {
+        return height - margin.top - margin.bottom - yScale(d.subscriber)
+      });
+      
+    // /* Add field2 bars */
+    model_name.selectAll(".bar.field2")
+      .data(d => [d])
+      .enter()
+      .append("rect")
+      .attr("class", "bar customer")
+      .attr("x", d => xScale1('customer'))
+      .attr("y", d => yScale(d.customer))
+      .attr("width", xScale1.bandwidth())
+      .attr("height", d => {
+        return height - margin.top - margin.bottom - yScale(d.customer)
+      });
+  }
+  else {
+    model_name.selectAll(".bar.field1")
+      .data(d => [d])
+      .enter()
+      .append("rect")
+      .attr("class", "bar male")
+    .style("fill","#66c2a5")
+      .attr("x", d => xScale1('male'))
+      .attr("y", d => yScale(d.male))
+      .attr("width", xScale1.bandwidth())
+      .attr("height", d => {
+        return height - margin.top - margin.bottom - yScale(d.male)
+      });
+      
+    /* Add field2 bars */
+    model_name.selectAll(".bar.field2")
+      .data(d => [d])
+      .enter()
+      .append("rect")
+      .attr("class", "bar female")
+    .style("fill","#fc8d62")
+      .attr("x", d => xScale1('female'))
+      .attr("y", d => yScale(d.female))
+      .attr("width", xScale1.bandwidth())
+      .attr("height", d => {
+        return height - margin.top - margin.bottom - yScale(d.female)
+      });
 
-  slice.selectAll("rect")
-      .data(function(d) { 
-        return d.values;
-      })
-  // .enter().append("rect")
-  //     .attr("width", x1.rangeBand())
-  //     .attr("x", function(d) { return x1(d.rate); })
-  //     .style("fill", function(d) { return color(d.rate) })
-  //     .attr("y", function(d) { return y(0); })
-  //     .attr("height", function(d) { return height - y(0); })
-  // /* Add field1 bars */
-  // model_name.selectAll(".bar.field1")
-  //   .data(d => [d])
-  //   .enter()
-  //   .append("rect")
-  //   .attr("class", "bar subscriber")
-  //   .attr("x", d => xScale1('subscriber'))
-  //   .attr("y", d => yScale(d.subscriber))
-  //   .attr("width", xScale1.bandwidth())
-  //   .attr("height", d => {
-  //     return height - margin.top - margin.bottom - yScale(d.subscriber)
-  //   });
-    
-  // /* Add field2 bars */
-  // model_name.selectAll(".bar.field2")
-  //   .data(d => [d])
-  //   .enter()
-  //   .append("rect")
-  //   .attr("class", "bar customer")
-  //   .attr("x", d => xScale1('customer'))
-  //   .attr("y", d => yScale(d.customer))
-  //   .attr("width", xScale1.bandwidth())
-  //   .attr("height", d => {
-  //     return height - margin.top - margin.bottom - yScale(d.customer)
-  //   });
+    /* Add field3 bars */
+    model_name.selectAll(".bar.field3")
+      .data(d => [d])
+      .enter()
+      .append("rect")
+      .attr("class", "bar unreported")
+    .style("fill","#8da0cb")
+      .attr("x", d => xScale1('unreported'))
+      .attr("y", d => yScale(d.unreported))
+      .attr("width", xScale1.bandwidth())
+      .attr("height", d => {
+        return height - margin.top - margin.bottom - yScale(d.unreported)
+      });    
+  }
+
    
   // Add the X Axis
   svg.append("g")
@@ -116,7 +145,7 @@ function grouped_bar_chart(data, id) {
                       .attr("class", "chartTitle")
                       .attr("text-anchor", "middle")
                       .attr("transform", "translate("+ ((width/2) - 90) +","+((margin.bottom/3)-50)+")")
-                      .text("Membership Status of Bluebikes Users");
+                      .text(title);
 
   let color = d3.scaleOrdinal().range(["#e9a3c9", "#a1d76a"]);
 
@@ -130,29 +159,70 @@ function grouped_bar_chart(data, id) {
     d3.select(this).style('opacity', 1.0);
   }
 
-  svg.append("rect")
-     .attr("x", width/2-180)
-     .attr("y", (height/4)-95)
-     .attr("width", 15)
-     .attr("height", 15)
-     .style("fill", "#e9a3c9");
-  svg.append("text")
-     .attr("x", width/2-160)
-     .attr("y", (height/4)-86)
-     .text("Member")
-     .style("font-size", "15px")
-     .attr("alignment-baseline","middle");
-  svg.append("rect")
-     .attr("x", width/2-80)
-     .attr("y", (height/4)-95)
-     .attr("width", 15)
-     .attr("height", 15)
-     .style("fill", "#a1d76a");
-  svg.append("text")
-     .attr("x", width/2-60)
-     .attr("y", (height/4)-86)
-     .text("Non-Member")
-     .style("font-size", "15px")
-     .attr("alignment-baseline","middle");
+  if (id == "users") {
+    svg.append("rect")
+       .attr("x", width/2-180)
+       .attr("y", (height/4)-95)
+       .attr("width", 15)
+       .attr("height", 15)
+       .style("fill", "#e9a3c9");
+    svg.append("text")
+       .attr("x", width/2-160)
+       .attr("y", (height/4)-86)
+       .text("Member")
+       .style("font-size", "15px")
+       .attr("alignment-baseline","middle");
+    svg.append("rect")
+       .attr("x", width/2-80)
+       .attr("y", (height/4)-95)
+       .attr("width", 15)
+       .attr("height", 15)
+       .style("fill", "#a1d76a");
+    svg.append("text")
+       .attr("x", width/2-60)
+       .attr("y", (height/4)-86)
+       .text("Non-Member")
+       .style("font-size", "15px")
+       .attr("alignment-baseline","middle");    
+  }
+  else {
+    svg.append("rect")
+       .attr("x", width/2-230)
+       .attr("y", (height/4)-90)
+       .attr("width", 15)
+       .attr("height", 15)
+       .style("fill", "#66c2a5");
+    svg.append("text")
+       .attr("x", width/2-205)
+       .attr("y", (height/4)-81)
+       .text("Male")
+       .style("font-size", "15px")
+       .attr("alignment-baseline","middle");
+    svg.append("rect")
+       .attr("x", width/2-140)
+       .attr("y", (height/4)-90)
+       .attr("width", 15)
+       .attr("height", 15)
+       .style("fill", "#fc8d62");
+    svg.append("text")
+       .attr("x", width/2-115)
+       .attr("y", (height/4)-81)
+       .text("Female")
+       .style("font-size", "15px")
+       .attr("alignment-baseline","middle");
+    svg.append("rect")
+       .attr("x", (width/2)-40)
+       .attr("y", (height/4)-90)
+       .attr("width", 15)
+       .attr("height", 15)
+       .style("fill", "#8da0cb");
+    svg.append("text")
+       .attr("x", (width/2)-20)
+       .attr("y", (height/4)-81)
+       .text("Unreported")
+       .style("font-size", "15px")
+       .attr("alignment-baseline","middle");    
+  }
+
 
 }

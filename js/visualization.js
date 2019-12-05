@@ -70,7 +70,6 @@ d3.csv("data/demographics.csv", function(d) {
 
   };
 }).then(function(result) {
-    console.log(result);
     let ageChart = scatterplotLine()
     .x(d => d.yearmonth)
     .xLabel("Year-Month")
@@ -80,9 +79,8 @@ d3.csv("data/demographics.csv", function(d) {
     .selectionDispatcher(d3.dispatch("selectionUpdated"))
       ("#svg-vis-demographics-line", result);  
 
-    // let usersChart = users_grouped_bar_chart(result);  
-    // let genderChart = gender_grouped_bar_chart(result);  
-    
+    grouped_bar_chart(result, "users", "Membership Status of Bluebikes Users");
+    grouped_bar_chart(result, "gender", "Gender of Bluebikes Users");
 });
 
 
