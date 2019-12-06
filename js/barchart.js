@@ -110,14 +110,12 @@ function basic_bar_chart(mydata, title, id, start) {
     let xLabel = svg.append("text")
             		.attr("text-anchor", "middle")
             		.attr("transform", "translate("+ (width/2) +","+(height-(margin.bottom/3))+")")
-            		.style("font-size", "16px")
             		.text("Hour of Day");
 
     // create a y-axis title
     let yLabel = svg.append("text")
             		.attr("text-anchor", "middle")
             		.attr("transform", "translate("+ (margin.left/2) +","+(height/2)+")rotate(-90)")
-            		.style("font-size", "16px")
             		.text("Percent of Daily Trips (%)");
 
     // create a chart title
