@@ -38,8 +38,9 @@ function scatterplotLine() {
 
     xScale
          .domain(d3.map(data, function(d) { return d.yearmonth; }).keys())
-         .range([margin.left, width-margin.right], 1.0);
-
+         .range([margin.left, width-margin.right], 1.0)
+         .padding(1.25);
+      
     yScale
          .domain([0, maxAge + 10])
          .range([height - margin.bottom - margin.top, 0]);
@@ -56,8 +57,7 @@ function scatterplotLine() {
                     .attr("text-anchor", "middle")
                     .attr("transform", "translate("+ ((width/2)-20) +","+(height-(margin.bottom/3)-50)+")")
                     .text("Year-Month")
-                    .style("font-size", "16px")
-                    .style("fill", "black");
+                    .attr("class", "chart-label");
 
     var yAxis = d3.axisLeft(yScale);
       svg.append('g')
@@ -69,19 +69,18 @@ function scatterplotLine() {
     // create a y-axis title
     var yLabel = svg.append("text")
                     .attr("text-anchor", "middle")
-                    .attr("transform", "translate("+ (margin.left/2) +","+((height/2)-55)+")rotate(-90)")
+                    .attr("transform", "translate("+ ((margin.left/2)) +","+((height/2)-55)+")rotate(-90)")
                     .text("Average User Age")
-                    .style("font-size", "16px")
-                    .style("fill", "black");
+                    .attr("class", "chart-label");
 
     // create a chart title
     var chartTitle = svg.append("text")
                         .attr("text-anchor", "middle")
                         .attr("class", "chartTitle")
                         .attr("transform", "translate("+ (width/2) +","+((margin.bottom/4)-15)+")")
-                        .text("Average Age of Bluebikes Users")                
+                        .text("Average Age of Bluebikes Users")
+                        .style("class", "chart-title");
                         
-
 
     var line = d3.line()
                .x(function(d) { return xScale(d.yearmonth); })    

@@ -18,11 +18,12 @@ mymap.dragging.disable();
 mymap.doubleClickZoom.disable();
 mymap.scrollWheelZoom.disable();
 
-// Add markers for each Bluebike lcocation in the Chester Square area.
+// Add markers for each Bluebikes lcocation in the Chester Square area.
 L.marker([42.338921, -71.081050]).bindTooltip("Tremont St @ Northampton St").addTo(mymap);
 L.marker([42.338606, -71.074023]).bindTooltip("Washington St @ Rutland St").addTo(mymap);
 L.marker([42.340811, -71.081176]).bindTooltip("Columbus St @ Massachusetts Ave").addTo(mymap);
 L.marker([42.341332, -71.076847]).bindTooltip("South End Library").addTo(mymap);
+L.marker([42.3350989929, -71.0790377855]).bindTooltip("Washington St @ Lenox St").addTo(mymap);
 
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {

@@ -41,8 +41,8 @@ function grouped_bar_chart(data, id, title) {
     .enter().append("g")
     .attr("class", d => "yearmonth" + " " + d.yearmonth)
     .attr("transform", d => `translate(${xScale0(d.yearmonth)},0)`)
-    .on("mouseover", handleMouseOver)
-    .on("mouseout", handleMouseOut);
+//    .on("mouseover", handleMouseOver)
+//    .on("mouseout", handleMouseOut);
 
   // ^ handles highlighting functions when mousing over the charts    
 
@@ -137,7 +137,7 @@ function grouped_bar_chart(data, id, title) {
   // create a y-axis title
   let yLabel = svg.append("text")
                   .attr("text-anchor", "middle")
-                  .attr("transform", "translate("+ ((margin.left/2)-115) +","+((height/2)-55)+")rotate(-90)")
+                  .attr("transform", "translate("+ ((margin.left/2)-130) +","+((height/2)-55)+")rotate(-90)")
                   .text("Number of Users");
 
   // create a chart title
@@ -148,16 +148,6 @@ function grouped_bar_chart(data, id, title) {
                       .text(title);
 
   let color = d3.scaleOrdinal().range(["#e9a3c9", "#a1d76a"]);
-
-  // highlights hovered over bar in this grouped bar chart
-  function handleMouseOver(d, i) {
-    d3.select(this).style('opacity', 0.2);
-  }
-
-  // resets mouse opacity on mouse out
-  function handleMouseOut(d, i) {
-    d3.select(this).style('opacity', 1.0);
-  }
 
   if (id == "users") {
     svg.append("rect")
