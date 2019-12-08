@@ -243,3 +243,18 @@ circle {
 	fill: none;
 	stroke-width: 5px;
 }
+
+/* Styling for chart axis labels */
+.chart-label {
+    fill: black;
+    font-size: 16px;
+}
+
+/* Styling for the legend of the station bar chart */
+#legend-all-boston-line {
+    fill: red;
+}
+
+#legend-chester-sq-bars {
+    fill: #7570B3;
+}

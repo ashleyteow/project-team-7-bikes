@@ -20,7 +20,7 @@ function basic_bar_chart(mydata, title, id, start) {
 				.attr('height', height)
 				.attr('margin', margin);
 
-	let tooltip = d3.select("body").append("div").attr("class", "toolTip");				
+	let tooltip = d3.select("body").append("div").attr("class", "toolTip");
 
 	// create the x-scale using the keys from a map call
 	// x-scale contains 0:00-23:00, indicating the hour of day in 24-hour time
@@ -53,52 +53,65 @@ function basic_bar_chart(mydata, title, id, start) {
     			  .enter()
     			  .append("rect")
     			  .attr("class", "bar")
-             	  .attr("x", function(d) { 
+             	  .attr("x", function(d) {
              	  	return xScale(d.hour);
              	  	 })
              	  .attr("y", function(d) {
                     if (start) {
-                        return yScale(d.pct_start);     
+                        return yScale(d.pct_start);
                     }
                     else {
-                        return yScale(d.pct_end);        
+                        return yScale(d.pct_end);
                     }
              	   
              	  })
              	  .attr("width", xScale.bandwidth())
-             	  .attr("height", function(d) { 
+             	  .attr("height", function(d) {
                     if (start) {
-                        return height-margin.bottom-yScale(d.pct_start);    
+                        return height-margin.bottom-yScale(d.pct_start);
                     }
                     else {
-                        return height-margin.bottom-yScale(d.pct_end);       
+                        return height-margin.bottom-yScale(d.pct_end);
                     }
 					
              	  })
-    				.on("mouseover", function(d){
+    				.on("mouseover.tooltip", function(d){
     				            tooltip.style("left", d3.event.pageX - 50 + "px")
     			                tooltip.style("top", d3.event.pageY - 70 + "px")
     				            tooltip.style("display", "inline-block")
 
                                 if (start) {
                                   tooltip.html("Members:  <br> " + ((d.subscriber_start / d.total_start) * 100).toFixed(2) + "%" + "<br>" +
-                                    "Non-members:  <br> " + ((d.customer_start / d.total_start) * 100).toFixed(2) + "%");  
+                                    "Non-members:  <br> " + ((d.customer_start / d.total_start) * 100).toFixed(2) + "%");
                                 }
                                 else {
                                   tooltip.html("Members:  <br> " + ((d.subscriber_end / d.total_end) * 100).toFixed(2) + "%" + "<br>" +
-                                    "Non-members:  <br> " + ((d.customer_end / d.total_end) * 100).toFixed(2) + "%");                                      
-                                }            
+                                    "Non-members:  <br> " + ((d.customer_end / d.total_end) * 100).toFixed(2) + "%");
+                                }
     	        	})
-    	    		.on("mouseout", function(d){ tooltip.style("display", "none"); });    
+    	    		.on("mouseout.tooltip", function(d){ tooltip.style("display", "none"); })
+                                                             .on("mouseover.opacity", handleMouseOver)
+                                                             .on("mouseout.opacity", handleMouseOut);
 
+                                                             
+      // highlights hovered over bar in this grouped bar chart
+      function handleMouseOver(d, i) {
+        d3.select(this).style('opacity', 0.2);
+      }
+    
+      // resets mouse opacity on mouse out
+      function handleMouseOut(d, i) {
+        d3.select(this).style('opacity', 1.0);
+      }
+                                                             
 	let line = d3.line()
 	  			 .x(function(d) { return xScale(d.hour); })
-	  			 .y(function(d) { 
+	  			 .y(function(d) {
                     if (start) {
                         return yScale(d.all_boston_pct_start);
                     }
                     else {
-                        return yScale(d.all_boston_pct_end);                        
+                        return yScale(d.all_boston_pct_end);
                     }
                  })
 	
@@ -122,7 +135,8 @@ function basic_bar_chart(mydata, title, id, start) {
     let chartTitle = svg.append("text")
             		.attr("text-anchor", "middle")
             		.attr("transform", "translate("+ (width/2) +","+(15+(margin.bottom/3))+")")
-            		.text(title);
+            		.text(title)
+                    .attr("class", "chartTitle");
 
 
     svg.append("rect")
@@ -130,7 +144,7 @@ function basic_bar_chart(mydata, title, id, start) {
      .attr("y", (height/3) - 140)
      .attr("width", 30)
      .attr("height", 5)
-     .style("fill", "red");
+     .attr("id", "legend-all-boston-line");
   	svg.append("text")
      .attr("x", width/2-160)
      .attr("y", (height/3)-136)
@@ -142,7 +156,7 @@ function basic_bar_chart(mydata, title, id, start) {
      .attr("y", (height/3) - 140)
      .attr("width", 30)
      .attr("height", 5)
-     .style("fill", "#7570B3");
+     .attr("id", "legend-chester-sq-bars");
   	svg.append("text")
      .attr("x", width/2+40)
      .attr("y", (height/3)-136)
