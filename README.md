@@ -1,26 +1,8 @@
-# S-L Project Template
+# Project Team 7: Bikes, DS 4200 F19
+## Shraeya Srinivasan, Ashley Teow, Gauri Dandi
 
-This template will help you get started with your project. Please look through all these materials so you know how to organize your project.
-
-## The Associated GitHub Pages Website
-
+## View this project:
 This website is served automatically from the default `gh-pages` branch at https://northeastern-ds-4200-f19.github.io/project-team-7-bikes/
-
-## Setup
-
-**Under no circumstances should you be editing files via the GitHub user interface.** Do all your edits locally after cloning.
-
-1. Clone this repository to your local machine. E.g., in your terminal / command prompt `CD` to where you want this the folder for this activity to be. Then run `git clone <YOUR_REPO_URL>`.
-
-1. In `README.md` update the URL above to point to your GitHub pages website. E.g., http://northeastern-ds-4200-f19.github.io/project-team-#-topic where `#` and `topic` are customized.
-
-1. `CD` or open a terminal / command prompt window into the cloned folder.
-
-1. Start a simple python webserver. E.g., `python -m http.server`, `python3 -m http.server`, or `py -m http.server`. If you are using python 2 you will need to use `python -m SimpleHTTPServer` instead, but please switch to python 3.
-
-1. Wait for the output: `Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/)`.
-
-1. Now open your web browser (Firefox or Chrome) and navigate to the URL: http://localhost:8000
 
 ## Root Files
 * `README.md` is this explanatory file for the repo.
@@ -29,37 +11,33 @@ This website is served automatically from the default `gh-pages` branch at https
 
 * `style.css` contains the CSS.
 
-* `visualization.js` will contain your JavaScript and D3 code.
+* `js` contains all JavaScript code.
 
-* `LICENCE` is your source code license.
+* `LICENCE` is the source code license.
 
 ## Folders
 Each folder has an explanatory `README.md` file
 
-* `data` is where you will put your data files.
+* `data` contains data files and data cleaning code.
 
-* `favicons` contains the favicons for the course projects. You shouldn't change anything here.
+* `favicons` contains the favicons for the course projects.
 
-* `files` will contain your slides (PDF) and video (MP4).
+* `files` contains presentation slides (PDF) and video walkthrough (MP4).
 
-* `images` will contain your screenshots, diagrams, and photos.
+* `images` contains screenshots, diagrams, and photos.
 
-* `lib` will contain any JavaScript library you use. It currently includes D3.
+* `lib` contains any JavaScript library used (D3 and Leaflet).
 
-## Workflow
+## Visualization Walkthrough
+### Map
+The five blue markers represent the five BlueBikes stations closest and most relevant to the Chester Square neighborhood that is included in our analysis. You can zoom in and out of the Chester Square neighborhood area in the map. You can hover over a blue marker to see the name of the BlueBikes station.
 
-As you work with your team, you may have issues merging your changes. We recommend you pick one member of the team to be the project manager and deal with merging any pull requests.
+### Demographics Graphs
+These graphs present demographic data for BlueBikes users in Boston. 
+* The first line chart displays the change in average age of BlueBikes users in the past year. 
+* The next grouped bar chart displays the number of BlueBikes members versus non-members for each month in the past year. 
+* The last grouped bar chart displays the gender counts of BlueBikes users (self-reported) for each month in the past year. 
+You can brush over the points on the average age line chart in order to highlight on the other two graphs the member versus nonmember breakdown and gender breakdown for the selected months.
 
-Instead of all working directly out of the main `gh-pages` branch, you can try adopting a Git branching model for development. See, e.g., [this article by Vincent Driessen](https://nvie.com/posts/a-successful-git-branching-model/) and the included image:
-
-![Image of Git branching model by VIncent Driessen](http://www.ccs.neu.edu/home/cody/courses/shared/git-model.png)
-
-
-
-------------------------------------------------------------------------------------------------------------------------------------------------------- FINAL README:
-Project Team 7: Bikes, DS 4200 F19
-Shraeya Srinivasan, Ashley Teow, Gauri Dandi
-
-This website is served automatically from the default `gh-pages` branch at https://northeastern-ds-4200-f19.github.io/project-team-7-bikes/
-
-
+### Station Data Bar Chart
+ This bar chart presents the percentage of daily trips taken in each hour of an average day for Chester Square BlueBikes stations. The red line outlines the hourly percentage of trips for all BlueBikes stations in Boston, allowing for a comparison between Chester Square and Boston. The current bar chart displays the data for trips starting in Chester Square. You can select the toggle button to see the data for trips ending in Chester Square. You can also hover over each bar to see the percentage of trips in that hour taken by BlueBikes members versus non-members.

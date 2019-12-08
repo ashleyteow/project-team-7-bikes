@@ -6,9 +6,12 @@ The data originally acquired from https://www.bluebikes.com/system-data, contain
   	- south_end_lib_end.csv -- data for trips that end at the South End Library station
   	- south_end_lib_start.csv -- data for trips that start at the South End Library station
   	- tremont_northampton_end.csv -- data for trips that end at the Tremont St @ Northampton St station
- 	 - tremont_northampton_start.csv -- data for trips that start at the Tremont St @ Northampton St station
+      - tremont_northampton_start.csv -- data for trips that start at the Tremont St @ Northampton St station
+      - wash_lenox_end.csv -- data for trips that end at the Washington St @ Lenox St station
+     - wash_lenox_start.csv -- data for trips that start at the Washington St @ Lenox St station
   	- wash_rutland_end.csv -- data for trips that end at the Washington St @ Rutland St station
 	- wash_rutland_start.csv -- data for trips that start at the Washington St @ Rutland St station
+    
 	- Data attributes (for each):
 		- Trip duration in seconds (quantitative),
 		- Start time and date (ordinal)
@@ -120,18 +123,12 @@ The data originally acquired from https://www.bluebikes.com/system-data, contain
 - data_cleaning_files/Demographics-Cleaning.R -- code used to prepare demographic data for visualization in d3
 - data_cleaning_files/Station-Data-Cleaning.R -- code used to prepare usage data for each stop around Chester Square for visualization in d3
 
-- demographics_data
-	- demographics_data/age.csv -- data containing the average age of customers who have used BlueBikes at any station in Boston from October 2018 until September 2019
-		- Data attributes:
-			- yearmonth (ordinal): the year and month of the data
-			- age (quantitative): the average age of BlueBikes users during that the corresponding year-month 
-	- demographics_data/gender.csv -- data containing information about the self-reported gender of all BlueBikes users from October 2018 until September 2019
-		- Data attributes:
-			- yearmonth: the year and month of the data
-			- count: the number of users, subsetted by gender, for the corresponding year-month
-			- gender: the gender assigned to the count variable 
-	- demographics_data/users.csv -- data containing information about the membership status (subscriber vs. casual user) of all BlueBikes users from October 2018 until September 2019
-		- Data attributes:
-			- yearmonth: the year and month of the data
-			- count: the number of users, subsetted by membership status, for the corresponding year-month
-			- usertype: the type of user (subscriber vs. customer)
+- demographics.csv -- contains demographic data about Bluebikes users
+- Data Attributes:
+            - yearmonth (ordinal):
+            - male :
+            - female:
+            - unreported:
+            - subscriber:
+            - customer:
+            - age: 
