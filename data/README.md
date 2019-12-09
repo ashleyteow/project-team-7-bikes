@@ -1,4 +1,8 @@
-The data originally acquired from https://www.bluebikes.com/system-data, containing multiple csv files for each separate month from October 2018 to September 2019, was merged into a single csv file. It contains each BlueBikes’ trip duration in seconds, start time and date, stop time and date, start station id and name, start station latitude and longitude, end station id and name, end station latitude and longitude, bike id, user type (either a single user or regular member), user birth year, user gender, and an added column for the year and month.
+# Data Cleaning Process
+
+## The data is originally acquired from https://www.bluebikes.com/system-data, specifically the csv files for each month from January 2015 to September 2019. 
+
+The data file used to analyze Chester Square specific stations contains each BlueBikes’ trip duration in seconds, start time and date, stop time and date, start station id and name, start station latitude and longitude, end station id and name, end station latitude and longitude, bike id, user type (either a single user or regular member), user birth year, user gender, and an added column for the year and month.
 
 - all_data.zip – zipped file containing original cleaned data containing:
   	- columbus_mass_end.csv -- data for trips that end at the Columbus Ave @ Mass Ave station
