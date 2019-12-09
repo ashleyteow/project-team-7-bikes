@@ -15,6 +15,9 @@
         - all_boston_pct_end: percentage of trips that ended at this hour in all of Boston
 
 ### /data_cleaning_files
+    - Demographics-Cleaning.R
+        - i tire of writing about this
+    - Station-Data-Cleaning.R
 
 ### /original_data
 
