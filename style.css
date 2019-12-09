@@ -13,7 +13,7 @@ em {
 	font-style: normal;
 }
 
-/* Fork on GitHub ribbon via https://codepo8.github.io/css-fork-on-github-ribbon/# */  
+/* Fork on GitHub ribbon via https://codepo8.github.io/css-fork-on-github-ribbon/# styling */
 #forkongithub a{
 	background:#00F;
 	color:#fff;
@@ -108,11 +108,6 @@ circle {
 	r: 5;
 }
 
-/* Styling for the div holder for the 3 demographic charts */
-.demographics {
-	width: 1600px;
-}
-
 /* Styling for the visualization annotations */
 .vis-explanation {
 	font-size: 16px;
@@ -132,6 +127,12 @@ circle {
 /* Styling for the age demographic line chart */
 .svg-vis-demographics-line {
 	margin: auto
+}
+
+.linePath {
+    stroke: #0571b0;
+    fill: none;
+    stroke-width: 5px;
 }
 
 /* Styling for the gender double bar chart */
@@ -212,36 +213,29 @@ circle {
 	 border-color:#BBBBBB;
 }
 
-/* formatting the stations bar charts */
+/* Styling for formatting the stations bar charts */
 .hourly-trips {
 	margin: auto;
 	position: relative;
 }
 
-/* Your text should be in a nice narrow column */
+/* Styling for the explanation text */
 .content-column {
 	max-width: 650px;
 	margin: 40px auto;
 }
 
-/* But your visualization should be full-width and full-height */
+/* Styling for the encasings for the visualizations */
 .vis-holder {
 	max-width: 1500px;
 	margin: 40px auto;
 }
 
-/* line chart representing data from all Boston stations */
+/* Styling for the line chart representing data from all Boston stations */
 .dataLine {
 	stroke: red;
 	stroke-width: 5px;
 	fill: none;
-}
-
-/* age line chart */
-.linePath {
-	stroke: #0571b0;
-	fill: none;
-	stroke-width: 5px;
 }
 
 /* Styling for chart axis labels */
@@ -257,4 +251,41 @@ circle {
 
 #legend-chester-sq-bars {
     fill: #7570B3;
+}
+
+/* Styling for the bars in the member breakdown double bar chart */
+.member-bar {
+    fill: #e9a3c9;
+}
+
+.customer-bar {
+    fill: #a1d76a;
+}
+
+/* Styling for the bars in the gender breakdown double bar chart */
+.male-bar {
+    fill: #66c2a5;
+}
+
+.female-bar {
+    fill: #fc8d62;
+}
+
+.unreported-bar {
+    fill: #8da0cb;
+}
+
+/* Styling for the legend labels for all graphs */
+.legend-text {
+    font-size: 15px;
+}
+
+/* Styling for mouseover event on the station bar chart */
+.mouseover-opacity {
+    opacity: 0.2;
+}
+
+/* Styling for mouseoff event on the station bar chart */
+.mouseoff-opacity {
+    opacity: 1.0;
 }

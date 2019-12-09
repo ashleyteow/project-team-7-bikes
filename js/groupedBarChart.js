@@ -52,7 +52,7 @@ function grouped_bar_chart(data, id, title) {
       .data(d => [d])
       .enter()
       .append("rect")
-      .attr("class", "bar subscriber")
+      .attr("class", "member-bar")
       .attr("x", d => xScale1('subscriber'))
       .attr("y", d => yScale(d.subscriber))
       .attr("width", xScale1.bandwidth())
@@ -65,7 +65,7 @@ function grouped_bar_chart(data, id, title) {
       .data(d => [d])
       .enter()
       .append("rect")
-      .attr("class", "bar customer")
+      .attr("class", "customer-bar")
       .attr("x", d => xScale1('customer'))
       .attr("y", d => yScale(d.customer))
       .attr("width", xScale1.bandwidth())
@@ -78,8 +78,7 @@ function grouped_bar_chart(data, id, title) {
       .data(d => [d])
       .enter()
       .append("rect")
-      .attr("class", "bar male")
-    .style("fill","#66c2a5")
+      .attr("class", "male-bar")
       .attr("x", d => xScale1('male'))
       .attr("y", d => yScale(d.male))
       .attr("width", xScale1.bandwidth())
@@ -92,8 +91,7 @@ function grouped_bar_chart(data, id, title) {
       .data(d => [d])
       .enter()
       .append("rect")
-      .attr("class", "bar female")
-    .style("fill","#fc8d62")
+      .attr("class", "female-bar")
       .attr("x", d => xScale1('female'))
       .attr("y", d => yScale(d.female))
       .attr("width", xScale1.bandwidth())
@@ -106,8 +104,7 @@ function grouped_bar_chart(data, id, title) {
       .data(d => [d])
       .enter()
       .append("rect")
-      .attr("class", "bar unreported")
-    .style("fill","#8da0cb")
+      .attr("class", "unreported-bar")
       .attr("x", d => xScale1('unreported'))
       .attr("y", d => yScale(d.unreported))
       .attr("width", xScale1.bandwidth())
@@ -132,13 +129,15 @@ function grouped_bar_chart(data, id, title) {
   let xLabel = svg.append("text")
                   .attr("text-anchor", "middle")
                   .attr("transform", "translate("+ ((width/2)-90) +","+(height-(margin.bottom/3)-50)+")")
-                  .text("Year-Month");
+                  .text("Year-Month")
+                  .attr("class", "chart-label");
 
   // create a y-axis title
   let yLabel = svg.append("text")
                   .attr("text-anchor", "middle")
                   .attr("transform", "translate("+ ((margin.left/2)-130) +","+((height/2)-55)+")rotate(-90)")
-                  .text("Number of Users");
+                  .text("Number of Users")
+                  .attr("class", "chart-label");
 
   // create a chart title
   let chartTitle = svg.append("text")
@@ -147,32 +146,30 @@ function grouped_bar_chart(data, id, title) {
                       .attr("transform", "translate("+ ((width/2) - 90) +","+((margin.bottom/3)-50)+")")
                       .text(title);
 
-  let color = d3.scaleOrdinal().range(["#e9a3c9", "#a1d76a"]);
-
   if (id == "users") {
     svg.append("rect")
        .attr("x", width/2-180)
        .attr("y", (height/4)-95)
        .attr("width", 15)
        .attr("height", 15)
-       .style("fill", "#e9a3c9");
+       .attr("class", "member-bar");
     svg.append("text")
        .attr("x", width/2-160)
        .attr("y", (height/4)-86)
        .text("Member")
-       .style("font-size", "15px")
+       .attr("class", "legend-text")
        .attr("alignment-baseline","middle");
     svg.append("rect")
        .attr("x", width/2-80)
        .attr("y", (height/4)-95)
        .attr("width", 15)
        .attr("height", 15)
-       .style("fill", "#a1d76a");
+       .attr("class", "customer-bar");
     svg.append("text")
        .attr("x", width/2-60)
        .attr("y", (height/4)-86)
        .text("Non-Member")
-       .style("font-size", "15px")
+       .attr("class", "legend-text")
        .attr("alignment-baseline","middle");    
   }
   else {
@@ -181,36 +178,36 @@ function grouped_bar_chart(data, id, title) {
        .attr("y", (height/4)-90)
        .attr("width", 15)
        .attr("height", 15)
-       .style("fill", "#66c2a5");
+       .attr("class", "male-bar");
     svg.append("text")
        .attr("x", width/2-205)
        .attr("y", (height/4)-81)
        .text("Male")
-       .style("font-size", "15px")
+       .attr("class", "legend-text")
        .attr("alignment-baseline","middle");
     svg.append("rect")
        .attr("x", width/2-140)
        .attr("y", (height/4)-90)
        .attr("width", 15)
        .attr("height", 15)
-       .style("fill", "#fc8d62");
+       .attr("class", "female-bar");
     svg.append("text")
        .attr("x", width/2-115)
        .attr("y", (height/4)-81)
        .text("Female")
-       .style("font-size", "15px")
+       .attr("class", "legend-text")
        .attr("alignment-baseline","middle");
     svg.append("rect")
        .attr("x", (width/2)-40)
        .attr("y", (height/4)-90)
        .attr("width", 15)
        .attr("height", 15)
-       .style("fill", "#8da0cb");
+       .attr("class", "unreported-bar");
     svg.append("text")
        .attr("x", (width/2)-20)
        .attr("y", (height/4)-81)
        .text("Unreported")
-       .style("font-size", "15px")
+       .attr("class", "legend-text")
        .attr("alignment-baseline","middle");    
   }
 
