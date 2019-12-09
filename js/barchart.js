@@ -37,13 +37,11 @@ function basic_bar_chart(mydata, title, id, start) {
 	// add the x-axis onto the svg, scaled to xScale
 	let xAxis = svg.append("g")
 			   	   .attr("transform", `translate(0, ${height-margin.bottom})`)
-     			   .style("font-size", "12px")
                	   .call(d3.axisBottom().scale(xScale));
 	
 	// add the y-axis onto the svg, scaled to yScale
 	let yAxis = svg.append("g")
 			   	   .attr("transform", `translate(${margin.left}, 0)`)
-			   	   .style("font-size", "12px")
                	   .call(d3.axisLeft().scale(yScale));
 
     // append the bars onto the svg representing the data
@@ -76,9 +74,9 @@ function basic_bar_chart(mydata, title, id, start) {
 					
              	  })
     				.on("mouseover.tooltip", function(d){
-    				            tooltip.style("left", d3.event.pageX - 50 + "px")
-    			                tooltip.style("top", d3.event.pageY - 70 + "px")
-    				            tooltip.style("display", "inline-block")
+                                tooltip.style("left", d3.event.pageX - 50 + "px")
+                                tooltip.style("top", d3.event.pageY - 70 + "px")
+                                tooltip.style("display", "inline-block")
 
                                 if (start) {
                                   tooltip.html("Members:  <br> " + ((d.subscriber_start / d.total_start) * 100).toFixed(2) + "%" + "<br>" +
@@ -96,12 +94,12 @@ function basic_bar_chart(mydata, title, id, start) {
                                                              
       // highlights hovered over bar in this grouped bar chart
       function handleMouseOver(d, i) {
-        d3.select(this).style('opacity', 0.2);
+        d3.select(this).attr("class", "mouseover-opacity");
       }
     
       // resets mouse opacity on mouse out
       function handleMouseOut(d, i) {
-        d3.select(this).style('opacity', 1.0);
+        d3.select(this).attr("class", "mouseoff-opacity");
       }
                                                              
 	let line = d3.line()
@@ -123,12 +121,14 @@ function basic_bar_chart(mydata, title, id, start) {
     let xLabel = svg.append("text")
             		.attr("text-anchor", "middle")
             		.attr("transform", "translate("+ (width/2) +","+(height-(margin.bottom/3))+")")
+                    .attr("class", "chart-label")
             		.text("Hour of Day");
 
     // create a y-axis title
     let yLabel = svg.append("text")
             		.attr("text-anchor", "middle")
             		.attr("transform", "translate("+ (margin.left/2) +","+(height/2)+")rotate(-90)")
+                    .attr("class", "chart-label")
             		.text("Percent of Daily Trips (%)");
 
     // create a chart title
@@ -149,7 +149,7 @@ function basic_bar_chart(mydata, title, id, start) {
      .attr("x", width/2-160)
      .attr("y", (height/3)-136)
      .text("All Boston Stations")
-     .style("font-size", "15px")
+     .attr("class", "legend-text")
      .attr("alignment-baseline","middle");
     svg.append("rect")
      .attr("x", (width/2))
@@ -161,7 +161,7 @@ function basic_bar_chart(mydata, title, id, start) {
      .attr("x", width/2+40)
      .attr("y", (height/3)-136)
      .text("Chester Square Stations")
-     .style("font-size", "15px")
+     .attr("class", "legend-text")
      .attr("alignment-baseline","middle");
 
 };

@@ -49,7 +49,6 @@ function scatterplotLine() {
     svg.append('g')
             .attr('class', 'x axis')
             .attr('transform', 'translate(0, ' + (height - margin.bottom - margin.top) + ')')
-            .style("font-size", "12px")
             .call(xAxis.scale(xScale));
 
   // create a x-axis title
@@ -63,7 +62,6 @@ function scatterplotLine() {
       svg.append('g')
          .attr('class', 'y axis')
          .attr("transform", `translate(${margin.left}, 0)`)
-         .style("font-size", "12px")
          .call(yAxis.scale(yScale));                                 
 
     // create a y-axis title
@@ -78,8 +76,7 @@ function scatterplotLine() {
                         .attr("text-anchor", "middle")
                         .attr("class", "chartTitle")
                         .attr("transform", "translate("+ (width/2) +","+((margin.bottom/4)-15)+")")
-                        .text("Average Age of Bluebikes Users")
-                        .style("class", "chart-title");
+                        .text("Average Age of Bluebikes Users");
                         
 
     var line = d3.line()
