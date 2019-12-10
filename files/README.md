@@ -1,4 +1,7 @@
-# Put miscellaneous files in this folder
-In particular:
-* Your presentation slides as a PDF.
-* Your demo video as an MP4. It must be >= 1920x1080 --- 1080p encoded with the H.264/MPEG-4 AVC codec.
+# Files
+
+`DemoVideo.mp4` is a screen recording walking through each aspect of the visualization
+
+`DS 4200 F19 Team 7 - Presentation.pdf` is PDF version of our in-class presentation
+
+`UIWalkthrough.pdf` is PDF version of the first usability iteration of the project
