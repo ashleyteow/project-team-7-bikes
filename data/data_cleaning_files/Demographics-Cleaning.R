@@ -21,9 +21,9 @@ all_boston_dem = rbind(oct18dem, nov18dem, dec18dem, jan19dem, feb19dem, mar19de
                        may19dem, jun19dem, jul19dem, aug19dem, sep19dem, oct19dem)
 all_boston_dem = all_boston_dem[c("bikeid", "usertype", "age", "gender", "starttime")]
 names(all_boston_dem) = c("bikeid", "usertype", "age", "gender", "yearmonth")
-levels(all_boston_dem$yearmonth) = c("Oct 2018", "Nov 2018", "Dec 2018", "Jan 2019", "Feb 2019",
-                                     "Mar 2019", "Apr 2019", "May 2019", "Jun 2019", "Jul 2019",
-                                     "Aug 2019", "Sep 2019", "Oct 2019")
+levels(all_boston_dem$yearmonth) = c("Oct-2018", "Nov-2018", "Dec-2018", "Jan-2019", "Feb-2019",
+                                     "Mar-2019", "Apr-2019", "May-2019", "Jun-2019", "Jul-2019",
+                                     "Aug-2019", "Sep-2019", "Oct-2019")
 
 install.packages("dplyr")
 library(dplyr)

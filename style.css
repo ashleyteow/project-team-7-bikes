@@ -1,132 +1,132 @@
 /* General formatting */
 body {
-	padding: 0 10px;
-	font: 18px/1.5 -apple-system, BlinkMacSystemFont, "avenir next",avenir, "Segoe UI", "lucida grande", "helvetica neue", helvetica, "Fira Sans",roboto, noto, "Droid Sans", cantarell, oxygen, ubuntu, "franklin gothic medium", "century gothic", "Liberation Sans",
-	sans-serif;
+    padding: 0 10px;
+    font: 18px/1.5 -apple-system, BlinkMacSystemFont, "avenir next",avenir, "Segoe UI", "lucida grande", "helvetica neue", helvetica, "Fira Sans",roboto, noto, "Droid Sans", cantarell, oxygen, ubuntu, "franklin gothic medium", "century gothic", "Liberation Sans",
+    sans-serif;
 }
 
 h1, h2, h3 {
-	line-height: 1.2
+    line-height: 1.2
 }
 
 em {
-	font-style: normal;
+    font-style: normal;
 }
 
 /* Fork on GitHub ribbon via https://codepo8.github.io/css-fork-on-github-ribbon/# styling */
 #forkongithub a{
-	background:#00F;
-	color:#fff;
-	text-decoration:none;
-	font-family:arial,sans-serif;
-	text-align:center;
-	font-weight:bold;
-	padding:5px 40px;
-	font-size:1rem;
-	line-height:1.4rem;
-	position:relative;
-	transition:0.5s;
+    background:#00F;
+    color:#fff;
+    text-decoration:none;
+    font-family:arial,sans-serif;
+    text-align:center;
+    font-weight:bold;
+    padding:5px 40px;
+    font-size:1rem;
+    line-height:1.4rem;
+    position:relative;
+    transition:0.5s;
 }
 #forkongithub a:hover{
-	background:#118;
-	color:#fff;
+    background:#118;
+    color:#fff;
 }
 #forkongithub a::before,#forkongithub a::after{
-	content:"";
-	width:100%;
-	display:block;
-	position:absolute;
-	top:1px;
-	left:0;
-	height:1px;
-	background:#fff;
+    content:"";
+    width:100%;
+    display:block;
+    position:absolute;
+    top:1px;
+    left:0;
+    height:1px;
+    background:#fff;
 }
 #forkongithub a::after{
-	bottom:1px;
-	top:auto;
+    bottom:1px;
+    top:auto;
 }
 @media screen and (min-width:1000px){
-	#forkongithub{
-		position:fixed;
-		display:block;
-		top:0;
-		right:0;
-		width:200px;
-		overflow:hidden;
-		height:200px;
-		z-index:9999;
-	}
-	#forkongithub a{
-		width:200px;
-		position:absolute;
-		top:60px;
-		right:-60px;
-		transform:rotate(45deg);
-		-webkit-transform:rotate(45deg);
-		-ms-transform:rotate(45deg);
-		-moz-transform:rotate(45deg);
-		-o-transform:rotate(45deg);
-		box-shadow:4px 4px 10px rgba(0,0,0,0.8);
-	}
+    #forkongithub{
+        position:fixed;
+        display:block;
+        top:0;
+        right:0;
+        width:200px;
+        overflow:hidden;
+        height:200px;
+        z-index:9999;
+    }
+    #forkongithub a{
+        width:200px;
+        position:absolute;
+        top:60px;
+        right:-60px;
+        transform:rotate(45deg);
+        -webkit-transform:rotate(45deg);
+        -ms-transform:rotate(45deg);
+        -moz-transform:rotate(45deg);
+        -o-transform:rotate(45deg);
+        box-shadow:4px 4px 10px rgba(0,0,0,0.8);
+    }
 }
 
 /* Styling for the stations bar chart */
 .bar {
-	fill: #7570B3;
+    fill: #7570B3;
 }
 
 .bar.subscriber {
-	fill: #e9a3c9;
+    fill: #e9a3c9;
 }
 
 .bar.customer {
-	fill: #a1d76a;
+    fill: #a1d76a;
 }
 
 .x.axis {
-	font-size: 12px;
+    font-size: 12px;
 }
 
 .y.axis {
-	font-size: 12px;
+    font-size: 12px;
 }
 
 text {
-	font-size: 16px;
+    font-size: 16px;
 }
 
 /* Styling for the selected data points in the scatterplot */
 .selected {
-	fill: purple;
-	stroke: purple;
+    fill: purple;
+    stroke: purple;
 }
 
 circle {
-	fill: white;
-	stroke: #0571b0;
-	stroke-width: 5;
-	r: 5;
+    fill: white;
+    stroke: #0571b0;
+    stroke-width: 5;
+    r: 5;
 }
 
 /* Styling for the visualization annotations */
 .vis-explanation {
-	font-size: 16px;
-	text-align: center;
+    font-size: 16px;
+    text-align: center;
 }
 
 .chartTitle {
-	fill: black;
-	font-size: 22px;
+    fill: black;
+    font-size: 22px;
 }
 
 .map-caption {
-	max-width: 1000px;
+    max-width: 1000px;
     margin: 40px auto;
 }
 
 /* Styling for the age demographic line chart */
 .svg-vis-demographics-line {
-	margin: auto
+    margin: auto
 }
 
 .linePath {
@@ -137,14 +137,14 @@ circle {
 
 /* Styling for the gender double bar chart */
 #gender {
-	display: block;
-	margin-left: 105px;
+    display: block;
+    margin-left: 105px;
 }
 
 /* Styling for the membership double bar chart */
 #users {
-	display: block;
-	margin-left: 105px;
+    display: block;
+    margin-left: 105px;
 }
 
 /* Styling for the tooltip on stations bar charts */
@@ -165,7 +165,7 @@ circle {
 
 /* Styling for leaflet map */
 #map {
-	height: 300px;
+    height: 300px;
     width: 1000px;
     margin: auto;
     display: block;
@@ -173,69 +173,69 @@ circle {
 
 /* Styling for the ending stations bar chart */
 #chester_square_end_trips {
-	display: none;
-	margin: 105px;
+    display: none;
+    margin: 105px;
 }
 
 /* Styling for the starting stations bar chart */
 #chester_square_start_trips {
-	margin: 105px;
-	display: block;
+    margin: 105px;
+    display: block;
 }
 
 /* Styling for the stations toggle button */
 .trip-toggle-button {
     position: absolute;
     right: 0;
-    left: 80%;	
-	color: #fff !important;
-	text-transform: uppercase;
-	text-decoration: none;
-	background: black;
-	padding: 20px;
-	border-radius: 5px;
-	display: inline-block;
-	border: none;
-	transition: all 0.4s ease 0s;
+    left: 80%;
+    color: #fff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: black;
+    padding: 20px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
 }
 
 .trip-toggle-button:hover {
-	background: #0571b0;
-	letter-spacing: 1px;
-	-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-	-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-	box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
-	transition: all 0.4s ease 0s;
+    background: #0571b0;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
 }
 
 .trip-toggle-button:active {
-	 color:#BBBBBB;
-	 border-color:#BBBBBB;
+     color:#BBBBBB;
+     border-color:#BBBBBB;
 }
 
 /* Styling for formatting the stations bar charts */
 .hourly-trips {
-	margin: auto;
-	position: relative;
+    margin: auto;
+    position: relative;
 }
 
 /* Styling for the explanation text */
 .content-column {
-	max-width: 650px;
-	margin: 40px auto;
+    max-width: 650px;
+    margin: 40px auto;
 }
 
 /* Styling for the encasings for the visualizations */
 .vis-holder {
-	max-width: 1500px;
-	margin: 40px auto;
+    max-width: 1500px;
+    margin: 40px auto;
 }
 
 /* Styling for the line chart representing data from all Boston stations */
 .dataLine {
-	stroke: red;
-	stroke-width: 5px;
-	fill: none;
+    stroke: red;
+    stroke-width: 5px;
+    fill: none;
 }
 
 /* Styling for chart axis labels */

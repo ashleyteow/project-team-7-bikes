@@ -1,8 +1,8 @@
-/* visualization.js: this is where our data is read in from our csv files stored 
+/* visualization.js: this is where our data is read in from our csv files stored
 in /data. After reading them in, we call on the appropriate
- visualization function to create a kind of chart using the existing data. 
+ visualization function to create a kind of chart using the existing data.
  Eg. the function called when reading in the chester_square_start_hour.csv file
-  calls on the basic_bar_chart function that is stored in its own file within 
+  calls on the basic_bar_chart function that is stored in its own file within
   this js directory.*/
 // -------------------- START DISPLAY CHESTER SQUARE MAP CODE --------------------------
 
@@ -78,7 +78,7 @@ d3.csv("data/demographics.csv", function(d) {
     .yLabel("Age")
     .yLabelOffset(40)
     .selectionDispatcher(d3.dispatch("selectionUpdated"))
-      ("#svg-vis-demographics-line", result);  
+      ("#svg-vis-demographics-line", result);
 
     grouped_bar_chart(result, "users", "Membership Status of Bluebikes Users");
     grouped_bar_chart(result, "gender", "Gender of Bluebikes Users");

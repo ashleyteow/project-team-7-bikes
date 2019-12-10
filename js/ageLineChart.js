@@ -1,4 +1,4 @@
-// Draws the average age line chart below 
+// Draws the average age line chart below
 function scatterplotLine() {
 
   // Based on Mike Bostock's margin convention
@@ -17,7 +17,7 @@ function scatterplotLine() {
     selectableElements = d3.select(null),
     dispatcher = null;
 
-  // Create the chart by adding an svg to the div with the id 
+  // Create the chart by adding an svg to the div with the id
   // specified by the selector using the given data
   function chart(selector, data) {
     var maxDate  = d3.max(data, function(d){ return d.yearmonth; });
@@ -62,7 +62,7 @@ function scatterplotLine() {
       svg.append('g')
          .attr('class', 'y axis')
          .attr("transform", `translate(${margin.left}, 0)`)
-         .call(yAxis.scale(yScale));                                 
+         .call(yAxis.scale(yScale));
 
     // create a y-axis title
     var yLabel = svg.append("text")
@@ -80,12 +80,12 @@ function scatterplotLine() {
                         
 
     var line = d3.line()
-               .x(function(d) { return xScale(d.yearmonth); })    
+               .x(function(d) { return xScale(d.yearmonth); })
                .y(function(d) { return yScale(d.age); });
 
     svg.append('path')
               .attr('d', line(data))
-              .attr('class', 'linePath'); 
+              .attr('class', 'linePath');
 
 
     // Add the points
@@ -100,7 +100,7 @@ function scatterplotLine() {
         .attr("class", "point linePoint")
       .merge(points)
         .attr("cx", X)
-        .attr("cy", Y)        
+        .attr("cy", Y)
         .attr("r",3);
         
     selectableElements = points;
@@ -108,7 +108,7 @@ function scatterplotLine() {
     svg.call(brush);
 
     // Highlight points when brushed
-    function brush(g) {   
+    function brush(g) {
       const brush = d3.brushX()
         .on("start brush", highlight)
         .on("end", brushEnd)
@@ -141,11 +141,12 @@ function scatterplotLine() {
         // array of selected points
         var selectedData = svg.selectAll(".selected").data();
 
-        // loop through and retrieve all bars that correspond to the yearmonth from selected data 
+        // loop through and retrieve all bars that correspond to the yearmonth from selected data
         var counter = 0;
         var bars = [];
         while (counter < selectedData.length) {
           var selectedMonth = selectedData[counter].yearmonth;
+            console.log(selectedMonth);
           $("#gender").find("." + selectedMonth).each(function(idx, val) {
             // if (val.class.includes(selectedMonth)) {
             bars.push(val);
@@ -252,7 +253,7 @@ function scatterplotLine() {
     return chart;
   };
 
-  // Given selected data from another visualization 
+  // Given selected data from another visualization
   // select the relevant elements here (linking)
   chart.updateSelection = function (selectedData) {
     if (!arguments.length) return;
