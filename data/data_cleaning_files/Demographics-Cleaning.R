@@ -14,19 +14,24 @@ jun19dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/Fall 20
 jul19dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/Fall 2019/DS4200/Project/BlueBikes Data/2019dem/201907dem.csv")
 aug19dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/Fall 2019/DS4200/Project/BlueBikes Data/2019dem/201908dem.csv")
 sep19dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/Fall 2019/DS4200/Project/BlueBikes Data/2019dem/201909dem.csv")
-oct19dem = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/Fall 2019/DS4200/Project/BlueBikes Data/2019dem/201910.csv")
 
 # Merge the individual data files into one
 all_boston_dem = rbind(oct18dem, nov18dem, dec18dem, jan19dem, feb19dem, mar19dem, apr19dem, 
-                       may19dem, jun19dem, jul19dem, aug19dem, sep19dem, oct19dem)
+                       may19dem, jun19dem, jul19dem, aug19dem, sep19dem)
 all_boston_dem = all_boston_dem[c("bikeid", "usertype", "age", "gender", "starttime")]
 names(all_boston_dem) = c("bikeid", "usertype", "age", "gender", "yearmonth")
 levels(all_boston_dem$yearmonth) = c("Oct-2018", "Nov-2018", "Dec-2018", "Jan-2019", "Feb-2019",
                                      "Mar-2019", "Apr-2019", "May-2019", "Jun-2019", "Jul-2019",
-                                     "Aug-2019", "Sep-2019", "Oct-2019")
+                                     "Aug-2019", "Sep-2019")
 
 install.packages("dplyr")
 library(dplyr)
+
+x = c("Oct-2018", "Nov-2018", "Dec-2018", "Jan-2019", "Feb-2019",
+      "Mar-2019", "Apr-2019", "May-2019", "Jun-2019", "Jul-2019",
+      "Aug-2019", "Sep-2019")
+
+all_boston_dem = all_boston_dem %>% slice(match(x, yearmonth))
 
 ## Subscriber/Customer Count
 count_sub = function(x) {
@@ -47,6 +52,7 @@ subscribers = count_sub(all_boston_dem)
 customers = count_cust(all_boston_dem)
 
 users = merge(subscribers, customers, by = "yearmonth")
+users = users %>% slice(match(x, yearmonth))
 
 ## Gender Count
 count_male = function(x) {
@@ -76,6 +82,7 @@ unreported = count_non_reported(all_boston_dem)
 
 male_female = merge(male, female, by = "yearmonth")
 gender = merge(male_female, unreported, by = "yearmonth")
+gender = gender %>% slice(match(x, yearmonth))
 
 # Age Count
 avg_age = function(x) {
@@ -89,6 +96,7 @@ age_df = avg_age(all_boston_dem)
 membership_gender = merge(users, gender, by = "yearmonth")
 demographics = merge(membership_gender, age_df, by = "yearmonth")
 names(demographics) = c("yearmonth", "subscriber", "customer", "male", "female", "unreported", "age")
+demographics = demographics %>% slice(match(x, yearmonth))
 
 # Write data frames to .csv files
 write.csv(demographics, 
