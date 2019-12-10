@@ -40,11 +40,7 @@ function grouped_bar_chart(data, id, title) {
     .data(models)
     .enter().append("g")
     .attr("class", d => "yearmonth" + " " + d.yearmonth)
-    .attr("transform", d => `translate(${xScale0(d.yearmonth)},0)`)
-//    .on("mouseover", handleMouseOver)
-//    .on("mouseout", handleMouseOut);
-
-  // ^ handles highlighting functions when mousing over the charts
+    .attr("transform", d => `translate(${xScale0(d.yearmonth)},0)`);
 
   if (id == "users") {
     // /* Add field1 bars */
