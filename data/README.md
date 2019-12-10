@@ -1,134 +1,79 @@
-The data originally acquired from https://www.bluebikes.com/system-data, containing multiple csv files for each separate month from October 2018 to September 2019, was merged into a single csv file. It contains each BlueBikes’ trip duration in seconds, start time and date, stop time and date, start station id and name, start station latitude and longitude, end station id and name, end station latitude and longitude, bike id, user type (either a single user or regular member), user birth year, user gender, and an added column for the year and month.
+# Data Cleaning Process
 
-- all_data.zip – zipped file containing original cleaned data containing:
-  	- columbus_mass_end.csv -- data for trips that end at the Columbus Ave @ Mass Ave station
-  	- columbus_mass_start.csv -- data for trips that start at the Columbus Ave @ Mass Ave station
-  	- south_end_lib_end.csv -- data for trips that end at the South End Library station
-  	- south_end_lib_start.csv -- data for trips that start at the South End Library station
-  	- tremont_northampton_end.csv -- data for trips that end at the Tremont St @ Northampton St station
-      - tremont_northampton_start.csv -- data for trips that start at the Tremont St @ Northampton St station
-      - wash_lenox_end.csv -- data for trips that end at the Washington St @ Lenox St station
-     - wash_lenox_start.csv -- data for trips that start at the Washington St @ Lenox St station
-  	- wash_rutland_end.csv -- data for trips that end at the Washington St @ Rutland St station
-	- wash_rutland_start.csv -- data for trips that start at the Washington St @ Rutland St station
+### chester_square.csv: csv containing data for each of the five Chester Square Bluebikes stations
+    - Data Attributes:
+        - hour (ordinal): hour of the time during which the trip occurred
+        - subscriber_start (quantitative): the number of subscribers that started at one of the Chester Square stops
+        - customer_start (quantitative): the number of non-subscribers that started at one of the Chester Square stops
+        - total_start (quantitative): total number of users who started at one of the Chester Square stops
+        - pct_start: percentage of trips that started at this time for all stops in Chester Square
+        - all_boston_pct_start: percentage of trips that started at this hour in all of Boston
+        - subscriber_end: the number of subscribers that ended at one of the Chester Square stops
+        - customer_end: the number of non-subscribers that ended at one of the Chester Square stops
+        - total_end: total number of users who ended at one of the Chester Square stops
+        - pct_end: percentage of trips that ended at this time for all stops in Chester Square
+        - all_boston_pct_end: percentage of trips that ended at this hour in all of Boston
+
+### /data_cleaning_files
+    - Demographics-Cleaning.R: R file used to clean the demographics data and create final datasets for demographic analysis 
+    - Station-Data-Cleaning.R: R file used to clean the station-specific data and create the final datasets for analysis of the Chester Square stations 
+
+### /original_data
+    - 2018.zip: compressed folder containing all data from 2018 used in Station-Data-Cleaning.R after processing
+    - 2018dem.zip: compressed folder containing all data from 2018 used in Demographics-Cleaning.R after processing
+    - 2019.zip: compressed folder containing all data from 2019 used in Station-Data-Cleaning.R after processing
+    - 2019dem.zip: compressed folder containing all data from 2019 used in Demographics-Cleaning.R after processing
+
+### /station_specific_data
+    - Files:
+        - columbus_mass_end.csv: csv containing data for trips ending at the Columbus Avenue @ Massachusetts Avenue station
+        - columbus_mass_start.csv: csv containing data for trips starting at the Columbus Avenue @ Massachusetts Avenue station
+        - south_end_lib_end.csv: csv containing data for trips ending at the South End Library station
+        - south_end_lib_start.csv: csv containing data for trips starting at the South End Library station
+        - tremont_northampton_end.csv: csv containing data for trips ending at the Tremont Street @ Northampton Street station
+        - tremont_northampton_start.csv: csv containing data for trips starting at the Tremont Street @ Northampton Street station
+        - wash_rutland_end.csv: csv containing data for trips ending at the Washington Street @ Rutland Street station
+        - wash_rutland_start.csv: csv containing data for trips starting at the Washington Street @ Rutland Street station
+    - Data Attributes:
+        - tripduration (quantitative): the duration of this trip     
+        - starttime (ordinal): the start time of this trip   
+        - stoptime (ordinal): the end time of this trip
+        - start.station.id (categorical): the id of the starting station
+        - start.station.name (categorical): the name of the starting station
+        - start.station.latitude (quantitative): latitude of the starting station
+        - start.station.longitude (quauntitative): longitude of the starting station
+        - end.station.id (categorical): the id of the ending station
+        - end.station.name (categorical): the name of the ending station
+        - end.station.latitude (quantitative): latitude of the ending station
+        - end.station.longitude (quauntitative): longitude of the ending station   
+        - bikeid (categorical): the id of the bike used
+        - usertype (categorical): the membership type of the user (member or non-member)
+        - birth.year (categorical): the birth year of the user
+        - gender (categorical): the gender of the user
     
-	- Data attributes (for each):
-		- Trip duration in seconds (quantitative),
-		- Start time and date (ordinal)
-		- Stop time and date (ordinal)
-		- Start station id (categorical)
-		- Start station name (categorical)
-		- Start station latitude (quantitative)
-		- Start station longitude (quantitative)
-		- End station id (categorical)
-		- End station name (categorical)
-		- End station latitude (quantitative)
-		- End station longitude (quantitative)
-		- Bike ID (categorical)
-		- User type (categorical)
-		- Birth year (ordinal)
-		- Gender (categorical)
 
+### all_boston_end_hour.csv: csv containing data for the end of trips in all of Boston by the hour
+    - Data Attributes:
+        - end_hour: the hour during which a trip ended 
+        - subscriber: the number of subscribers who rode during this hour
+        - customer: the number of non-subscribers who rode during this hour
+        - total: the total number of rides
+        - all_boston_pct: the percentage of trips that ended during this hour in all of Boston
 
-- chester_square_stations
-- chester_square_stations/all_boston_end_hour.csv -- data for all trips in the city of Boston grouped by the trip start time
-	- Data attributes:
-		- end_hour (ordinal): hour of the time during which the trip ended
-		- subscriber (quantitative): the number of subscribers who rode during this hour
-		- customer (quantitative): the number of casual users who rode during this hour
-		- total (quantitative): the total number of users (both member and causal user) during this hour
-		- pct (quantitative): the percentage of rides for the entire day that occurred during this hour
+### all_boston_start_hour.csv: csv containing data for the start of trips in all of Boston by the hour
+    - Data Attributes:
+        - start_hour: the hour during which a trip started 
+        - subscriber: the number of subscribers who rode during this hour
+        - customer: the number of non-subscribers who rode during this hour
+        - total: the total number of rides
+        - all_boston_pct: the percentage of trips that started during this hour in all of Boston
 
-- chester_square_stations/all_boston_start_hour.csv -- data for all trips in the city of Boston grouped by the trip end time
-	- Data attributes:
-		-start_hour (ordinal): hour of the time during which the trip ended
-		- subscriber (quantitative): the number of subscribers who rode during this hour
-		- customer (quantitative): the number of casual users who rode during this hour
-		- total (quantitative): the total number of users (both member and causal user) during this hour
-		- pct (quantitative): the percentage of rides for the entire day that occurred during this hour
-
-- chester_square_stations/columbus_mass_end_hour.csv -- data for trips that end at the Columbus Ave @ Mass Ave station
-	- Data attributes:
-		- end_hour (ordinal): hour of the time during which the trip ended at this stop
-		- subscriber (quantitative): the number of subscribers who rode during this hour ending at this stop
-		- customer (quantitative): the number of casual users who rode during this hour ending at this stop
-		- total (quantitative):  the total number of users (both member and causal user) during this hour ending at this stop
-		- pct (quantitative):  the percentage of rides for the entire day that occurred during this hour ending at this stop
-		- all_boston_pct (quantitative):  a derived variable from the chester_square_stations/all_boston_end_hour.csv used to compare the “pct” variable to the total number of rides that occurred during this hour in all of Boston
- 
-- chester_square_stations/columbus_mass_start_hour.csv -- data for trips that start at the Columbus Ave @ Mass Ave station
-	- Data attributes:
-		- start_hour (ordinal): hour of the time during which the trip started at this stop
-		- subscriber (quantitative): the number of subscribers who rode during this hour starting at this stop
-		- customer (quantitative): the number of casual users who rode during this hour starting at this stop
-		- total (quantitative):  the total number of users (both member and causal user) during this hour starting at this stop
-		- pct (quantitative):  the percentage of rides for the entire day that occurred during this hour starting at this stop
-		- all_boston_pct (quantitative):  a derived variable from the chester_square_stations/all_boston_end_hour.csv used to compare the “pct” variable to the total number of rides that occurred during this hour in all of Boston
-
-- chester_square_stations/south_end_lib_end_hour.csv -- data for trips that end at the South End Library station
-		- Data attributes:
-		- end_hour (ordinal): hour of the time during which the trip ended at this stop
-		- subscriber (quantitative): the number of subscribers who rode during this hour ending at this stop
-		- customer (quantitative): the number of casual users who rode during this hour ending at this stop
-		- total (quantitative):  the total number of users (both member and causal user) during this hour ending at this stop
-		- pct (quantitative):  the percentage of rides for the entire day that occurred during this hour ending at this stop
-		- all_boston_pct (quantitative):  a derived variable from the chester_square_stations/all_boston_end_hour.csv used to compare the “pct” variable to the total number of rides that occurred during this hour in all of Boston
-
-- chester_square_stations/south_end_lib_start_hour.csv -- data for trips that start at the South End Library station
-	- Data attributes:
-		- start_hour (ordinal): hour of the time during which the trip started at this stop
-		- subscriber (quantitative): the number of subscribers who rode during this hour starting at this stop
-		- customer (quantitative): the number of casual users who rode during this hour starting at this stop
-		- total (quantitative):  the total number of users (both member and causal user) during this hour starting at this stop
-		- pct (quantitative):  the percentage of rides for the entire day that occurred during this hour starting at this stop
-		- all_boston_pct (quantitative):  a derived variable from the chester_square_stations/all_boston_end_hour.csv used to compare the “pct” variable to the total number of rides that occurred during this hour in all of Boston
-
-- chester_square_stations/tremont_northampton_end_hour.csv -- data for trips that end at the Tremont St @ Northampton St station
-	- Data attributes:
-		- end_hour (ordinal): hour of the time during which the trip ended at this stop
-		- subscriber (quantitative): the number of subscribers who rode during this hour ending at this stop
-		- customer (quantitative): the number of casual users who rode during this hour ending at this stop
-		- total (quantitative):  the total number of users (both member and causal user) during this hour ending at this stop
-		- pct (quantitative):  the percentage of rides for the entire day that occurred during this hour ending at this stop
-		- all_boston_pct (quantitative):  a derived variable from the chester_square_stations/all_boston_end_hour.csv used to compare the “pct” variable to the total number of rides that occurred during this hour in all of Boston
-
-- chester_square_stations/tremont_northampton_start_hour.csv -- data for trips that start at the Tremont St @ Northampton St station
-	- Data attributes:
-		- start_hour (ordinal): hour of the time during which the trip started at this stop
-		- subscriber (quantitative): the number of subscribers who rode during this hour starting at this stop
-		- customer (quantitative): the number of casual users who rode during this hour starting at this stop
-		- total (quantitative):  the total number of users (both member and causal user) during this hour starting at this stop
-		- pct (quantitative):  the percentage of rides for the entire day that occurred during this hour starting at this stop
-		- all_boston_pct (quantitative):  a derived variable from the chester_square_stations/all_boston_end_hour.csv used to compare the “pct” variable to the total number of rides that occurred during this hour in all of Boston
-
-- chester_square_stations/wash_rutland_end_hour.csv -- data for trips that end at the Washington St @ Rutland St station
-	- Data attributes:
-		- end_hour (ordinal): hour of the time during which the trip ended at this stop
-		- subscriber (quantitative): the number of subscribers who rode during this hour ending at this stop
-		- customer (quantitative): the number of casual users who rode during this hour ending at this stop
-		- total (quantitative):  the total number of users (both member and causal user) during this hour ending at this stop
-		- pct (quantitative):  the percentage of rides for the entire day that occurred during this hour ending at this stop
-		- all_boston_pct (quantitative):  a derived variable from the chester_square_stations/all_boston_end_hour.csv used to compare the “pct” variable to the total number of rides that occurred during this hour in all of Boston
-
-- chester_square_stations/wash_rutland_start_hour.csv -- data for trips that start at the Washington St @ Rutland St station
-	- Data attributes:
-		- start_hour (ordinal): hour of the time during which the trip started at this stop
-		- subscriber (quantitative): the number of subscribers who rode during this hour starting at this stop
-		- customer (quantitative): the number of casual users who rode during this hour starting at this stop
-		- total (quantitative):  the total number of users (both member and causal user) during this hour starting at this stop
-		- pct (quantitative):  the percentage of rides for the entire day that occurred during this hour starting at this stop
-		- all_boston_pct (quantitative):  a derived variable from the chester_square_stations/all_boston_end_hour.csv used to compare the “pct” variable to the total number of rides that occurred during this hour in all of Boston
-
-- data_cleaning_files
-- data_cleaning_files/Demographics-Cleaning.R -- code used to prepare demographic data for visualization in d3
-- data_cleaning_files/Station-Data-Cleaning.R -- code used to prepare usage data for each stop around Chester Square for visualization in d3
-
-- demographics.csv -- contains demographic data about Bluebikes users
-- Data Attributes:
-            - yearmonth (ordinal):
-            - male :
-            - female:
-            - unreported:
-            - subscriber:
-            - customer:
-            - age: 
+### demographics.csv: csv containing the demographic breakdown of Bluebikes users by month and year
+    - Data Attributes:
+        - yearmonth: the year and month during which the ride happened
+        - subscriber: the number of subscribers during this year and month
+        - customer: the number of non-subscribers during this year and month
+        - male: the number of male riders during this year and month
+        - female: the number of female riders during this year and month
+        - unreported: the number of riders during this year and month who chose not to report their gender
+        - age: the average age of riders during this month

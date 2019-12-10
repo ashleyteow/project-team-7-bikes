@@ -14,8 +14,8 @@ sep19 = read.csv("/Users/gauri_dandi/Documents/Northeastern/2019-2020/Fall 2019/
 
 # Merge the individual data files into one
 all_boston = rbind(oct18, nov18, dec18, jan19, feb19, mar19, apr19, may19, jun19, jul19, aug19, sep19)
-all_boston$start_hour = paste(substr(all_boston$starttime, 12, 13), ":00", sep = "")
-all_boston$end_hour = paste(substr(all_boston$stoptime, 12, 13), ":00", sep = "")
+all_boston$start_hour = paste(substr(all_boston$starttime, 0, 2), ":00", sep = "")
+all_boston$end_hour = paste(substr(all_boston$stoptime, 0, 2), ":00", sep = "")
 
 install.packages("dplyr")
 library(dplyr)

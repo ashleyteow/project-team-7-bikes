@@ -282,10 +282,12 @@ circle {
 
 /* Styling for mouseover event on the station bar chart */
 .mouseover-opacity {
+    fill: #7570B3;
     opacity: 0.2;
 }
 
 /* Styling for mouseoff event on the station bar chart */
 .mouseoff-opacity {
+    fill: #7570B3;li
     opacity: 1.0;
 }
