@@ -44,7 +44,7 @@ function grouped_bar_chart(data, id, title) {
 //    .on("mouseover", handleMouseOver)
 //    .on("mouseout", handleMouseOut);
 
-  // ^ handles highlighting functions when mousing over the charts    
+  // ^ handles highlighting functions when mousing over the charts
 
   if (id == "users") {
     // /* Add field1 bars */
@@ -110,7 +110,7 @@ function grouped_bar_chart(data, id, title) {
       .attr("width", xScale1.bandwidth())
       .attr("height", d => {
         return height - margin.top - margin.bottom - yScale(d.unreported)
-      });    
+      });
   }
 
    
@@ -170,7 +170,7 @@ function grouped_bar_chart(data, id, title) {
        .attr("y", (height/4)-86)
        .text("Non-Member")
        .attr("class", "legend-text")
-       .attr("alignment-baseline","middle");    
+       .attr("alignment-baseline","middle");
   }
   else {
     svg.append("rect")
@@ -208,7 +208,7 @@ function grouped_bar_chart(data, id, title) {
        .attr("y", (height/4)-81)
        .text("Unreported")
        .attr("class", "legend-text")
-       .attr("alignment-baseline","middle");    
+       .attr("alignment-baseline","middle");
   }
 
 
