@@ -1,6 +1,6 @@
 # Chester Square Neighborhood Bicycle Safety & Convenience Project
-# Project Team 7: Bikes, DS 4200 F19
-## Shraeya Srinivasan, Ashley Teow, Gauri Dandi
+## Project Team 7: Bikes, DS 4200 F19
+### Shraeya Srinivasan, Ashley Teow, Gauri Dandi
 
 Our goal for this project was to create an interactive visualization incorporating the concepts discussed in the course. The visualization. This project was part of a class at Northeastern University -- DS4200: Information Presentation & Visualization. 
 
